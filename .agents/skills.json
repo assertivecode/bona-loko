@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "path": "skills/product"
+    },
+    {
+      "path": "skills/engineering"
+    },
+    {
+      "path": "skills/architecture"
+    },
+    {
+      "path": "skills/quality"
+    },
+    {
+      "path": "skills/security"
+    },
+    {
+      "path": "skills/devops"
+    },
+    {
+      "path": "skills/sre"
+    },
+    {
+      "path": "skills/data"
+    },
+    {
+      "path": "skills/capabilities"
+    },
+    {
+      "path": "skills/technology"
+    }
+  ]
+}
