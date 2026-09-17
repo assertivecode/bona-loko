@@ -1,12 +1,12 @@
 # AGENTS.md - Agent Charter & Operating Manual
 
-Welcome to **bona-loko** (Habit & Life Balance). This repository is engineered for structured pair-programming between humans and AI agents.
+Welcome to **Bona Loko** (Habit & Life Balance). This repository is engineered for structured pair-programming between humans and AI agents.
 
 ---
 
 ## 1. Project Domain & Context
 
-`bona-loko` is a personal development platform focused on **Habit & Life Balance**:
+`Bona Loko` is a personal development platform focused on **Habit & Life Balance**:
 - **Core Purpose**: Helping people understand where they want to invest their time and energy, identify priority gaps, and build sustainable daily behaviors.
 - **Foundational Model**: 12 Life Areas with a multi-dimensional priority model:
   $$\text{Importance} \rightarrow \text{Current State} \rightarrow \text{Current Investment} \rightarrow \text{Desired Investment} \rightarrow \text{Priority}$$

@@ -1,0 +1,354 @@
+/* ==========================================================================
+   Bona Loko Design System & Global Styles
+   Light theme with warm organic tones extracted from ./images
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Derived from ./images/logo.png and ./images/horizontal-logo.png */
+  --bg-canvas: #fcfbf7;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f5f2e8;
+  --bg-cream: #faf7ef;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fefdfb;
+
+  /* Borders */
+  --border-color: #e8e2d4;
+  --border-subtle: #f0ecdf;
+  --border-strong: #d5cbb8;
+
+  /* Typography */
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --text-inverse: #ffffff;
+
+  /* Primary Brand: Warm Orange ("Bona") */
+  --primary: #e86a1b;
+  --primary-hover: #d25a10;
+  --primary-active: #bc4e0c;
+  --primary-light: #fff4ec;
+  --primary-border: #fed7be;
+  --primary-glow: rgba(232, 106, 27, 0.15);
+
+  /* Secondary Brand: Teal-Green ("Loko") */
+  --secondary: #269b87;
+  --secondary-hover: #1e8271;
+  --secondary-active: #176a5c;
+  --secondary-light: #edf7f5;
+  --secondary-border: #bce4dc;
+  --secondary-glow: rgba(38, 155, 135, 0.15);
+
+  /* Tertiary: Deep Slate Blue */
+  --tertiary-blue: #1a5f89;
+  --tertiary-blue-hover: #144d70;
+  --tertiary-blue-light: #edf5fa;
+  --tertiary-blue-border: #c4def0;
+  --tertiary-blue-glow: rgba(26, 95, 137, 0.15);
+
+  /* Tertiary: Amber Gold */
+  --tertiary-gold: #f59e0b;
+  --tertiary-gold-light: #fef8eb;
+  --tertiary-gold-border: #fde5b4;
+
+  /* Accent: Warm Sand / Tan */
+  --accent-sand: #d8ba91;
+  --accent-sand-light: #faf5ed;
+  --accent-sand-border: #ecdcc8;
+
+  /* Typography Fonts */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(45, 35, 20, 0.04);
+  --shadow-md: 0 4px 14px -2px rgba(45, 35, 20, 0.06), 0 2px 6px -1px rgba(45, 35, 20, 0.03);
+  --shadow-lg: 0 10px 25px -4px rgba(45, 35, 20, 0.08), 0 4px 12px -2px rgba(45, 35, 20, 0.03);
+  --shadow-xl: 0 20px 36px -6px rgba(45, 35, 20, 0.10), 0 8px 18px -3px rgba(45, 35, 20, 0.05);
+
+  /* Layout */
+  --header-height: 74px;
+  --container-max: 1200px;
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.28s ease;
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); letter-spacing: -0.025em; }
+h2 { font-size: clamp(1.75rem, 3.2vw, 2.35rem); letter-spacing: -0.02em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.65rem); letter-spacing: -0.015em; }
+h4 { font-size: 1.2rem; }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px var(--primary-glow);
+  color: var(--text-inverse);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--text-inverse);
+  box-shadow: 0 4px 14px var(--secondary-glow);
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px var(--secondary-glow);
+  color: var(--text-inverse);
+}
+
+.btn-outline {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-secondary);
+}
+.btn-ghost:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 0.95rem 1.8rem;
+  font-size: 1.05rem;
+}
+
+/* Badges & Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  line-height: 1;
+}
+
+.badge-esperanto {
+  background-color: var(--secondary-light);
+  color: var(--secondary);
+  border: 1px solid var(--secondary-border);
+}
+
+.badge-primary {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
+}
+
+.badge-blue {
+  background-color: var(--tertiary-blue-light);
+  color: var(--tertiary-blue);
+  border: 1px solid var(--tertiary-blue-border);
+}
+
+.badge-gold {
+  background-color: var(--tertiary-gold-light);
+  color: #b45309;
+  border: 1px solid var(--tertiary-gold-border);
+}
+
+/* Cards */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Grid helper */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 992px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid-4 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Section styling */
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-cream {
+  background-color: var(--bg-cream);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-subtle {
+  background-color: var(--bg-subtle);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-header .badge {
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  margin-bottom: 0.85rem;
+}
+
+.section-header p {
+  font-size: 1.08rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}

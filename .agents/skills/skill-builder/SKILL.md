@@ -8,7 +8,7 @@ description: >-
 # Skill Builder (Meta-Skill)
 
 ## Purpose
-Enforces consistency and complete architectural synchronization when adding new skills to the `bona-loko` skill suite. Beyond creating the `SKILL.md` file itself, this meta-skill guarantees that every file referencing, cataloging, or discovering skills is automatically updated.
+Enforces consistency and complete architectural synchronization when adding new skills to the `Bona Loko` skill suite. Beyond creating the `SKILL.md` file itself, this meta-skill guarantees that every file referencing, cataloging, or discovering skills is automatically updated.
 
 ---
 

@@ -1,6 +1,6 @@
 # Technical Architecture Vision: Habit & Life Balance
 
-This document outlines the architectural principles, domain hierarchy, and system boundaries that govern the implementation of `bona-loko`.
+This document outlines the architectural principles, domain hierarchy, and system boundaries that govern the implementation of **Bona Loko**.
 
 ---
 
@@ -26,7 +26,7 @@ Every entity in the system is rooted in this hierarchy. No habit may exist witho
 
 ## 2. Technical Architecture Pattern: Modular Monolith + CQRS
 
-To maximize velocity without sacrificing domain clarity or future scalability, `bona-loko` is built as a **Modular Monolith** applying **CQRS** (Command Query Responsibility Segregation).
+To maximize velocity without sacrificing domain clarity or future scalability, `Bona Loko` is built as a **Modular Monolith** applying **CQRS** (Command Query Responsibility Segregation).
 
 ```
 src/

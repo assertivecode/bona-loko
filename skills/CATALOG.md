@@ -14,6 +14,7 @@ This catalog serves as the primary routing index for AI agents and developers to
 | `eng-implementation` | `engineering` | [engineering/implementation/SKILL.md](./engineering/implementation/SKILL.md) | implement, write code, build, function, class, refactor, clean code, SOLID |
 | `arch-modular-monolith` | `architecture` | [architecture/modular-monolith/SKILL.md](./architecture/modular-monolith/SKILL.md) | module, modular monolith, boundary, shared kernel, in-process contract, encapsulation |
 | `arch-cqrs` | `architecture` | [architecture/cqrs/SKILL.md](./architecture/cqrs/SKILL.md) | cqrs, command, query, handler, aggregate root, projection, mediatr, event |
+| `tech-nuxt-development` | `technology` | [technology/nuxt-development/SKILL.md](./technology/nuxt-development/SKILL.md) | nuxt, vue, i18n, translations, multi-language, pages, components, frontend |
 | `meta-skill-builder` | `meta (agent)` | [.agents/skills/skill-builder/SKILL.md](../.agents/skills/skill-builder/SKILL.md) | create skill, new skill, add skill, scaffold skill, register skill, update catalog |
 
 ---

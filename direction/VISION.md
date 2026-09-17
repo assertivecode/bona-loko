@@ -11,7 +11,7 @@ The core premise of **Habit & Life Balance** is that improving our lives starts 
 2. **Where we currently invest our attention** (Time and mental/physical energy).
 3. **Whether our daily behaviors reflect our priorities** (Aligning actions with intentions).
 
-The system avoids prescribing what a "good life" looks like. Instead, it provides a structured canvas that helps each individual define their own priorities and translate them into sustainable daily behaviors. All design and feature choices are anchored in the moral constitution and non-negotiable independence rules set forth in [FOUNDATION.md](../FOUNDATION.md).
+The system avoids prescribing what a "good life" looks like. Instead, it provides a structured canvas that helps each individual define their own priorities and translate them into sustainable daily behaviors. All design and feature choices are anchored in the moral constitution and non-negotiable independence rules set forth in [FOUNDATION.md](https://github.com/assertivecode/bona-loko/blob/main/FOUNDATION.md).
 
 ---
 

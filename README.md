@@ -1,8 +1,8 @@
-# bona-loko (Habit & Life Balance)
+# Bona Loko (Habit & Life Balance)
 
 > *"Understand what matters. Focus your attention. Build better habits. Shape the life you want to live."*
 
-**bona-loko** is an open-source personal development platform designed to bridge the gap between high-level life aspirations and daily actions. By combining holistic life assessment, multi-dimensional priority modeling, distraction management, and continuous reflection, the platform helps people consciously decide where to invest their finite time and energy.
+**Bona Loko** is an open-source personal development platform designed to bridge the gap between high-level life aspirations and daily actions. By combining holistic life assessment, multi-dimensional priority modeling, distraction management, and continuous reflection, the platform helps people consciously decide where to invest their finite time and energy.
 
 ---
 
@@ -10,7 +10,7 @@
 
 Most productivity and habit systems suffer from a fundamental disconnect: **they track daily checklist items in isolation from what actually matters in a person's life.** Completing ten arbitrary habits does not mean you are living the life you desire.
 
-**bona-loko** starts from first principles:
+**Bona Loko** starts from first principles:
 1. **Understanding what matters to you** (Defining personal values without judgment).
 2. **Measuring where your attention actually goes** (Time and mental/physical energy).
 3. **Closing the priority gaps** (Translating intentions into sustainable daily behaviors).
@@ -83,7 +83,7 @@ Time cannot be directed toward what matters if attention is continuously siphone
 ---
 
 ### 5. Habit Anatomy
-Every habit in **bona-loko** is not just an isolated task, but an explicit behavioral bridge:
+Every habit in **Bona Loko** is not just an isolated task, but an explicit behavioral bridge:
 
 ```
 Life Area ──▶ Priority ──▶ Goal ──▶ Habit (Context + Trigger ──▶ Action ──▶ Reward)
@@ -152,7 +152,7 @@ The project is developed across five strategic phases:
 
 ## 📂 Repository Navigation
 
-- **[Platform Foundation & Values](./FOUNDATION.md)**: Moral constitution, 6 core values, and non-negotiable independence rules.
+- **[Platform Foundation & Values](https://github.com/assertivecode/bona-loko/blob/main/FOUNDATION.md)**: Moral constitution, 6 core values, and non-negotiable independence rules.
 - **[Product Vision & Philosophy](./direction/VISION.md)**: In-depth vision, user personas, and domain invariants.
 - **[Strategic Roadmap](./direction/ROADMAP.md)**: Milestone breakdowns and deliverables.
 - **[Architecture Vision](./direction/ARCHITECTURE_VISION.md)**: Modular Monolith + CQRS technical design.

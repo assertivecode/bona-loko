@@ -1,8 +1,8 @@
 # Platform Foundation: Core Values & Moral Constitution
 
-> *"Personal transformation requires an uncorrupted sanctuary. To help people discover their own life balance, the platform must remain steadfast in its values and uncompromised in its independence."*
+> *"Personal transformation requires a mentality focused in uncorruptibility. To help people discover their own life balance, the platform must remain steadfast in its values and uncompromised in its independence."*
 
-This document establishes the ethical bedrock, foundational values, and inviolable guardrails of **bona-loko**. It serves as an enduring compass for developers, community stewards, and AI agents to ensure the project never loses its soul or deviates from its core mission.
+This document establishes the ethical bedrock, foundational values, and inviolable guardrails of **Bona Loko**. It serves as an enduring compass for developers, community stewards, and AI agents to ensure the project never loses its soul or deviates from its core mission.
 
 ---
 
@@ -37,7 +37,7 @@ These six values govern every design decision, community interaction, and algori
 ### 3. 🛡️ Integrity (Integridade)
 > *"We believe that integrity is not a definitive achievement, but rather that it is built on small choices that seem irrelevant, but which, when added together, shape character."*
 
-- **In Practice**: Software architecture, data privacy, and code quality reflect this principle. We do not engage in deceptive UX patterns (dark patterns), artificial urgency, or behavioral manipulation. We treat the user's private reflections with sacred confidentiality.
+- **In Practice**: Software architecture, data privacy, and code quality reflect this principle. We do not engage in deceptive UX patterns (dark patterns), artificial urgency, or behavioral manipulation. We treat the user's private reflections with absolute, inviolable confidentiality.
 
 ---
 
@@ -64,7 +64,7 @@ These six values govern every design decision, community interaction, and algori
 
 ## 🚫 Inviolable Guardrails (Non-Negotiable Rules)
 
-To protect the platform's integrity and ensure it remains a trusted refuge for all people, the following rules are permanent and non-negotiable:
+To protect the platform's integrity and ensure it remains a trusted, protected space for all people, the following rules are permanent and non-negotiable:
 
 ### Rule 1: Absolute Prohibition of Political Leadership
 > **It is strictly prohibited for leaders, board members, or executive stewards of the platform to be active politicians, candidates for public office, or maintain direct or indirect associations with political figures.**
@@ -79,7 +79,7 @@ To protect the platform's integrity and ensure it remains a trusted refuge for a
 ### Rule 3: Active Defense of Platform Mission & Purity of Purpose
 > **Platform leadership must do everything within their power to actively block political interference, external ideological capture, and partisan agendas from infiltrating the platform's primary goal.**
 
-- The platform exists for one sacred purpose: **to help human beings understand what matters, achieve their personal goals, and cultivate sustainable self-development.**
+- The platform exists for one core purpose: **to help human beings understand what matters, achieve their personal goals, and cultivate sustainable self-development.**
 - No feature, algorithm, partnership, or community space shall be permitted to divert attention from personal empowerment toward partisan division.
 
 ### Rule 4: Incorruptibility & Unconditional Anonymous Donations
@@ -93,7 +93,7 @@ To protect the platform's integrity and ensure it remains a trusted refuge for a
 
 ## 📜 Stewardship Pledge
 
-Every contributor, developer, and automated agent working on **bona-loko** commits to:
+Every contributor, developer, and automated agent working on **Bona Loko** commits to:
 1. **Never compromise user trust** for engagement vanity metrics.
 2. **Uphold user sovereignty** over their attention, data, and spiritual/moral beliefs.
-3. **Preserve the sanctuary**: Keep the space free of partisan warfare, cynicism, and commercial exploitation.
+3. **Preserve the core values**: Keep the space free of partisan warfare, cynicism, and commercial exploitation.

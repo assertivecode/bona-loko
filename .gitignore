@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+web-app/node_modules/
+
+# Nuxt build outputs
+.nuxt/
+.output/
+dist/
+web-app/.nuxt/
+web-app/.output/
+web-app/dist/
+
+# Environment & OS files
+.env
+.env.*
+.DS_Store
+*.log

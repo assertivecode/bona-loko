@@ -1,6 +1,6 @@
 # Agentic Skills Architecture
 
-This directory houses the modular knowledge packages ("skills") that guide AI agents and developers throughout the engineering lifecycle of **Habit & Life Balance** (`bona-loko`).
+This directory houses the modular knowledge packages ("skills") that guide AI agents and developers throughout the engineering lifecycle of **Habit & Life Balance** (**Bona Loko**).
 
 ---
 
@@ -36,6 +36,7 @@ skills/
 | **Engineering** | [engineering/implementation](./engineering/implementation/SKILL.md) | `eng-implementation` | Directs writing clean, idiomatic, SOLID-compliant code. |
 | **Architecture**| [architecture/modular-monolith](./architecture/modular-monolith/SKILL.md) | `arch-modular-monolith` | Governs module boundaries, shared kernels, and in-process contracts. |
 | **Architecture**| [architecture/cqrs](./architecture/cqrs/SKILL.md) | `arch-cqrs` | Governs Command/Query segregation, handlers, Aggregate Roots, and projections. |
+| **Technology**  | [technology/nuxt-development](./technology/nuxt-development/SKILL.md) | `tech-nuxt-development` | Governs Nuxt 3 development, in-component translations (en-US, pt-BR, eo), and frontend UI patterns. |
 | **Meta (Agent)**| [.agents/skills/skill-builder](../.agents/skills/skill-builder/SKILL.md) | `meta-skill-builder` | Automates adding new skills and synchronizing all consuming and referencing files. |
 
 ---
