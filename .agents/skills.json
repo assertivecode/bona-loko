@@ -1,34 +1,34 @@
 {
   "entries": [
     {
-      "path": "skills/product"
+      "path": ".agents/skills/product"
     },
     {
-      "path": "skills/engineering"
+      "path": ".agents/skills/engineering"
     },
     {
-      "path": "skills/architecture"
+      "path": ".agents/skills/architecture"
     },
     {
-      "path": "skills/quality"
+      "path": ".agents/skills/quality"
     },
     {
-      "path": "skills/security"
+      "path": ".agents/skills/security"
     },
     {
-      "path": "skills/devops"
+      "path": ".agents/skills/devops"
     },
     {
-      "path": "skills/sre"
+      "path": ".agents/skills/sre"
     },
     {
-      "path": "skills/data"
+      "path": ".agents/skills/data"
     },
     {
-      "path": "skills/capabilities"
+      "path": ".agents/skills/capabilities"
     },
     {
-      "path": "skills/technology"
+      "path": ".agents/skills/technology"
     }
   ]
 }

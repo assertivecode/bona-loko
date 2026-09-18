@@ -6,17 +6,23 @@ This document establishes the ethical bedrock, foundational values, and inviolab
 
 ---
 
-## 🌟 The 6 Core Values
+## 🌟 The 7 Core Values
 
-These six values govern every design decision, community interaction, and algorithmic recommendation on the platform.
+These seven values govern every design decision, community interaction, and algorithmic recommendation on the platform. They are organized in an intentional, inviolable sequence:
+
+$$\text{Faith} \longrightarrow \text{Gratitude} \longrightarrow \text{Humility} \longrightarrow \text{Integrity} \longrightarrow \text{Respect} \longrightarrow \text{Empathy} \longrightarrow \text{Freedom}$$
 
 ```
-       ⭐ Faith         ☀️ Gratitude       🛡️ Integrity
-   (Belief in Growth)    (Seeing Abundance)   (Character in Small Acts)
+       ⭐ Faith         ☀️ Gratitude       🌱 Humility
+   (Belief in Growth)    (Seeing Abundance)   (Grounded Self-Awareness)
 
-       🤝 Respect        ❤️ Empathy          ⚓ Freedom
-   (Honoring Dignity)    (Listening with Care) (Responsible Autonomy)
+       🛡️ Integrity        🤝 Respect        ❤️ Empathy          ⚓ Freedom
+    (True Inner Alignment) (Honoring Dignity) (Listening with Care) (Responsible Autonomy)
 ```
+
+> **The Humility $\rightarrow$ Integrity Principle**:
+> *True integrity naturally takes root in humility: seeing ourselves honestly and gently as we genuinely are creates the foundation for authentic alignment between our inner thoughts and outer actions.*
+> Humility precedes Integrity because genuine character blossoms from a calm, compassionate appraisal of reality. Rooted in humility, integrity remains gentle, authentic, and free from defensive posturing, rigid perfectionism, or pretension.
 
 ---
 
@@ -30,32 +36,39 @@ These six values govern every design decision, community interaction, and algori
 ### 2. ☀️ Gratitude (Gratidão)
 > *"We believe that those who practice gratitude learn to see abundance even in simplicity. And it is through gratitude that we cultivate appreciation for the opportunities and helping hands extended along the way."*
 
-- **In Practice**: Habit tracking and life assessment are not designed around perpetual inadequacy or toxic hustle. Instead, reflection cycles center on recognizing progress, appreciating everyday blessings, and finding joy in the journey.
+- **In Practice**: Habit tracking and life assessment are not designed around perpetual inadequacy or toxic hustle. Instead, reflection cycles center on recognizing progress, appreciating everyday gifts, and finding joy in the journey.
 
 ---
 
-### 3. 🛡️ Integrity (Integridade)
+### 3. 🌱 Humility (Humildade)
+> *"We believe that true integrity blossoms from humility: seeing ourselves honestly and gently as we genuinely are provides the fertile ground where our inner thoughts and outer actions align with authentic peace."*
+
+- **In Practice**: Self-assessment and priority gap discovery are practiced without ego, posturing, or defensiveness. We embrace small, unglamorous beginnings and view setbacks not as failures, but as quiet, honest invitations to learn, adjust, and grow.
+
+---
+
+### 4. 🛡️ Integrity (Integridade)
 > *"We believe that integrity is not a definitive achievement, but rather that it is built on small choices that seem irrelevant, but which, when added together, shape character."*
 
 - **In Practice**: Software architecture, data privacy, and code quality reflect this principle. We do not engage in deceptive UX patterns (dark patterns), artificial urgency, or behavioral manipulation. We treat the user's private reflections with absolute, inviolable confidentiality.
 
 ---
 
-### 4. 🤝 Respect (Respeito)
+### 5. 🤝 Respect (Respeito)
 > *"We believe that where there is respect, difference is not a threat, but a learning experience. And only with respect can we honor the history, culture, and dignity of each individual, without distinction."*
 
 - **In Practice**: The platform does not impose a single ideology, religious dogma, or standardized definition of a "good life". Each individual's unique background, cultural heritage, and personal worldview are held with absolute dignity.
 
 ---
 
-### 5. ❤️ Empathy (Empatia)
+### 6. ❤️ Empathy (Empatia)
 > *"We believe that empathy is what transforms judgment into listening and indifference into care. And that with empathy we can give others the dignity of being understood."*
 
 - **In Practice**: When users falter, break streaks, or experience difficult life seasons, the platform meets them with compassionate understanding rather than punitive scores or guilt-inducing notifications.
 
 ---
 
-### 6. ⚓ Freedom (Liberdade)
+### 7. ⚓ Freedom (Liberdade)
 > *"We believe that freedom is not a place, it is a state of mind. And that true freedom is not the absence of rules, but rather the ability to create your own rules with responsibility."*
 
 - **In Practice**: We empower users with autonomy. The system provides the canvas, but the individual defines the priorities, schedules the habits, and determines their own path. We liberate attention from addictive traps so users can invest it where they choose.

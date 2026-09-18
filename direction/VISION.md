@@ -15,6 +15,28 @@ The system avoids prescribing what a "good life" looks like. Instead, it provide
 
 ---
 
+## 🌟 Platform Bedrock: The 7 Core Values
+
+Every feature, assessment algorithm, and habit workflow is guided by the platform's 7 Core Values, structured in an inviolable sequence:
+
+$$\text{Faith} \longrightarrow \text{Gratitude} \longrightarrow \text{Humility} \longrightarrow \text{Integrity} \longrightarrow \text{Respect} \longrightarrow \text{Empathy} \longrightarrow \text{Freedom}$$
+
+```
+       ⭐ Faith         ☀️ Gratitude       🌱 Humility
+   (Belief in Growth)    (Seeing Abundance)   (Grounded Self-Awareness)
+
+       🛡️ Integrity        🤝 Respect        ❤️ Empathy          ⚓ Freedom
+    (True Inner Alignment) (Honoring Dignity) (Listening with Care) (Responsible Autonomy)
+```
+
+### The Humility $\longrightarrow$ Integrity Invariant:
+A cornerstone philosophical principle of Bona Loko is that **Humility** sits at the 3rd position directly preceding **Integrity**:
+> *"True integrity naturally takes root in humility: seeing ourselves honestly and gently as we genuinely are creates the foundation for authentic alignment between our inner thoughts and outer actions."*
+
+Before someone can align their life habits with their highest aspirations, humility invites an unpretentious, compassionate recognition of their starting point—welcoming realities, energy needs, and priority gaps without defensiveness or self-deception.
+
+---
+
 ## 🧭 The 12 Life Areas & Assessment Framework
 
 Inspired by the Wheel of Life concept, the platform looks at human existence holistically across **12 Life Areas**:
@@ -36,19 +58,19 @@ Inspired by the Wheel of Life concept, the platform looks at human existence hol
 
 ## 📊 The Multi-Dimensional Priority Model
 
-Unlike simplistic satisfaction surveys, each life area is evaluated across five distinct dimensions:
+Each life area is evaluated across five distinct dimensions:
 
-$$\text{Importance} \longrightarrow \text{Current State} \longrightarrow \text{Current Investment} \longrightarrow \text{Desired Investment} \longrightarrow \text{Priority}$$
+$$\text{Current Priority} \longrightarrow \text{Current State} \longrightarrow \text{Current Investment} \longrightarrow \text{Desired Investment} \longrightarrow \text{Priority Gap}$$
 
 ### Key Assessment Inquiries:
-- **Importance**: How deeply does this area matter to me?
+- **Current Priority**: How much priority does this area hold in your current moment of life? (priorities adapt across different life stages)
 - **Satisfaction**: How satisfied am I with this area currently?
 - **Current Investment**: How much time and energy do I currently spend on it?
 - **Desired Investment**: How much time and energy would I *like* to invest in it?
 - **Intent**: Is this an area I want to **Improve**, **Maintain**, or deliberately **Deprioritize**?
 
 ### The Priority Gap Discovery:
-A user might rate **Health** as *Critically Important* (Importance: High), but acknowledge *Minimal Time/Energy* (Current Investment: Low).
+A user might rate **Health** as *Critical Priority* (Current Priority: High), but acknowledge *Minimal Time/Energy* (Current Investment: Low).
 Rather than issuing generic warnings, the system highlights the **Priority Gap** and facilitates incremental, realistic habit formation to progressively close the distance between intent and reality.
 
 ---
@@ -71,7 +93,7 @@ $$\text{Assess} \longrightarrow \text{Prioritize} \longrightarrow \text{Identify
 
 ## 🧠 Focus & Distraction Management
 
-Time cannot be invested in priorities if attention is siphoned away by unintentional distractions. The platform treats distraction management as a first-class citizen:
+Investing time in our genuine priorities flourishes when attention is mindfully protected from unintentional distractions. The platform treats distraction management as a first-class citizen:
 
 - **Distraction Inventory**: Identify specific attention leaks (social media bingeing, aimless browsing, procrastination).
 - **Trigger Analysis**: Trace the environmental and emotional contexts preceding distracting behaviors.

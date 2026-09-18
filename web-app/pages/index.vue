@@ -47,7 +47,7 @@
               <span class="item-value highlight-orange">💪 {{ t('hero.demoArea') }}</span>
             </div>
             <div class="widget-item">
-              <span class="item-label">{{ t('hero.demoImportance') }}</span>
+              <span class="item-label">{{ t('hero.demoPriority') }}</span>
               <div class="bar-container">
                 <div class="bar-fill fill-orange" style="width: 90%;"></div>
               </div>
@@ -176,25 +176,11 @@
 
         <!-- Life Areas Grid -->
         <div class="areas-grid">
-          <div
+          <LifeAreaCard
             v-for="area in filteredAreas"
             :key="area.id"
-            class="area-card card"
-          >
-            <div class="area-card-top">
-              <span class="area-icon">{{ area.icon }}</span>
-              <span class="area-category-tag" :class="area.categoryClass">
-                {{ t(`areas.cat_${area.category}`) }}
-              </span>
-            </div>
-            <h3 class="area-title">{{ t(`areas.${area.id}_name`) }}</h3>
-            <p class="area-desc">{{ t(`areas.${area.id}_desc`) }}</p>
-            
-            <div class="area-focus-pill">
-              <strong>{{ t('areas.focalTarget') }}:</strong>
-              <span>{{ t(`areas.${area.id}_target`) }}</span>
-            </div>
-          </div>
+            :area="area"
+          />
         </div>
       </div>
     </section>
@@ -259,25 +245,25 @@
           </div>
         </div>
 
-        <!-- Explanatory Comparison Grid -->
+        <!-- Core Pillars Grid -->
         <div class="comparison-grid grid-2">
           <div class="comparison-card card card-standard">
-            <div class="card-status-badge badge-warning">❌ {{ t('model.traditionalTitle') }}</div>
-            <h3>{{ t('model.traditionalHeading') }}</h3>
+            <div class="card-status-badge badge-primary">🧭 {{ t('model.pillar1Badge') }}</div>
+            <h3>{{ t('model.pillar1Heading') }}</h3>
             <ul class="comparison-list">
-              <li>{{ t('model.traditionalItem1') }}</li>
-              <li>{{ t('model.traditionalItem2') }}</li>
-              <li>{{ t('model.traditionalItem3') }}</li>
+              <li>{{ t('model.pillar1Item1') }}</li>
+              <li>{{ t('model.pillar1Item2') }}</li>
+              <li>{{ t('model.pillar1Item3') }}</li>
             </ul>
           </div>
 
           <div class="comparison-card card card-bonaloko">
-            <div class="card-status-badge badge-esperanto">🟢 {{ t('model.bonalokoTitle') }}</div>
-            <h3>{{ t('model.bonalokoHeading') }}</h3>
+            <div class="card-status-badge badge-esperanto">🌱 {{ t('model.pillar2Badge') }}</div>
+            <h3>{{ t('model.pillar2Heading') }}</h3>
             <ul class="comparison-list">
-              <li>{{ t('model.bonalokoItem1') }}</li>
-              <li>{{ t('model.bonalokoItem2') }}</li>
-              <li>{{ t('model.bonalokoItem3') }}</li>
+              <li>{{ t('model.pillar2Item1') }}</li>
+              <li>{{ t('model.pillar2Item2') }}</li>
+              <li>{{ t('model.pillar2Item3') }}</li>
             </ul>
           </div>
         </div>
@@ -418,7 +404,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useHead } from '#app'
-import { useComponentI18n } from '~/composables/useLocale'
+import { useComponentI18n, useLocalePath, type CanonicalRouteKey } from '~/composables/useLocale'
 
 // Component-Scoped Translation Dictionary for Landing Page (EN-US, PT-BR, EO)
 const landingTranslations = {
@@ -435,7 +421,7 @@ const landingTranslations = {
       widgetHint: 'Live Diagnosis Concept',
       demoAreaLabel: 'Analyzed Life Area:',
       demoArea: 'Health & Physical Vitality',
-      demoImportance: 'Personal Importance:',
+      demoPriority: 'Current Priority:',
       demoCurrentInv: 'Current Attention/Time:',
       demoGap: 'Identified Priority Gap:',
       demoGapAlert: 'Critical Gap (-6.5 points)',
@@ -470,6 +456,7 @@ const landingTranslations = {
       cat_connection: 'Connection & Heart',
       cat_attention: 'Attention & Spirit',
       focalTarget: 'Focus Target',
+      exploreGuide: 'Explore Foundation Guide',
       // Areas
       health_name: 'Health & Physical Fitness',
       health_desc: 'Energy vitality, consistent movement, restorative sleep, and nourishing nutrition.',
@@ -511,9 +498,9 @@ const landingTranslations = {
     model: {
       sectionBadge: 'Five-Dimensional Intelligence',
       title: 'The Multi-Dimensional Priority Model',
-      subtitle: 'Most apps reduce life satisfaction to a simplistic 1-to-10 rating. Bona Loko measures the real dynamic between values and attention.',
-      dim1: 'Importance',
-      dim1Desc: 'How deeply does this area matter to your values?',
+      subtitle: 'Bona Loko measures the real dynamic between personal values, time, and attention across five complementary dimensions.',
+      dim1: 'Current Priority',
+      dim1Desc: 'How much priority does this area hold in your current moment of life?',
       dim2: 'Satisfaction',
       dim2Desc: 'How content are you with its current state?',
       dim3: 'Current Investment',
@@ -522,16 +509,16 @@ const landingTranslations = {
       dim4Desc: 'How much attention would you consciously like to invest?',
       dim5: 'Priority Gap',
       dim5Desc: 'Identifies where actions diverge from intentions.',
-      traditionalTitle: 'Traditional Habit Checklists',
-      traditionalHeading: 'Habits in Isolation',
-      traditionalItem1: 'Tracks daily streaks without asking whether the habit matters.',
-      traditionalItem2: 'Encourages toxic hustle and guilt when a streak is broken.',
-      traditionalItem3: 'Ignores where time is leaking away to mindless distractions.',
-      bonalokoTitle: 'Bona Loko ("Good Place")',
-      bonalokoHeading: 'Intentional Alignment',
-      bonalokoItem1: 'Ties every micro-habit to a parent life area and stated purpose.',
-      bonalokoItem2: 'Replaces guilt with compassionate reflection and realistic adjustments.',
-      bonalokoItem3: 'Treats distraction replacement as an equal partner to habit formation.'
+      pillar1Badge: 'Awareness & Reality',
+      pillar1Heading: 'Attention Discovery',
+      pillar1Item1: 'Maps finite time and physical energy with honest clarity.',
+      pillar1Item2: 'Identifies where attention leaks into unintended distractions.',
+      pillar1Item3: 'Surfaces personal priority gaps without guilt or judgment.',
+      pillar2Badge: 'Intentional Alignment',
+      pillar2Heading: 'Purposeful Action',
+      pillar2Item1: 'Ties every micro-habit to a parent life area and stated purpose.',
+      pillar2Item2: 'Replaces guilt with compassionate reflection and realistic adjustments.',
+      pillar2Item3: 'Treats distraction replacement as an equal partner to habit formation.'
     },
     engine: {
       sectionBadge: 'Iterative Engine',
@@ -555,7 +542,7 @@ const landingTranslations = {
     focus: {
       badge: 'Attention Protection',
       title: 'Attention Mastery & Distraction Defense',
-      subtitle: 'Time cannot be invested in priorities if attention is siphoned away by unintentional distractions.',
+      subtitle: 'Investing time in our genuine priorities flourishes when attention is mindfully protected from unintentional distractions.',
       pillar1Title: 'Distraction Inventory',
       pillar1Desc: 'Identify personal attention leaks (compulsive phone checking, endless feeds, avoidance behaviors).',
       pillar2Title: 'Trigger Awareness',
@@ -592,7 +579,7 @@ const landingTranslations = {
       widgetHint: 'Conceito de Diagnóstico ao Vivo',
       demoAreaLabel: 'Área da Vida Analisada:',
       demoArea: 'Saúde & Vitalidade Física',
-      demoImportance: 'Importância Pessoal:',
+      demoPriority: 'Prioridade Atual:',
       demoCurrentInv: 'Tempo/Atenção Atual:',
       demoGap: 'Lacuna de Prioridade Identificada:',
       demoGapAlert: 'Lacuna Crítica (-6.5 pontos)',
@@ -627,6 +614,7 @@ const landingTranslations = {
       cat_connection: 'Conexão & Coração',
       cat_attention: 'Atenção & Espírito',
       focalTarget: 'Foco Central',
+      exploreGuide: 'Explorar Guia da Dimensão',
       health_name: 'Saúde & Condicionamento Físico',
       health_desc: 'Vitalidade energética, movimento regular, sono restaurador e alimentação consciente.',
       health_target: 'Vitalidade física sustentável e sono restaurador.',
@@ -667,9 +655,9 @@ const landingTranslations = {
     model: {
       sectionBadge: 'Inteligência Pentadimensional',
       title: 'O Modelo de Prioridades Multidimensional',
-      subtitle: 'A maioria dos aplicativos reduz a satisfação a uma simples nota de 1 a 10. A Bona Loko analisa a dinâmica real entre seus valores e sua atenção.',
-      dim1: 'Importância',
-      dim1Desc: 'Quão profundamente esta área importa para seus valores?',
+      subtitle: 'A Bona Loko analisa a dinâmica real entre seus valores pessoais, tempo e atenção através de cinco dimensões complementares.',
+      dim1: 'Prioridade Atual',
+      dim1Desc: 'Qual o nível de prioridade desta área no seu momento de vida atual?',
       dim2: 'Satisfação',
       dim2Desc: 'Quão satisfeito você está com o estado atual dela?',
       dim3: 'Investimento Atual',
@@ -678,16 +666,16 @@ const landingTranslations = {
       dim4Desc: 'Quanto tempo você conscientemente gostaria de investir?',
       dim5: 'Lacuna de Prioridade',
       dim5Desc: 'Identifica onde as ações diárias divergem dos desejos reais.',
-      traditionalTitle: 'Listas de Hábitos Convencionais',
-      traditionalHeading: 'Hábitos Desconectados',
-      traditionalItem1: 'Registra sequências diárias sem perguntar se o hábito realmente importa.',
-      traditionalItem2: 'Gera culpa e frustração quando uma sequência é interrompida.',
-      traditionalItem3: 'Ignora para onde o tempo está escapando em distrações inconscientes.',
-      bonalokoTitle: 'Bona Loko ("Bom Lugar")',
-      bonalokoHeading: 'Alinhamento Intencional',
-      bonalokoItem1: 'Conecta cada micro-hábito a uma área da vida e a um propósito claro.',
-      bonalokoItem2: 'Substitui a culpa por reflexão compreensiva e ajustes realistas.',
-      bonalokoItem3: 'Trata a gestão de distrações com a mesma importância da formação de hábitos.'
+      pillar1Badge: 'Consciência & Realidade',
+      pillar1Heading: 'Descoberta da Atenção',
+      pillar1Item1: 'Mapeia tempo e energia finitos com clareza serena.',
+      pillar1Item2: 'Identifica onde a atenção escapa em distrações inconscientes.',
+      pillar1Item3: 'Evidencia lacunas de prioridade sem culpa ou julgamentos.',
+      pillar2Badge: 'Alinhamento Intencional',
+      pillar2Heading: 'Ação com Propósito',
+      pillar2Item1: 'Conecta cada micro-hábito a uma área da vida e a um propósito claro.',
+      pillar2Item2: 'Substitui a culpa por reflexão compreensiva e ajustes realistas.',
+      pillar2Item3: 'Trata a gestão de distrações com a mesma importância da formação de hábitos.'
     },
     engine: {
       sectionBadge: 'Motor Iterativo',
@@ -711,7 +699,7 @@ const landingTranslations = {
     focus: {
       badge: 'Proteção da Atenção',
       title: 'Domínio da Atenção & Gestão de Distrações',
-      subtitle: 'O tempo não pode ser investido em prioridades se a atenção for sugada por distrações involuntárias.',
+      subtitle: 'O investimento consciente de tempo em nossas verdadeiras prioridades floresce quando protegemos nossa atenção de distrações involuntárias.',
       pillar1Title: 'Inventário de Distrações',
       pillar1Desc: 'Identifique os vazamentos de atenção (rolagem infinita, verificação compulsiva, procrastinação).',
       pillar2Title: 'Consciência de Gatilhos',
@@ -748,7 +736,7 @@ const landingTranslations = {
       widgetHint: 'Viva Diagnoza Koncepto',
       demoAreaLabel: 'Analizita Vivareo:',
       demoArea: 'Sano & Fizika Vigleco',
-      demoImportance: 'Persona Graveco:',
+      demoPriority: 'Nuna Prioritato:',
       demoCurrentInv: 'Nuna Atento/Tempo:',
       demoGap: 'Identigita Prioritata Manko:',
       demoGapAlert: 'Kritika Manko (-6.5 poentoj)',
@@ -783,6 +771,7 @@ const landingTranslations = {
       cat_connection: 'Konekto & Koro',
       cat_attention: 'Atento & Spirito',
       focalTarget: 'Ĉefa Celo',
+      exploreGuide: 'Esplori Gvidilon de Vivfako',
       health_name: 'Sano & Fizika Taŭgeco',
       health_desc: 'Energia vigleco, konstanta movado, restaŭra dormo kaj konscia nutrado.',
       health_target: 'Daŭripova fizika vigleco kaj restaŭraj dormaj kutimoj.',
@@ -823,9 +812,9 @@ const landingTranslations = {
     model: {
       sectionBadge: 'Kvindimensia Inteligenteco',
       title: 'La Multdimensia Prioritata Modelo',
-      subtitle: 'Plej multaj aplikaĵoj reduktas kontenton al simpla 1-ĝis-10 poentaro. Bona Loko analizas la veran rilaton inter viaj valoroj kaj via atento.',
-      dim1: 'Graveco',
-      dim1Desc: 'Kiel profunde ĉi tiu areo gravas por viaj valoroj?',
+      subtitle: 'Bona Loko analizas la veran rilaton inter viaj personaj valoroj, tempo kaj atento trans kvin komplementaj dimensioj.',
+      dim1: 'Nuna Prioritato',
+      dim1Desc: 'Kiom da prioritato havas ĉi tiu areo en via nuna vivofazo?',
       dim2: 'Kontento',
       dim2Desc: 'Kiel kontenta vi estas pri ĝia nuna stato?',
       dim3: 'Nuna Investo',
@@ -834,16 +823,16 @@ const landingTranslations = {
       dim4Desc: 'Kiom da atento vi konscie deziras investi?',
       dim5: 'Prioritata Manko',
       dim5Desc: 'Montras kie ĉiutagaj agoj malkongruas kun veraj deziroj.',
-      traditionalTitle: 'Tradiciaj Kutimlistoj',
-      traditionalHeading: 'Izolitaj Kutimoj',
-      traditionalItem1: 'Registras sinsekvojn sen demandi ĉu la kutimo gravas.',
-      traditionalItem2: 'Kreas kulpon kiam sinsekvo estas rompita.',
-      traditionalItem3: 'Ignoras kien tempo forfluas en senkonsciaj distraĵoj.',
-      bonalokoTitle: 'Bona Loko ("Good Place")',
-      bonalokoHeading: 'Intenca Kongrueco',
-      bonalokoItem1: 'Ligas ĉiun mikro-kutimon al vivareo kaj klara celo.',
-      bonalokoItem2: 'Anstataŭigas kulpon per kompata reflekto kaj realismaj alĝustigoj.',
-      bonalokoItem3: 'Taksas administradon de distraĵoj tiel grava kiel formadon de kutimoj.'
+      pillar1Badge: 'Konscio & Realeco',
+      pillar1Heading: 'Atenta Malkovro',
+      pillar1Item1: 'Mapas finian tempon kaj fizikan energion kun trankvila klareco.',
+      pillar1Item2: 'Identigas kien atento forfluas en senkonsciajn distraĵojn.',
+      pillar1Item3: 'Montras prioritatajn mankojn sen kulpo aŭ juĝo.',
+      pillar2Badge: 'Intenca Kongrueco',
+      pillar2Heading: 'Celema Agado',
+      pillar2Item1: 'Ligas ĉiun mikro-kutimon al vivareo kaj klara celo.',
+      pillar2Item2: 'Anstataŭigas kulpon per kompata reflekto kaj realismaj alĝustigoj.',
+      pillar2Item3: 'Taksas administradon de distraĵoj tiel grava kiel formadon de kutimoj.'
     },
     engine: {
       sectionBadge: 'Ripetada Motoro',
@@ -867,7 +856,7 @@ const landingTranslations = {
     focus: {
       badge: 'Protektado de Atento',
       title: 'Atenta Majstreco & Distrada Defendo',
-      subtitle: 'Tempo ne povas esti investita en prioritatoj se atento estas forsuĉita de neintencaj distraĵoj.',
+      subtitle: 'Investi tempon en niajn verajn prioritatojn floras kiam ni atente protektas atenton kontraŭ neintencitaj distraĵoj.',
       pillar1Title: 'Distrada Inventaro',
       pillar1Desc: 'Identigu personajn atentajn likojn (senfina rulumado, kompulsia kontrolo).',
       pillar2Title: 'Konscio pri Ellasiloj',
@@ -894,6 +883,7 @@ const landingTranslations = {
 }
 
 const { t } = useComponentI18n(landingTranslations)
+const { localePath } = useLocalePath()
 
 useHead({
   title: computed(() => t('meta.title'))
@@ -929,6 +919,26 @@ const filteredAreas = computed(() => {
   if (selectedCategory.value === 'all') return allLifeAreas
   return allLifeAreas.filter(a => a.category === selectedCategory.value)
 })
+
+// Dimension Guide Navigation Mapping for all 12 Life Areas
+const areaGuideMap: Record<string, CanonicalRouteKey> = {
+  health: 'dimension_health_fitness',
+  mental: 'dimension_mental_emotional',
+  learning: 'dimension_personal_growth',
+  career: 'dimension_career_calling',
+  finances: 'dimension_finances_wealth',
+  environment: 'dimension_physical_environment',
+  relationships: 'dimension_relationships_intimacy',
+  family: 'dimension_family_parenting',
+  friendships: 'dimension_friendships_community',
+  recreation: 'dimension_recreation_play',
+  focus: 'dimension_focus_mastery',
+  contribution: 'dimension_contribution_legacy'
+}
+
+function getAreaGuideKey(areaId: string): CanonicalRouteKey | null {
+  return areaGuideMap[areaId] || null
+}
 
 // 7 Transformation Engine Steps
 const engineSteps = [
@@ -1304,6 +1314,28 @@ const engineSteps = [
   color: var(--text-primary);
   display: block;
   margin-bottom: 2px;
+}
+
+.area-action-link {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.dimension-guide-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.dimension-guide-link:hover {
+  color: var(--primary-hover);
+  transform: translateX(3px);
 }
 
 /* Priority Model Pipeline */

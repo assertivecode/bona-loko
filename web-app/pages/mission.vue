@@ -191,7 +191,7 @@ const missionTranslations = {
     },
     constitution: {
       quote: 'Personal transformation requires a mentality focused in uncorruptibility. To help people discover their own life balance, the platform must remain steadfast in its values and uncompromised in its independence.',
-      leadText: 'Most commercial apps eventually sell user attention to advertisers, accept corporate sponsors with hidden agendas, or become stepping stones for partisan ambitions. Bona Loko is structurally shielded by design.',
+      leadText: 'Bona Loko is structurally shielded by design, ensuring user attention, private reflections, and personal sovereignty remain uncompromised by commercial agendas or external pressures.',
       sourceTag: 'Core Moral Bedrock'
     },
     guardrails: {
@@ -253,7 +253,7 @@ const missionTranslations = {
     },
     constitution: {
       quote: 'A transformação pessoal requer uma mentalidade focada na incorruptibilidade. Para ajudar as pessoas a descobrirem seu próprio equilíbrio de vida, a plataforma deve permanecer inabalável em seus valores e independente.',
-      leadText: 'A maioria dos aplicativos comerciais eventualmente vende a atenção do usuário para anunciantes ou se torna trampolim para interesses partidários. A Bona Loko é estruturalmente blindado.',
+      leadText: 'A Bona Loko é estruturalmente blindada por concepção, assegurando que a atenção dos usuários, reflexões privadas e soberania pessoal permaneçam protegidas de interesses comerciais ou pressões externas.',
       sourceTag: 'Base Moral Fundamental'
     },
     guardrails: {
@@ -315,7 +315,7 @@ const missionTranslations = {
     },
     constitution: {
       quote: 'Persona transformado postulas pensmanieron fokusitan al nekoruptebleco. Por helpi homojn malkovri sian viv-ekvilibron, la platformo devas resti fidela al siaj valoroj kaj sendependa.',
-      leadText: 'Plej multaj komercaj aplikaĵoj vendas atenton de uzantoj aŭ servas al politikaj celoj. Bona Loko estas strukture protektita.',
+      leadText: 'Bona Loko estas strukture protektita laŭ dezajno, certigante ke uzanta atento, privataj pensoj kaj persona suvereneco restas neŝanceleblaj kontraŭ komercaj interesoj aŭ eksteraj premoj.',
       sourceTag: 'Kernaj Moralaj Fundamentoj'
     },
     guardrails: {

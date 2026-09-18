@@ -2,7 +2,7 @@
 name: meta-skill-builder
 description: >-
   Automates the creation of new agentic skills and synchronizes all referencing and consuming files in the project.
-  Use whenever the user asks to create, scaffold, add, or register a new skill in skills/<category>/<skill-name>.
+  Use whenever the user asks to create, scaffold, add, or register a new skill in .agents/skills/<category>/<skill-name>.
 ---
 
 # Skill Builder (Meta-Skill)
@@ -22,10 +22,10 @@ Enforces consistency and complete architectural synchronization when adding new 
 ## The Synchronization Invariant
 > [!IMPORTANT]
 > A skill is **NOT** finished until all referencing files are updated:
-> 1. `skills/<category>/<skill-name>/SKILL.md` is created.
-> 2. `.agents/skills.json` contains `{ "path": "skills/<category>" }`.
-> 3. `skills/CATALOG.md` includes the skill in the Active Registry and Trigger Matrix.
-> 4. `skills/README.md` reflects the updated skill count and table entry.
+> 1. `.agents/skills/<category>/<skill-name>/SKILL.md` is created.
+> 2. `.agents/skills.json` contains `{ "path": ".agents/skills/<category>" }`.
+> 3. `.agents/skills/CATALOG.md` includes the skill in the Active Registry and Trigger Matrix.
+> 4. `.agents/skills/README.md` reflects the updated skill count and table entry.
 
 ---
 
@@ -47,7 +47,7 @@ Enforces consistency and complete architectural synchronization when adding new 
   - `technology/` -> `tech-<name>`
 
 ### Step 2: Scaffold `SKILL.md`
-Create `skills/<category>/<skill-name>/SKILL.md` using the standard structure:
+Create `.agents/skills/<category>/<skill-name>/SKILL.md` using the standard structure:
 ```markdown
 ---
 name: <identifier>
@@ -82,21 +82,21 @@ description: >-
 ```
 
 ### Step 3: Synchronize `.agents/skills.json`
-Inspect [.agents/skills.json](../../../.agents/skills.json). If the category is not yet listed in `entries`, add it:
+Inspect [.agents/skills.json](../../skills.json). If the category is not yet listed in `entries`, add it:
 ```json
-{ "path": "skills/<category>" }
+{ "path": ".agents/skills/<category>" }
 ```
 
-### Step 4: Synchronize `skills/CATALOG.md`
-Open [skills/CATALOG.md](../../../skills/CATALOG.md):
+### Step 4: Synchronize `.agents/skills/CATALOG.md`
+Open [.agents/skills/CATALOG.md](../CATALOG.md):
 1. Add a new row to the **Active Skill Registry** table:
    ```markdown
-   | `<identifier>` | `<category>` | [<category>/<skill-name>/SKILL.md](../../../skills/<category>/<skill-name>/SKILL.md) | <keyword triggers> |
+   | `<identifier>` | `<category>` | [<category>/<skill-name>/SKILL.md](./<category>/<skill-name>/SKILL.md) | <keyword triggers> |
    ```
 2. If applicable, add the skill to an existing or new **Synergy Bundle**.
 
-### Step 5: Synchronize `skills/README.md`
-Open [skills/README.md](../../../skills/README.md):
+### Step 5: Synchronize `.agents/skills/README.md`
+Open [.agents/skills/README.md](../README.md):
 1. Add the skill to the **Currently Active Shell Skills** table.
 2. Verify that the directory tree under section 1 correctly represents the category.
 
@@ -105,6 +105,6 @@ Open [skills/README.md](../../../skills/README.md):
 ## Verification Checklist
 - [ ] `SKILL.md` YAML frontmatter is valid (`name` and `description` present, no unescaped quotes).
 - [ ] `.agents/skills.json` parses as valid JSON.
-- [ ] `skills/CATALOG.md` table rendered with correct markdown link.
-- [ ] `skills/README.md` table updated.
+- [ ] `.agents/skills/CATALOG.md` table rendered with correct markdown link.
+- [ ] `.agents/skills/README.md` table updated.
 - [ ] Link target verified to exist on disk.

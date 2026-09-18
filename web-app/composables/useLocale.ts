@@ -15,7 +15,22 @@ export const SUPPORTED_LOCALES: LocaleMeta[] = [
   { code: 'eo', name: 'Esperanto', nativeName: 'Esperanto', flag: '🟢' }
 ]
 
-export type CanonicalRouteKey = 'home' | 'about' | 'mission'
+export type CanonicalRouteKey =
+  | 'home'
+  | 'about'
+  | 'mission'
+  | 'dimension_health_fitness'
+  | 'dimension_mental_emotional'
+  | 'dimension_personal_growth'
+  | 'dimension_career_calling'
+  | 'dimension_finances_wealth'
+  | 'dimension_physical_environment'
+  | 'dimension_relationships_intimacy'
+  | 'dimension_family_parenting'
+  | 'dimension_friendships_community'
+  | 'dimension_recreation_play'
+  | 'dimension_focus_mastery'
+  | 'dimension_contribution_legacy'
 
 export const ROUTE_SLUGS: Record<CanonicalRouteKey, Record<Locale, string>> = {
   home: {
@@ -32,6 +47,66 @@ export const ROUTE_SLUGS: Record<CanonicalRouteKey, Record<Locale, string>> = {
     'en-US': '/mission',
     'pt-BR': '/pt-br/missao',
     eo: '/eo/misio'
+  },
+  dimension_health_fitness: {
+    'en-US': '/dimensions/health-and-physical-fitness',
+    'pt-BR': '/pt-br/dimensoes/saude-e-condicionamento-fisico',
+    eo: '/eo/dimensioj/sano-kaj-fizika-taugeco'
+  },
+  dimension_mental_emotional: {
+    'en-US': '/dimensions/mental-and-emotional-wellbeing',
+    'pt-BR': '/pt-br/dimensoes/bem-estar-mental-e-emocional',
+    eo: '/eo/dimensioj/mensa-kaj-emocia-bonfarto'
+  },
+  dimension_personal_growth: {
+    'en-US': '/dimensions/personal-growth-and-learning',
+    'pt-BR': '/pt-br/dimensoes/crescimento-pessoal-e-aprendizado',
+    eo: '/eo/dimensioj/persona-kresko-kaj-lernado'
+  },
+  dimension_career_calling: {
+    'en-US': '/dimensions/career-and-professional-calling',
+    'pt-BR': '/pt-br/dimensoes/carreira-e-vocacao-profissional',
+    eo: '/eo/dimensioj/kariero-kaj-profesia-vokigo'
+  },
+  dimension_finances_wealth: {
+    'en-US': '/dimensions/finances-and-wealth',
+    'pt-BR': '/pt-br/dimensoes/financas-e-prosperidade',
+    eo: '/eo/dimensioj/financoj-kaj-rico'
+  },
+  dimension_physical_environment: {
+    'en-US': '/dimensions/physical-environment-and-spaces',
+    'pt-BR': '/pt-br/dimensoes/ambiente-fisico-e-espacos',
+    eo: '/eo/dimensioj/fizika-medio-kaj-spacoj'
+  },
+  dimension_relationships_intimacy: {
+    'en-US': '/dimensions/relationships-and-intimacy',
+    'pt-BR': '/pt-br/dimensoes/relacionamentos-e-intimidade',
+    eo: '/eo/dimensioj/rilatoj-kaj-intimeco'
+  },
+  dimension_family_parenting: {
+    'en-US': '/dimensions/family-and-parenting',
+    'pt-BR': '/pt-br/dimensoes/familia-e-parentalidade',
+    eo: '/eo/dimensioj/familio-kaj-gepatreco'
+  },
+  dimension_friendships_community: {
+    'en-US': '/dimensions/friendships-and-community',
+    'pt-BR': '/pt-br/dimensoes/amizades-e-comunidade',
+    eo: '/eo/dimensioj/amikecoj-kaj-komunumo'
+  },
+  dimension_recreation_play: {
+    'en-US': '/dimensions/recreation-hobbies-and-play',
+    'pt-BR': '/pt-br/dimensoes/recreacao-hobbies-e-lazer',
+    eo: '/eo/dimensioj/distrado-satokupoj-kaj-ludo'
+  },
+  dimension_focus_mastery: {
+    'en-US': '/dimensions/focus-and-attention-mastery',
+    'pt-BR': '/pt-br/dimensoes/dominio-do-foco-e-atencao',
+    eo: '/eo/dimensioj/majstreco-pri-atento-kaj-fokuso'
+  },
+  dimension_contribution_legacy: {
+    'en-US': '/dimensions/contribution-and-legacy',
+    'pt-BR': '/pt-br/dimensoes/contribuicao-e-legado',
+    eo: '/eo/dimensioj/kontribuo-kaj-heredajo'
   }
 }
 
@@ -83,6 +158,8 @@ export function useGlobalLocale() {
   }
 }
 
+import { getArticlePathById, getArticleCounterpartPath } from '~/composables/useArticleContent'
+
 /**
  * Resolve a route key or canonical path into the localized path for a given locale (or active locale).
  * Supports path hashes, e.g. localePath('/about#values') -> '/pt-br/sobre#values'
@@ -109,28 +186,49 @@ export function useLocalePath() {
     const [pathPart, hashPart] = target.split('#')
     const hash = hashPart ? `#${hashPart}` : ''
 
-    // 1. Direct canonical key lookup
+    // 1. Direct canonical key lookup in static routes
     if (target in ROUTE_SLUGS) {
       return `${ROUTE_SLUGS[target as CanonicalRouteKey][loc]}${hash}`
     }
 
-    // 2. Identify canonical key from existing path
+    // 2. Direct article ID lookup from dynamic markdown content
+    const dynamicArticlePath = getArticlePathById(pathPart, loc)
+    if (dynamicArticlePath) {
+      return `${dynamicArticlePath}${hash}`
+    }
+
+    // 3. Identify canonical key from existing static path
     const key = getCanonicalKeyFromPath(pathPart)
     if (key) {
       return `${ROUTE_SLUGS[key][loc]}${hash}`
     }
 
-    // 3. Fallback for external or unregistered relative paths
+    // 4. Dynamic article counterpart lookup from existing path
+    const dynamicCounterpart = getArticleCounterpartPath(pathPart, loc)
+    if (dynamicCounterpart) {
+      return `${dynamicCounterpart}${hash}`
+    }
+
+    // 5. Fallback for external or unregistered relative paths
     return target
   }
 
   const getEquivalentPathForLocale = (currentPath: string, newLocale: Locale): string => {
     const [pathPart, hashPart] = currentPath.split('#')
     const hash = hashPart ? `#${hashPart}` : ''
+
+    // 1. Static routes check
     const key = getCanonicalKeyFromPath(pathPart)
     if (key) {
       return `${ROUTE_SLUGS[key][newLocale]}${hash}`
     }
+
+    // 2. Dynamic content counterpart check
+    const dynamicCounterpart = getArticleCounterpartPath(pathPart, newLocale)
+    if (dynamicCounterpart) {
+      return `${dynamicCounterpart}${hash}`
+    }
+
     return currentPath
   }
 

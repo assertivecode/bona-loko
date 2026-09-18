@@ -64,7 +64,7 @@
       </div>
     </section>
 
-    <!-- 6 Core Moral Values (From FOUNDATION.md) -->
+    <!-- 7 Core Moral Values (From FOUNDATION.md) -->
     <section id="values" class="section section-cream">
       <div class="container">
         <div class="section-header">
@@ -108,12 +108,12 @@
             </div>
           </div>
 
-          <!-- 3. Integrity -->
+          <!-- 3. Humility -->
           <div class="value-card card">
-            <div class="value-icon">🛡️</div>
+            <div class="value-icon">🌱</div>
             <div class="value-names">
               <h3>{{ t('values.v3_name') }}</h3>
-              <span class="trans-names">PT: Integridade • EO: Integreco</span>
+              <span class="trans-names">PT: Humildade • EO: Humileco</span>
             </div>
             <blockquote class="value-quote">
               “{{ t('values.v3_quote') }}”
@@ -124,12 +124,12 @@
             </div>
           </div>
 
-          <!-- 4. Respect -->
+          <!-- 4. Integrity -->
           <div class="value-card card">
-            <div class="value-icon">🤝</div>
+            <div class="value-icon">🛡️</div>
             <div class="value-names">
               <h3>{{ t('values.v4_name') }}</h3>
-              <span class="trans-names">PT: Respeito • EO: Respekto</span>
+              <span class="trans-names">PT: Integridade • EO: Integreco</span>
             </div>
             <blockquote class="value-quote">
               “{{ t('values.v4_quote') }}”
@@ -140,12 +140,12 @@
             </div>
           </div>
 
-          <!-- 5. Empathy -->
+          <!-- 5. Respect -->
           <div class="value-card card">
-            <div class="value-icon">❤️</div>
+            <div class="value-icon">🤝</div>
             <div class="value-names">
               <h3>{{ t('values.v5_name') }}</h3>
-              <span class="trans-names">PT: Empatia • EO: Empatio</span>
+              <span class="trans-names">PT: Respeito • EO: Respekto</span>
             </div>
             <blockquote class="value-quote">
               “{{ t('values.v5_quote') }}”
@@ -156,12 +156,12 @@
             </div>
           </div>
 
-          <!-- 6. Freedom -->
+          <!-- 6. Empathy -->
           <div class="value-card card">
-            <div class="value-icon">⚓</div>
+            <div class="value-icon">❤️</div>
             <div class="value-names">
               <h3>{{ t('values.v6_name') }}</h3>
-              <span class="trans-names">PT: Liberdade • EO: Libereco</span>
+              <span class="trans-names">PT: Empatia • EO: Empatio</span>
             </div>
             <blockquote class="value-quote">
               “{{ t('values.v6_quote') }}”
@@ -169,6 +169,22 @@
             <div class="value-practice">
               <strong>{{ t('values.inPractice') }}:</strong>
               <p>{{ t('values.v6_practice') }}</p>
+            </div>
+          </div>
+
+          <!-- 7. Freedom -->
+          <div class="value-card card">
+            <div class="value-icon">⚓</div>
+            <div class="value-names">
+              <h3>{{ t('values.v7_name') }}</h3>
+              <span class="trans-names">PT: Liberdade • EO: Libereco</span>
+            </div>
+            <blockquote class="value-quote">
+              “{{ t('values.v7_quote') }}”
+            </blockquote>
+            <div class="value-practice">
+              <strong>{{ t('values.inPractice') }}:</strong>
+              <p>{{ t('values.v7_practice') }}</p>
             </div>
           </div>
         </div>
@@ -252,9 +268,9 @@ const aboutTranslations = {
       intro: 'Bona Loko ("Good Place" in Esperanto) was created from a fundamental belief: personal transformation requires a mentality focused in uncorruptibility where human dignity and sovereign attention are held with highest respect.'
     },
     story: {
-      title: 'Why Conventional Habit Tracking Fails',
-      p1: 'Most productivity tools suffer from a critical flaw: they measure daily checklist streaks in complete isolation from what actually matters in a person’s life. Completing ten arbitrary habits does not mean you are living the life you desire.',
-      p2: 'Apps use dark patterns, streak-shaming, and artificial urgency to keep users hooked on checking boxes. Bona Loko rejects this entirely. We believe in understanding what matters first, discovering where energy actually goes, and closing priority gaps with calm compassion.',
+      title: 'The Purpose Behind Bona Loko',
+      p1: 'True personal growth begins with understanding what genuinely matters in life, rather than mindlessly completing arbitrary tasks. Lasting change happens when our daily actions reflect our deepest intentions and values.',
+      p2: 'Bona Loko is founded on uncorruptibility, empathy, and responsible freedom. We prioritize understanding what matters first, discovering where energy actually goes, and closing priority gaps with calm compassion.',
       quote: 'Personal transformation requires a mentality focused in uncorruptibility. To help people discover their own life balance, the platform must remain steadfast in its values and uncompromised in its independence.',
       quoteAuthor: 'Platform Moral Constitution (FOUNDATION.md)'
     },
@@ -269,8 +285,8 @@ const aboutTranslations = {
     },
     values: {
       sectionBadge: 'Foundational Pillars',
-      title: 'The 6 Core Moral Values',
-      subtitle: 'These six values govern every design decision, interaction, and recommendation on Bona Loko:',
+      title: 'The 7 Core Moral Values',
+      subtitle: 'These seven values govern every design decision, interaction, and recommendation on Bona Loko:',
       inPractice: 'In Practice',
       v1_name: 'Faith',
       v1_quote: 'Faith in yourself is the first step towards any change. And faith in others is what allows us to walk together and transform individual effort into collective progress.',
@@ -278,18 +294,21 @@ const aboutTranslations = {
       v2_name: 'Gratitude',
       v2_quote: 'We believe that those who practice gratitude learn to see abundance even in simplicity, cultivating appreciation for the helping hands along the way.',
       v2_practice: 'Habit tracking is not built around perpetual inadequacy or toxic hustle. Reflection cycles center on recognizing progress and finding joy in the journey.',
-      v3_name: 'Integrity',
-      v3_quote: 'Integrity is not a definitive achievement, but rather built on small choices that seem irrelevant, but which added together shape character.',
-      v3_practice: 'Zero deceptive UX patterns, no artificial urgency, and absolute confidentiality over private self-reflections and journal notes.',
-      v4_name: 'Respect',
-      v4_quote: 'Where there is respect, difference is not a threat, but a learning experience. With respect we honor the dignity of each individual without distinction.',
-      v4_practice: 'The platform does not impose a single ideology, religious dogma, or standardized life blueprint. Each person’s cultural heritage is held with absolute dignity.',
-      v5_name: 'Empathy',
-      v5_quote: 'Empathy transforms judgment into listening and indifference into care, giving others the dignity of being understood.',
-      v5_practice: 'When users falter or break streaks, the system responds with compassionate understanding rather than punitive scores or guilt-inducing alerts.',
-      v6_name: 'Freedom',
-      v6_quote: 'Freedom is not the absence of rules, but rather the ability to create your own rules with responsibility.',
-      v6_practice: 'You own your schedule, priorities, and data. We provide the canvas; you define the priorities and direct your life intentionally.'
+      v3_name: 'Humility',
+      v3_quote: 'True integrity naturally takes root in humility: seeing ourselves honestly and gently as we genuinely are creates the foundation for authentic alignment between our inner thoughts and outer actions.',
+      v3_practice: 'Assessment and habit tracking are stripped of ego, vanity, and posturing. We celebrate small, honest steps over performative streaks, treating setbacks as quiet invitations to learn and adjust.',
+      v4_name: 'Integrity',
+      v4_quote: 'Integrity is not a definitive achievement, but rather built on small choices that seem irrelevant, but which added together shape character.',
+      v4_practice: 'Zero deceptive UX patterns, no artificial urgency, and absolute confidentiality over private self-reflections and journal notes.',
+      v5_name: 'Respect',
+      v5_quote: 'Where there is respect, difference is not a threat, but a learning experience. With respect we honor the dignity of each individual without distinction.',
+      v5_practice: 'The platform does not impose a single ideology, religious dogma, or standardized life blueprint. Each person’s cultural heritage is held with absolute dignity.',
+      v6_name: 'Empathy',
+      v6_quote: 'Empathy transforms judgment into listening and indifference into care, giving others the dignity of being understood.',
+      v6_practice: 'When users falter or break streaks, the system responds with compassionate understanding rather than punitive scores or guilt-inducing alerts.',
+      v7_name: 'Freedom',
+      v7_quote: 'Freedom is not the absence of rules, but rather the ability to create your own rules with responsibility.',
+      v7_practice: 'You own your schedule, priorities, and data. We provide the canvas; you define the priorities and direct your life intentionally.'
     },
     anatomy: {
       sectionBadge: 'Behavioral Architecture',
@@ -319,9 +338,9 @@ const aboutTranslations = {
       intro: 'Bona Loko ("Bom Lugar" em Esperanto) nasceu de uma convicção fundamental: a transformação pessoal exige uma mentalidade focada na incorruptibilidade, onde a dignidade humana e a atenção soberana sejam tratadas com o mais alto respeito.'
     },
     story: {
-      title: 'Por que o Rastreamento Convencional de Hábitos Falha',
-      p1: 'A maioria dos aplicativos de produtividade sofre de uma desconexão fatal: medem sequências diárias em total isolamento do que realmente importa na vida da pessoa. Completar dez hábitos arbitrários não significa viver a vida que você deseja.',
-      p2: 'Os aplicativos usam padrões obscuros, culpa por sequências perdidas e urgência artificial para manter os usuários dependentes. A Bona Loko rejeita isso totalmente. Acreditamos em compreender primeiro o que importa, medir onde a energia vai e fechar lacunas com serenidade.',
+      title: 'O Propósito da Bona Loko',
+      p1: 'O verdadeiro crescimento pessoal começa pela compreensão do que genuinamente importa na vida, em vez do cumprimento mecânico de tarefas arbitrárias. Mudanças duradouras acontecem quando as ações diárias refletem as intenções e os valores mais profundos.',
+      p2: 'A Bona Loko é fundamentada na incorruptibilidade, empatia e liberdade responsável. Priorizamos compreender primeiro o que importa, identificar para onde a energia realmente vai e fechar lacunas de prioridade com serenidade e compaixão.',
       quote: 'A transformação pessoal requer uma mentalidade focada na incorruptibilidade. Para ajudar as pessoas a descobrirem seu próprio equilíbrio de vida, a plataforma deve permanecer inabalável em seus valores e independente.',
       quoteAuthor: 'Constituição Moral da Plataforma (FOUNDATION.md)'
     },
@@ -336,8 +355,8 @@ const aboutTranslations = {
     },
     values: {
       sectionBadge: 'Pilares Fundamentais',
-      title: 'Os 6 Valores Morais Fundamentais',
-      subtitle: 'Esses seis valores governam cada decisão de design, interação e recomendação na Bona Loko:',
+      title: 'Os 7 Valores Morais Fundamentais',
+      subtitle: 'Esses sete valores governam cada decisão de design, interação e recomendação na Bona Loko:',
       inPractice: 'Na Prática',
       v1_name: 'Fé',
       v1_quote: 'A fé em si mesmo é o primeiro passo para qualquer mudança. E a fé nos outros é o que nos permite caminhar juntos e transformar o esforço individual em progresso coletivo.',
@@ -345,18 +364,21 @@ const aboutTranslations = {
       v2_name: 'Gratidão',
       v2_quote: 'Acreditamos que aqueles que praticam a gratidão aprendem a ver abundância até na simplicidade, cultivando apreço pelas mãos estendidas no caminho.',
       v2_practice: 'O rastreamento de hábitos não se baseia em sensação de insuficiência perpétua ou correria tóxica. Os ciclos de reflexão celebram o progresso e o caminho.',
-      v3_name: 'Integridade',
-      v3_quote: 'A integridade constrói-se em pequenas escolhas que parecem irrelevantes, mas que, somadas, moldam o caráter.',
-      v3_practice: 'Zero padrões obscuros, sem urgência artificial e com absoluta confidencialidade sobre reflexões pessoais.',
-      v4_name: 'Respeito',
-      v4_quote: 'Onde há respeito, a diferença não é ameaça, mas aprendizado. Com respeito honramos a dignidade de cada indivíduo sem distinção.',
-      v4_practice: 'Não impomos ideologias, dogmas religiosos ou moldes fechados. A história e a cultura de cada pessoa são tratadas com dignidade absoluta.',
-      v5_name: 'Empatia',
-      v5_quote: 'A empatia transforma o julgamento em escuta e a indiferença em cuidado, dando aos outros a dignidade de serem compreendidos.',
-      v5_practice: 'Quando o usuário enfrenta dificuldades ou quebra sequências, o sistema responde com acolhimento compreensivo em vez de punição.',
-      v6_name: 'Liberdade',
-      v6_quote: 'A liberdade não é a ausência de regras, mas a capacidade de criar suas próprias regras com responsabilidade.',
-      v6_practice: 'Você é dono do seu tempo e prioridades. Nós fornecemos a tela; você decide o caminho e dirige sua vida com autonomia.'
+      v3_name: 'Humildade',
+      v3_quote: 'A verdadeira integridade floresce a partir da humildade: enxergar a si mesmo com sinceridade e serenidade cria o alicerce para que sentimentos íntimos e conduta externa caminhem em harmonia autêntica.',
+      v3_practice: 'A autoavaliação e o rastreamento de hábitos são desprovidos de vaidade ou defesas do ego. Celebramos passos modestos e honestos em vez de sequências performáticas, acolhendo desvios como convites para aprender.',
+      v4_name: 'Integridade',
+      v4_quote: 'A integridade constrói-se em pequenas escolhas que parecem irrelevantes, mas que, somadas, moldam o caráter.',
+      v4_practice: 'Zero padrões obscuros, sem urgência artificial e com absoluta confidencialidade sobre reflexões pessoais.',
+      v5_name: 'Respeito',
+      v5_quote: 'Onde há respeito, a diferença não é ameaça, mas aprendizado. Com respeito honramos a dignidade de cada indivíduo sem distinção.',
+      v5_practice: 'Não impomos ideologias, dogmas religiosos ou moldes fechados. A história e a cultura de cada pessoa são tratadas com dignidade absoluta.',
+      v6_name: 'Empatia',
+      v6_quote: 'A empatia transforma o julgamento em escuta e a indiferença em cuidado, dando aos outros a dignidade de serem compreendidos.',
+      v6_practice: 'Quando o usuário enfrenta dificuldades ou quebra sequências, o sistema responde com acolhimento compreensivo em vez de punição.',
+      v7_name: 'Liberdade',
+      v7_quote: 'A liberdade não é a ausência de regras, mas a capacidade de criar suas próprias regras com responsabilidade.',
+      v7_practice: 'Você é dono do seu tempo e prioridades. Nós fornecemos a tela; você decide o caminho e dirige sua vida com autonomia.'
     },
     anatomy: {
       sectionBadge: 'Arquitetura Comportamental',
@@ -386,9 +408,9 @@ const aboutTranslations = {
       intro: 'Bona Loko ("Good Place" en Esperanto) naskiĝis el fundamenta kredo: persona transformado postulas pensmanieron fokusitan al nekoruptebleco, kie homa digno kaj suverena atento estas plene respektataj.'
     },
     story: {
-      title: 'Kial Tradicia Kutimspurigo Malsukcesas',
-      p1: 'Plej multaj produktivaj iloj suferas pro grava manko: ili mezuras sinsekvojn tute izolitaj de tio, kio vere gravas en la vivo de homo.',
-      p2: 'Aplikaĵoj uzas malhelajn ŝablonojn kaj kulpigon por kateni uzantojn. Bona Loko tute malakceptas tion. Ni kredas je kompreno de tio kio gravas unue kaj fermo de prioritataj breĉoj kun trankvilo.',
+      title: 'La Celo de Bona Loko',
+      p1: 'Vera persona kresko komenciĝas per kompreno de tio, kio vere gravas en la vivo, anstataŭ mekanika plenumo de arbitraj taskoj. Daŭraj ŝanĝoj okazas kiam ĉiutagaj agoj spegulas viajn plej profundajn intencojn kaj valorojn.',
+      p2: 'Bona Loko baziĝas sur nekoruptebleco, empatio kaj respondeca libereco. Ni prioritatigas komprenon de tio kio gravas unue, malkovron de kien energio fakte fluas, kaj fermon de prioritataj mankoj kun kvieta kompato.',
       quote: 'Persona transformado postulas pensmanieron fokusitan al nekoruptebleco. Por helpi homojn malkovri sian viv-ekvilibron, la platformo devas resti fidela al siaj valoroj kaj sendependa.',
       quoteAuthor: 'Morala Konstitucio (FOUNDATION.md)'
     },
@@ -403,8 +425,8 @@ const aboutTranslations = {
     },
     values: {
       sectionBadge: 'Fundamentaj Kolonoj',
-      title: 'La 6 Kernaj Moralaj Valoroj',
-      subtitle: 'Ĉi tiuj ses valoroj regas ĉiun dezajnan decidon kaj interagon en Bona Loko:',
+      title: 'La 7 Kernaj Moralaj Valoroj',
+      subtitle: 'Ĉi tiuj sep valoroj regas ĉiun dezajnan decidon kaj interagon en Bona Loko:',
       inPractice: 'En Praktiko',
       v1_name: 'Fido',
       v1_quote: 'Fido en si mem estas la unua paŝo al iu ajn ŝanĝo. Kaj fido en aliaj permesas al ni marŝi kune.',
@@ -412,18 +434,21 @@ const aboutTranslations = {
       v2_name: 'Dankemo',
       v2_quote: 'Tiuj, kiuj praktikas dankemon, lernas vidi abundon eĉ en simpleco, kultivante aprezon por la helpantaj manoj.',
       v2_practice: 'Kutimspurigo ne baziĝas sur sento de konstanta malkontento. Reflektaj cikloj festas la progreson kaj vojaĝon.',
-      v3_name: 'Integreco',
-      v3_quote: 'Integreco konstruiĝas per malgrandaj elektoj, kiuj ŝajnas negravaj, sed kiuj kune formas karakteron.',
-      v3_practice: 'Nul malhelaj ŝablonoj, neniu artefarita urĝo kaj strikta konfidenceco pri personaj pensoj.',
-      v4_name: 'Respekto',
-      v4_quote: 'Kie estas respekto, diferenco estas lernado. Kun respekto ni honoras la dignon de ĉiu individuo.',
-      v4_practice: 'Ni ne trudas ideologiojn aŭ religiajn dogmojn. La kultura fono de ĉiu persono estas traktata kun absoluta digno.',
-      v5_name: 'Empatio',
-      v5_quote: 'Empatio transformas juĝon en aŭskultadon kaj indiferentecon en zorgon, donante al aliaj la dignon esti komprenataj.',
-      v5_practice: 'Kiam uzanto renkontas malfacilaĵojn, la sistemo respondas kun kompato anstataŭ punaj poentaroj.',
-      v6_name: 'Libereco',
-      v6_quote: 'Libereco estas la kapablo krei viajn proprajn regulojn kun respondeco.',
-      v6_practice: 'Vi posedas vian tempon kaj prioritatojn. Ni provizas la tolon; vi elektas vian propran vojon.'
+      v3_name: 'Humileco',
+      v3_quote: 'Vera integreco nature floras el la humileco: vidi sin mem sincere kaj afable kreas la fundamenton por ke internaj pensoj kaj eksteraj agoj akordiĝu en profunda paco.',
+      v3_practice: 'Memtaksado kaj kutim-spurado estas liberaj de egoismo kaj afektado. Ni festas etajn, sincerajn paŝojn anstataŭ spektaklajn vicojn, traktante malsukcesojn kiel trankvilajn invitojn lerni kaj pliboniĝi.',
+      v4_name: 'Integreco',
+      v4_quote: 'Integreco konstruiĝas per malgrandaj elektoj, kiuj ŝajnas negravaj, sed kiuj kune formas karakteron.',
+      v4_practice: 'Nul malhelaj ŝablonoj, neniu artefarita urĝo kaj strikta konfidenceco pri personaj pensoj.',
+      v5_name: 'Respekto',
+      v5_quote: 'Kie estas respekto, diferenco estas lernado. Kun respekto ni honoras la dignon de ĉiu individuo.',
+      v5_practice: 'Ni ne trudas ideologiojn aŭ religiajn dogmojn. La kultura fono de ĉiu persono estas traktata kun absoluta digno.',
+      v6_name: 'Empatio',
+      v6_quote: 'Empatio transformas juĝon en aŭskultadon kaj indiferentecon en zorgon, donante al aliaj la dignon esti komprenataj.',
+      v6_practice: 'Kiam uzanto renkontas malfacilaĵojn, la sistemo respondas kun kompato anstataŭ punaj poentaroj.',
+      v7_name: 'Libereco',
+      v7_quote: 'Libereco estas la kapablo krei viajn proprajn regulojn kun respondeco.',
+      v7_practice: 'Vi posedas vian tempon kaj prioritatojn. Ni provizas la tolon; vi elektas vian propran vojon.'
     },
     anatomy: {
       sectionBadge: 'Konduta Arkitekturo',
@@ -568,7 +593,7 @@ a.quote-author:hover {
 /* Values Grid */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
 }
 

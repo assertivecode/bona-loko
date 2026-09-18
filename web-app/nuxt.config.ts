@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -6,11 +8,20 @@ export default defineNuxtConfig({
     appManifest: false
   },
   css: ['~/assets/css/main.css'],
+  vite: {
+    server: {
+      fs: {
+        allow: ['..']
+      }
+    }
+  },
   hooks: {
     'pages:extend'(pages) {
       const indexPage = pages.find(p => p.path === '/')
       const aboutPage = pages.find(p => p.path === '/about')
       const missionPage = pages.find(p => p.path === '/mission')
+      const slugPage = pages.find(p => p.path === '/:slug')
+      const slugFile = slugPage?.file || fileURLToPath(new URL('./pages/[slug].vue', import.meta.url))
 
       if (indexPage) {
         pages.push(
@@ -30,6 +41,12 @@ export default defineNuxtConfig({
           { name: 'mission-eo', path: '/eo/misio', file: missionPage.file }
         )
       }
+      // Dynamic Markdown Article Routes
+      pages.push(
+        { name: 'dimension-en', path: '/dimensions/:slug', file: slugFile },
+        { name: 'dimension-pt-br', path: '/pt-br/dimensoes/:slug', file: slugFile },
+        { name: 'dimension-eo', path: '/eo/dimensioj/:slug', file: slugFile }
+      )
     }
   },
   app: {

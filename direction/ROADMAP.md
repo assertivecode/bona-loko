@@ -22,7 +22,7 @@ flowchart LR
 **Objective**: Build the core assessment experience to capture the user's initial life profile across 12 areas.
 - **Deliverables**:
   - Definition and modeling of the 12 holistic life areas.
-  - Multi-dimensional assessment UI (Importance, Current Satisfaction, Current Time/Energy Investment, Desired Investment).
+  - Multi-dimensional assessment UI (Current Priority, Current Satisfaction, Current Time/Energy Investment, Desired Investment).
   - Wheel of Life balance visualization and baseline profile generation.
 - **Success Criteria**: A new user can complete an assessment in under 10 minutes and view a comprehensive baseline map of their life.
 
@@ -31,7 +31,7 @@ flowchart LR
 ### 🎯 Phase 2 — Priority Management (Intentional Gaps)
 **Objective**: Transform static assessment scores into actionable priorities and highlighted gaps.
 - **Deliverables**:
-  - Priority gap calculation engine (comparing Importance vs. Current Investment).
+  - Priority gap calculation engine (comparing Current Priority vs. Current Investment).
   - Explicit priority categorization (High, Medium, Low focus areas).
   - Desired investment target setting and intentional deprioritization choices.
 - **Success Criteria**: System automatically identifies top 3 priority gaps and generates personalized focal recommendations.

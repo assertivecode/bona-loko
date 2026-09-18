@@ -36,9 +36,9 @@ Inspired by the Wheel of Life, the platform evaluates existence across 12 holist
 ### 2. Multi-Dimensional Priority Model
 Rather than reducing life satisfaction to a simplistic 1-to-10 rating, each area is analyzed across five interconnected dimensions:
 
-$$\text{Importance} \longrightarrow \text{Current State} \longrightarrow \text{Current Investment} \longrightarrow \text{Desired Investment} \longrightarrow \text{Priority}$$
+$$\text{Current Priority} \longrightarrow \text{Current State} \longrightarrow \text{Current Investment} \longrightarrow \text{Desired Investment} \longrightarrow \text{Priority Gap}$$
 
-- **Importance**: How deeply does this area matter to you?
+- **Current Priority**: How much priority does this area hold in your current moment of life?
 - **Satisfaction**: How satisfied are you with its current state?
 - **Current Investment**: How much time and energy do you realistically spend on it?
 - **Desired Investment**: How much time and energy would you *like* to spend on it?
@@ -48,7 +48,18 @@ This model instantly highlights **Priority Gaps** — for example, where an area
 
 ---
 
-### 3. The 7-Step Transformation Engine
+### 3. The 7 Core Values (Moral Bedrock)
+
+All interactions, algorithms, and features are permanently guided by the 7 Core Values defined in [FOUNDATION.md](./FOUNDATION.md):
+
+$$\text{Faith} \longrightarrow \text{Gratitude} \longrightarrow \text{Humility} \longrightarrow \text{Integrity} \longrightarrow \text{Respect} \longrightarrow \text{Empathy} \longrightarrow \text{Freedom}$$
+
+- **Humility at Position #3**: *"True integrity naturally takes root in humility: seeing ourselves honestly and gently as we genuinely are creates the foundation for authentic alignment between our inner thoughts and outer actions."*
+- Humility is the gentle foundation for authentic integrity: it dismantles ego, allows honest assessment of current limitations, and replaces performative perfection with patient, steady progress.
+
+---
+
+### 4. The 7-Step Transformation Engine
 
 The platform moves users along a continuous, iterative personal growth cycle:
 
@@ -110,7 +121,7 @@ classDiagram
         +12 Standard Domains
     }
     class Priority {
-        +Importance vs Investment
+        +Current Priority vs Investment
         +Gap Identification
     }
     class Goal {
@@ -152,9 +163,10 @@ The project is developed across five strategic phases:
 
 ## 📂 Repository Navigation
 
-- **[Platform Foundation & Values](https://github.com/assertivecode/bona-loko/blob/main/FOUNDATION.md)**: Moral constitution, 6 core values, and non-negotiable independence rules.
+- **[Platform Foundation & Values](https://github.com/assertivecode/bona-loko/blob/main/FOUNDATION.md)**: Moral constitution, 7 core values, and non-negotiable independence rules.
 - **[Product Vision & Philosophy](./direction/VISION.md)**: In-depth vision, user personas, and domain invariants.
 - **[Strategic Roadmap](./direction/ROADMAP.md)**: Milestone breakdowns and deliverables.
 - **[Architecture Vision](./direction/ARCHITECTURE_VISION.md)**: Modular Monolith + CQRS technical design.
 - **[Agent Operating Manual](./AGENTS.md)**: Pair-programming instructions and prompt shortcuts.
-- **[Modular Skills Suite](./skills/README.md)**: Agentic knowledge packages and skill catalog.
+- **[Living Specifications (SDD)](./specs/README.md)**: Spec-Driven Development directory, domain models, and feature RFCs.
+- **[Modular Skills Suite](./.agents/skills/README.md)**: Agentic knowledge packages and skill catalog.

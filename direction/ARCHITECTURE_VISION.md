@@ -6,11 +6,11 @@ This document outlines the architectural principles, domain hierarchy, and syste
 
 ## 1. Conceptual Domain Hierarchy
 
-The architecture maintains an unbreakable chain of custody from overarching life purpose down to daily keystrokes and actions:
+The architecture maintains an unbreakable chain of custody from overarching life purpose and moral values down to daily keystrokes and actions:
 
 ```mermaid
 classDiagram
-    Life <|-- LifeArea : contains 12
+    CoreValues <|-- LifeArea : grounds
     LifeArea <|-- Priority : defines
     Priority <|-- Goal : establishes
     Goal <|-- Habit : translates to
@@ -18,9 +18,9 @@ classDiagram
     DailyAction <|-- Reflection : reviews
 ```
 
-$$\text{Life} \longrightarrow \text{12 Life Areas} \longrightarrow \text{Priorities} \longrightarrow \text{Goals / Changes} \longrightarrow \text{Habits} \longrightarrow \text{Daily Actions} \longrightarrow \text{Progress \& Reflection}$$
+$$\text{Core Values} \longrightarrow \text{12 Life Areas} \longrightarrow \text{Priorities} \longrightarrow \text{Goals / Changes} \longrightarrow \text{Habits} \longrightarrow \text{Daily Actions} \longrightarrow \text{Progress \& Reflection}$$
 
-Every entity in the system is rooted in this hierarchy. No habit may exist without an explicit reference to a Life Area and intended Priority impact.
+Every entity in the system is rooted in this hierarchy, anchored in the **7 Core Values** ([FOUNDATION.md](../FOUNDATION.md)) where **Humility** precedes **Integrity** as the indispensable prerequisite for authentic personal alignment. No habit may exist without an explicit reference to a Life Area and intended Priority impact.
 
 ---
 

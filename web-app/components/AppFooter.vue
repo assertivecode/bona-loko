@@ -126,7 +126,7 @@ const footerTranslations = {
       linkEngine: '7-Step Transformation Engine',
       foundationTitle: 'Core Values & Foundation',
       linkGuardrails: 'Inviolable Guardrails',
-      linkValues: '6 Core Values',
+      linkValues: '7 Core Values',
       linkPledge: 'Stewardship Pledge',
       linkFoundationDoc: 'Moral Constitution (FOUNDATION.md)',
       languageTitle: 'Languages',
@@ -134,7 +134,7 @@ const footerTranslations = {
       guardrailNote: 'Mentality Focused in Uncorruptibility: Strictly prohibited from political associations, corporate advertising, or commercial manipulation. 100% user sovereign.',
       initiative: 'Assertive Code Open Source Initiative',
       rightsNote: 'Released under open stewardship.',
-      stewardship: 'Faith • Gratitude • Integrity • Respect • Empathy • Freedom'
+      stewardship: 'Faith • Gratitude • Humility • Integrity • Respect • Empathy • Freedom'
     }
   },
   'pt-BR': {
@@ -150,7 +150,7 @@ const footerTranslations = {
       linkEngine: 'Motor de Transformação em 7 Passos',
       foundationTitle: 'Valores Fundamentais & Fundação',
       linkGuardrails: 'Guard rails Invioláveis',
-      linkValues: '6 Valores Fundamentais',
+      linkValues: '7 Valores Fundamentais',
       linkPledge: 'Compromisso de Mordomia',
       linkFoundationDoc: 'Constituição Moral (FOUNDATION.md)',
       languageTitle: 'Idiomas',
@@ -158,10 +158,10 @@ const footerTranslations = {
       guardrailNote: 'Mentalidade Focada na Incorruptibilidade: Estritamente proibido de associações políticas, anúncios corporativos ou manipulação comercial. 100% soberano do usuário.',
       initiative: 'Iniciativa Open Source Assertive Code',
       rightsNote: 'Sob custódia aberta.',
-      stewardship: 'Fé • Gratidão • Integridade • Respeito • Empatia • Liberdade'
+      stewardship: 'Fé • Gratidão • Humildade • Integridade • Respeito • Empatia • Liberdade'
     }
   },
-  eo: {
+  'eo': {
     footer: {
       tagline: 'Komprenu kio gravas. Foku vian atenton. Konstruu pli bonajn kutimojn. Formu la vivon kiun vi deziras.',
       esperantoTitle: 'Esperanta Deveno: "Good Place"',
@@ -174,7 +174,7 @@ const footerTranslations = {
       linkEngine: '7-Paŝa Transformada Motoro',
       foundationTitle: 'Kernaj Valoroj & Fondo',
       linkGuardrails: 'Netuŝeblaj Sekurbariloj',
-      linkValues: '6 Kernaj Valoroj',
+      linkValues: '7 Kernaj Valoroj',
       linkPledge: 'Diligenta Promeso',
       linkFoundationDoc: 'Morala Konstitucio (FOUNDATION.md)',
       languageTitle: 'Lingvoj',
@@ -182,7 +182,7 @@ const footerTranslations = {
       guardrailNote: 'Pensmaniero Fokusita al Nekoruptebleco: Strikte malpermesita de politikaj rilatoj, kompaniaj reklamoj aŭ komerca manipulado. 100% uzanta suvereneco.',
       initiative: 'Malfermfonta Iniciato de Assertive Code',
       rightsNote: 'Eldonita sub malferma kuratoreco.',
-      stewardship: 'Fido • Dankemo • Integreco • Respekto • Empatio • Libereco'
+      stewardship: 'Fido • Dankemo • Humileco • Integreco • Respekto • Empatio • Libereco'
     }
   }
 }
