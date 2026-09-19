@@ -1,0 +1,362 @@
+[
+  {
+    "path": "/dimensions/career-and-professional-calling",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/contribution-and-legacy",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/family-and-parenting",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/finances-and-wealth",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/focus-and-attention-mastery",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/friendships-and-community",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/health-and-physical-fitness",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/mental-and-emotional-wellbeing",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/personal-growth-and-learning",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/physical-environment-and-spaces",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/recreation-hobbies-and-play",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/dimensions/relationships-and-intimacy",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/consistent-sleep-and-evening-transition",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/daily-family-connection-ritual",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/daily-guilt-free-micro-leisure",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/daily-protected-reading",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/mindful-daily-expense-tracking",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/morning-screen-free-window",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/nurture-of-gratitude",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/weekly-personal-outreach",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/ambiente-fisico-e-espacos",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/amizades-e-comunidade",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/bem-estar-mental-e-emocional",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/carreira-e-vocacao-profissional",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/contribuicao-e-legado",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/crescimento-pessoal-e-aprendizado",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/dominio-do-foco-e-atencao",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/familia-e-parentalidade",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/financas-e-prosperidade",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/recreacao-hobbies-e-lazer",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/relacionamentos-e-intimidade",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/dimensoes/saude-e-condicionamento-fisico",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/contato-pessoal-semanal",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/cultivo-da-gratidao",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/janela-matinal-livre-de-telas",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/leitura-diaria-protegida",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/microlazer-diario-sem-culpa",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/registro-consciente-de-despesas-diarias",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/ritual-diario-de-conexao-familiar",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/sono-consistente-e-transicao-noturna",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/amikecoj-kaj-komunumo",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/distrado-satokupoj-kaj-ludo",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/familio-kaj-gepatreco",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/financoj-kaj-rico",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/fizika-medio-kaj-spacoj",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/kariero-kaj-profesia-vokigo",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/kontribuo-kaj-heredajo",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/majstreco-pri-atento-kaj-fokuso",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/mensa-kaj-emocia-bonfarto",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/persona-kresko-kaj-lernado",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/rilatoj-kaj-intimeco",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/dimensioj/sano-kaj-fizika-taugeco",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/ciutaga-familia-rilata-rito",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/ciutaga-protektita-legado",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/ciutaga-senkulpa-mikro-libertempo",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/konscia-ciutaga-elspez-spurado",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/konsekvenca-dormo-kaj-vespera-transiro",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/kultivado-de-dankemo",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/matena-senekrana-fenestro",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/semajna-persona-kontakto",
+    "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  }
+]

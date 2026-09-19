@@ -1,4 +1,11 @@
 import { fileURLToPath } from 'node:url'
+import { createRequire } from 'node:module'
+
+const require = createRequire(import.meta.url)
+const { syncContentRoutes } = require('./scripts/sync-content-routes.cjs')
+
+// Pre-synchronize content routes for sitemap and server routes
+syncContentRoutes(fileURLToPath(new URL('.', import.meta.url)))
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -6,6 +13,16 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   experimental: {
     appManifest: false
+  },
+  nitro: {
+    preset: process.env.NITRO_PRESET || 'cloudflare-pages'
+  },
+  runtimeConfig: {
+    siteUrl: process.env.SITE_URL || 'https://bonaloko.com',
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://bonaloko.com',
+      gaMeasurementId: process.env.NUXT_PUBLIC_GA_MEASUREMENT_ID || ''
+    }
   },
   css: ['~/assets/css/main.css'],
   vite: {

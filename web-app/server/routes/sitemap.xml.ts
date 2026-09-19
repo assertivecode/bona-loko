@@ -1,52 +1,32 @@
-import fs from 'node:fs'
-import path from 'node:path'
 import { defineEventHandler, setHeader } from 'h3'
-
-// Helper to strip quotes from YAML value strings
-function stripQuotes(val: string): string {
-  const trimmed = val.trim()
-  if (
-    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
-    (trimmed.startsWith("'") && trimmed.endsWith("'"))
-  ) {
-    return trimmed.slice(1, -1)
-  }
-  return trimmed
-}
-
-// Light YAML frontmatter parser handling primitives
-function parseFrontmatter(rawContent: string): Record<string, any> {
-  const frontmatterRegex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/
-  const match = rawContent.match(frontmatterRegex)
-  if (!match) return {}
-
-  const yamlBlock = match[1]
-  const meta: Record<string, any> = {}
-  const lines = yamlBlock.split(/\r?\n/)
-
-  for (const line of lines) {
-    if (!line.trim() || line.trim().startsWith('#')) continue
-    const topKeyMatch = line.match(/^([a-zA-Z0-9_-]+):\s*(.*)$/)
-    if (topKeyMatch) {
-      const k = topKeyMatch[1].trim()
-      const v = topKeyMatch[2].trim()
-      if (v !== '') {
-        meta[k] = stripQuotes(v)
-      }
-    }
-  }
-
-  return meta
-}
+import contentRoutes from '../content-routes.json'
 
 export default defineEventHandler((event) => {
   // Set XML response header
   setHeader(event, 'content-type', 'application/xml; charset=utf-8')
 
-  // Base URL determination: use request host or fallback to production URL
-  const host = event.node.req.headers.host || 'bonaloko.com'
-  const protocol = event.node.req.headers['x-forwarded-proto'] || (host.includes('localhost') ? 'http' : 'https')
-  const baseUrl = `${protocol}://${host}`
+  // Access Cloudflare Pages environment (runtime variables) and Nuxt runtimeConfig
+  const cfEnv = ((event.context as any).cloudflare?.env || {}) as Record<string, any>
+  const config = useRuntimeConfig()
+
+  // Base URL determination: Cloudflare runtime env -> Node process.env -> runtimeConfig -> request host fallback
+  let baseUrl =
+    cfEnv.SITE_URL ||
+    cfEnv.NUXT_PUBLIC_SITE_URL ||
+    process.env.SITE_URL ||
+    process.env.NUXT_PUBLIC_SITE_URL ||
+    (config.public as any)?.siteUrl ||
+    (config as any)?.siteUrl
+
+  if (!baseUrl) {
+    const host = event.node?.req?.headers?.host || 'bonaloko.com'
+    const protocol =
+      event.node?.req?.headers?.['x-forwarded-proto'] ||
+      (host.includes('localhost') ? 'http' : 'https')
+    baseUrl = `${protocol}://${host}`
+  }
+
+  baseUrl = baseUrl.replace(/\/+$/, '')
 
   const now = new Date().toISOString()
 
@@ -89,68 +69,18 @@ export default defineEventHandler((event) => {
   addUrl('/pt-br/missao', '0.8', 'weekly')
   addUrl('/eo/misio', '0.8', 'weekly')
 
-  // 2. Discover articles dynamically from ./content directory for all 3 languages
-  try {
-    // Resolve content directory relative to project root or current working dir
-    const possibleContentRoots = [
-      path.resolve(process.cwd(), 'content'),
-      path.resolve(process.cwd(), '../content'),
-      path.resolve(process.cwd(), '../../content')
-    ]
-
-    const contentRoot = possibleContentRoots.find((p) => fs.existsSync(p))
-
-    if (contentRoot) {
-      const locales = [
-        { folder: 'en-us', prefix: '' },
-        { folder: 'pt-br', prefix: '/pt-br' },
-        { folder: 'eo', prefix: '/eo' }
-      ]
-
-      for (const loc of locales) {
-        const localeDir = path.join(contentRoot, loc.folder)
-        if (!fs.existsSync(localeDir)) continue
-
-        const entries = fs.readdirSync(localeDir, { withFileTypes: true })
-        for (const entry of entries) {
-          if (entry.isDirectory()) {
-            const collectionDir = path.join(localeDir, entry.name)
-            const collectionName = entry.name
-            const articleFiles = fs.readdirSync(collectionDir, { withFileTypes: true })
-
-            for (const file of articleFiles) {
-              if (file.isFile() && file.name.endsWith('.md')) {
-                const fullPath = path.join(collectionDir, file.name)
-                const content = fs.readFileSync(fullPath, 'utf-8')
-                const frontmatter = parseFrontmatter(content)
-                const slug = frontmatter.slug || file.name.replace(/\.md$/, '')
-                const routePath = `${loc.prefix}/${collectionName}/${slug}`
-
-                let lastMod = now
-                if (frontmatter.last_updated) {
-                  try {
-                    lastMod = new Date(frontmatter.last_updated).toISOString()
-                  } catch {
-                    lastMod = now
-                  }
-                } else {
-                  try {
-                    const stats = fs.statSync(fullPath)
-                    lastMod = stats.mtime.toISOString()
-                  } catch {
-                    lastMod = now
-                  }
-                }
-
-                addUrl(routePath, '0.8', 'weekly', lastMod)
-              }
-            }
-          }
-        }
+  // 2. Dynamic Content Articles pre-bundled from content-routes.json
+  // (Works natively in Cloudflare Workers with 0 runtime fs dependencies)
+  for (const item of contentRoutes) {
+    let lastMod = now
+    if (item.lastmod) {
+      try {
+        lastMod = new Date(item.lastmod).toISOString()
+      } catch {
+        lastMod = now
       }
     }
-  } catch (err) {
-    console.error('Error generating dynamic sitemap from content:', err)
+    addUrl(item.path, item.priority || '0.8', item.changefreq || 'weekly', lastMod)
   }
 
   // 3. Build standard XML Sitemap
@@ -170,3 +100,4 @@ ${urlEntries
 
   return sitemapXml
 })
+
