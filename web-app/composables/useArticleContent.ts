@@ -215,6 +215,38 @@ export function useAllArticles() {
   }
 }
 
+const HABIT_ORDER = [
+  'habit_consistent_sleep_evening_transition',
+  'habit_morning_screen_free_window',
+  'habit_nurture_of_gratitude',
+  'habit_daily_protected_reading',
+  'habit_mindful_daily_expense_tracking',
+  'habit_daily_family_connection_ritual',
+  'habit_weekly_personal_outreach',
+  'habit_daily_guilt_free_micro_leisure'
+]
+
+/**
+ * Returns all suggested habit articles for a given locale, in canonical order
+ */
+export function getSuggestedHabits(locale: Locale): ArticleRecord[] {
+  initializeContentRegistry()
+  const habitArticles = articles.filter(a =>
+    a.locale === locale &&
+    (a.collection === 'suggested-habits' || a.collection === 'habitos-sugeridos' || a.collection === 'sugestitaj-kutimoj' || a.id.startsWith('habit_'))
+  )
+
+  return habitArticles.sort((a, b) => {
+    const idxA = HABIT_ORDER.indexOf(a.id)
+    const idxB = HABIT_ORDER.indexOf(b.id)
+    if (idxA !== -1 && idxB !== -1) return idxA - idxB
+    if (idxA !== -1) return -1
+    if (idxB !== -1) return 1
+    return (a.frontmatter.title || '').localeCompare(b.frontmatter.title || '')
+  })
+}
+
+
 /**
  * Finds an article record matching a route slug and active locale
  */

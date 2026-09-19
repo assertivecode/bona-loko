@@ -9,8 +9,9 @@ summary: "A foundational guide to nurturing generational kinship bonds, loving p
 tags:
   - family-life
   - parenting
+  - raising-children
+  - family-routines
   - parental-presence
-  - generational-bonds
   - family-traditions
 pillars:
   - emoji: "👨‍👩‍👧"

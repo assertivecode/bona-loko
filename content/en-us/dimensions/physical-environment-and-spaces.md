@@ -8,9 +8,10 @@ last_updated: "2026-09-17"
 summary: "A foundational guide to cultivating intentional home havens, organized workspaces, calm visual order, and sensory harmony through sustainable environmental habit architecture."
 tags:
   - physical-environment
-  - home-organization
-  - workspace-design
   - decluttering
+  - home-organization
+  - minimalism
+  - workspace-design
   - restful-spaces
 pillars:
   - emoji: "🏡"

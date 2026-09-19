@@ -8,10 +8,11 @@ last_updated: "2026-09-17"
 summary: "Fundamenta gvidilo por kultivi mem-direktatan majstrecon, intelektan scivolemon, disciplinitan memreflekton kaj karakteran disvolviĝon per intenca kutim-arkitekturo."
 tags:
   - persona-kresko
+  - mem-plibonigo
   - kontinua-lernado
   - profunda-legado
   - intenca-ekzercado
-  - karakter-evoluo
+  - pensmaniero
 pillars:
   - emoji: "📖"
     title: "Mem-Direktata Studo"

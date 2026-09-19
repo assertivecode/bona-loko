@@ -9,9 +9,10 @@ summary: "Um guia fundamental para cultivar soberania financeira, mordomia consc
 tags:
   - financas-pessoais
   - liberdade-financeira
-  - consumo-consciente
-  - vida-sem-dividas
   - construcao-de-patrimonio
+  - vida-sem-dividas
+  - consumo-consciente
+  - reserva-de-emergencia
 pillars:
   - emoji: "🧭"
     title: "Mordomia Consciente"

@@ -8,9 +8,10 @@ last_updated: "2026-09-17"
 summary: "Fundamenta gvidilo por kultivi trankvilajn hejmajn sanktejojn, bone ordigitajn laborlokojn, vidan serenecon kaj sensan harmonion per daŭripova kutim-arkitekturo de spacoj."
 tags:
   - fizika-medio
-  - hejma-organizado
-  - laborspaca-dezajno
   - malord-forigo
+  - hejma-organizado
+  - minimumismo
+  - laborspaca-dezajno
   - ripozaj-spacoj
 pillars:
   - emoji: "🏡"

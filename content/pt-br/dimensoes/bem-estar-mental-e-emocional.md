@@ -9,8 +9,9 @@ summary: "Um guia fundamental para cultivar serenidade interior, agilidade emoci
 tags:
   - bem-estar-emocional
   - mindfulness
-  - agilidade-emocional
+  - gestao-do-estresse
   - resiliencia-ao-estresse
+  - clareza-mental
   - calma-interior
 pillars:
   - emoji: "🧘"

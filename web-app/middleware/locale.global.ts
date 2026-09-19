@@ -13,15 +13,10 @@ export default defineNuxtRouteMiddleware((to) => {
   } else if (path.startsWith('/eo')) {
     detectedLocale = 'eo'
   } else {
-    // English default root routes ('/', '/about', '/mission', etc.)
-    // Check if the route is one of the registered English routes
-    const isEnglishRoute = Object.values(ROUTE_SLUGS).some(s => s['en-US'] === path)
-    if (isEnglishRoute) {
-      detectedLocale = 'en-US'
-    }
+    detectedLocale = 'en-US'
   }
 
-  if (detectedLocale && detectedLocale !== currentLocale.value) {
+  if (detectedLocale !== currentLocale.value) {
     setLocale(detectedLocale)
   }
 })

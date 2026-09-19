@@ -9,7 +9,8 @@ summary: "A foundational guide to cultivating deep romantic partnership, vulnera
 tags:
   - romantic-relationships
   - intimacy
-  - vulnerable-communication
+  - active-listening
+  - conflict-resolution
   - emotional-safety
   - mutual-trust
 pillars:

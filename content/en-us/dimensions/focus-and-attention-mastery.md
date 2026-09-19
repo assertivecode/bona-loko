@@ -9,9 +9,10 @@ summary: "A foundational guide to cultivating deliberate digital hygiene, deep c
 tags:
   - focus-mastery
   - deep-work
+  - digital-detox
+  - screen-boundaries
+  - productivity-habits
   - digital-hygiene
-  - cognitive-immersion
-  - solitude
 pillars:
   - emoji: "📵"
     title: "Digital Hygiene & Boundaries"

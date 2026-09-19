@@ -9,8 +9,9 @@ summary: "A foundational guide to cultivating deep social camaraderie, reciproca
 tags:
   - friendship-habits
   - community-building
-  - authentic-friendships
   - social-connection
+  - social-wellbeing
+  - authentic-friendships
   - belonging
 pillars:
   - emoji: "🤝"

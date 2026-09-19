@@ -32,6 +32,23 @@ This rule establishes the inviolable standard for respectful, humble, and non-pr
    - Speak as a respectful companion and humble guide, never an authoritarian judge.
    - Ground all teachings in compassion (Empathy), honoring individual dignity (Respect), and trusting in the human capacity for renewal and self-directed growth (Faith and Freedom).
 
+4. **Habit Autonomy & Zero Prerequisite Gatekeeping (No Dependency Models)**:
+   - **Every habit stands on its own merits**: Present each habit as an open, self-contained, welcoming invitation.
+   - **Zero Dependency Hierarchies**: Never author copy, models, or documentation framing habits through rigid dependency chains (e.g., avoid terms like *"Dependency Model ($Y \rightarrow X$)"*, *"Prerequisite Habits"*, *"Foundational vs. Progressive tiers"*, or *"To do X, it is recommended you first learn, understand, and practice Y"*).
+   - **No Gatekeeper Foundations**: Avoid labeling habits as mandatory "gatekeeper foundations" that users feel they must conquer before being allowed or able to explore other habits. Users must never feel they cannot start a habit simply because they haven't started another.
+   - **Total Reader Autonomy**: Readers possess complete freedom to begin with any habit that resonates with their current season of life, energy level, and personal priorities, in any sequence.
+   - **Affirmative Synergy**: When multiple habits in an area are discussed, describe them as *complementary allies* or *supportive practices* that enrich one another in whatever combination the user chooses.
+
+5. **Multi-Dimensional Habit Framing (Zero Single-Area Vinculation)**:
+   - **Never vinculate or restrict a suggested habit exclusively to one specific life area**: Habits naturally create holistic ripples across multiple dimensions of life simultaneously.
+   - For example, an evening transition and consistent sleep habit is not solely physical; it directly supports mental and emotional balance by regulating cortisol production, reducing stress, and restoring daytime focus. Similarly, daily reading fosters personal growth, attention mastery, emotional tranquility, and professional craft.
+   - Suggested habit articles must explicitly highlight these cross-cutting benefits and omit rigid single-area constraints (e.g., omit `area_index` in frontmatter for suggested habits and categorize them as cross-cutting suggested habits).
+
+6. **No Value Comparison or Superiority ("Humility before Integrity" Prohibited)**:
+   - Comparing one core value to another is strictly prohibited across all content, copy, and agent reasoning.
+   - Never use comparative phrases or slogans such as *"Humility before Integrity"*, *"Humility comes before Integrity"*, or declare that one value is superior, prior, or a prerequisite condition for another.
+   - Each virtue must be celebrated affirmatively on its own merits and in complementary, mutual harmony.
+
 ---
 
 ## Scope of Application

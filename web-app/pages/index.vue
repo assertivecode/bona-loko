@@ -293,13 +293,39 @@
             <div class="engine-icon">{{ step.icon }}</div>
             <h3>{{ t(`engine.step${index + 1}_title`) }}</h3>
             <p>{{ t(`engine.step${index + 1}_desc`) }}</p>
+            <a v-if="index === 3" href="#suggested-habits" class="step-link">
+              {{ t('engine.exploreHabits') }} →
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         6. FOCUS & DISTRACTION MASTERY
+         6. SUGGESTED KEYSTONE HABITS FRAMEWORK
+         ========================================================================= -->
+    <section id="suggested-habits" class="section section-cream">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-esperanto">
+            🌱 {{ t('habits.sectionBadge') }}
+          </div>
+          <h2>{{ t('habits.title') }}</h2>
+          <p>{{ t('habits.subtitle') }}</p>
+        </div>
+
+        <div class="habits-grid">
+          <SuggestedHabitCard
+            v-for="habit in suggestedHabits"
+            :key="habit.id"
+            :habit="habit"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. FOCUS & DISTRACTION MASTERY
          ========================================================================= -->
     <section class="section section-cream">
       <div class="container">
@@ -363,6 +389,9 @@
               <NuxtLink to="/about" class="btn btn-secondary btn-sm" style="width: 100%;">
                 {{ t('focus.learnHabitAnatomy') }}
               </NuxtLink>
+              <a href="#suggested-habits" class="btn btn-primary btn-sm" style="width: 100%; margin-top: 8px;">
+                {{ t('focus.viewSuggestedHabits') }} →
+              </a>
             </div>
           </div>
         </div>
@@ -537,7 +566,13 @@ const landingTranslations = {
       step6_title: '6. Reflect',
       step6_desc: 'Capture qualitative observations on friction, mood, and daily attention.',
       step7_title: '7. Adjust',
-      step7_desc: 'Realign priorities periodically as life seasons and circumstances evolve.'
+      step7_desc: 'Realign priorities periodically as life seasons and circumstances evolve.',
+      exploreHabits: 'Explore 7 Keystone Habits'
+    },
+    habits: {
+      sectionBadge: 'Habit Architecture',
+      title: 'Suggested Keystone Habits',
+      subtitle: 'Autonomous, multi-dimensional daily practices designed to close priority gaps across your life areas. Begin with any habit that calls to you — zero prerequisites required.'
     },
     focus: {
       badge: 'Attention Protection',
@@ -555,7 +590,8 @@ const landingTranslations = {
       nodePriority: 'Priority State',
       nodeHabit: 'Actionable Habit',
       nodeAction: '10 min mindful breathing when feeling overwhelmed before checking phone.',
-      learnHabitAnatomy: 'Explore Habit Anatomy in About →'
+      learnHabitAnatomy: 'Explore Habit Anatomy in About →',
+      viewSuggestedHabits: 'Explore Suggested Habits'
     },
     cta: {
       badge: 'Your Journey Awaits',
@@ -694,7 +730,13 @@ const landingTranslations = {
       step6_title: '6. Refletir',
       step6_desc: 'Registre notas qualitativas sobre atritos, energia e atenção diária.',
       step7_title: '7. Ajustar',
-      step7_desc: 'Realinhe prioridades conforme as estações e circunstâncias da vida mudam.'
+      step7_desc: 'Realinhe prioridades conforme as estações e circunstâncias da vida mudam.',
+      exploreHabits: 'Explorar 7 Hábitos Sugeridos'
+    },
+    habits: {
+      sectionBadge: 'Arquitetura de Hábitos',
+      title: 'Hábitos Sugeridos de Referência',
+      subtitle: 'Práticas diárias autônomas e multidimensionais para reduzir lacunas de prioridade nas suas áreas da vida. Comece por qualquer hábito que ressoe com o seu momento atual — sem pré-requisitos rígidos.'
     },
     focus: {
       badge: 'Proteção da Atenção',
@@ -712,7 +754,8 @@ const landingTranslations = {
       nodePriority: 'Estado de Prioridade',
       nodeHabit: 'Hábito Prático',
       nodeAction: '10 minutos de respiração consciente ao sentir sobrecarga antes de checar o celular.',
-      learnHabitAnatomy: 'Conheça a Anatomia do Hábito na página Sobre →'
+      learnHabitAnatomy: 'Conheça a Anatomia do Hábito na página Sobre →',
+      viewSuggestedHabits: 'Explorar Hábitos Sugeridos'
     },
     cta: {
       badge: 'Sua Jornada Começa Aqui',
@@ -851,7 +894,13 @@ const landingTranslations = {
       step6_title: '6. Reflekti',
       step6_desc: 'Kaptu kvalitajn notojn pri froto, humoro kaj ĉiutaga atento.',
       step7_title: '7. Alĝustigi',
-      step7_desc: 'Reakordigu prioritatojn laŭ la evoluo de vivaj cirkonstancoj.'
+      step7_desc: 'Reakordigu prioritatojn laŭ la evoluo de vivaj cirkonstancoj.',
+      exploreHabits: 'Esplori 7 Ŝlosilajn Kutimojn'
+    },
+    habits: {
+      sectionBadge: 'Kutima Arkitekturo',
+      title: 'Sugestitaj Ŝlosilaj Kutimoj',
+      subtitle: 'Aŭtonomaj, plurdimensiaj ĉiutagaj praktikoj por fermi prioritatajn mankojn en viaj vivfakoj. Komencu per iu ajn kutimo kiu alvokas vin — tute sen devigaj antaŭkondiĉoj.'
     },
     focus: {
       badge: 'Protektado de Atento',
@@ -869,7 +918,8 @@ const landingTranslations = {
       nodePriority: 'Prioritata Stato',
       nodeHabit: 'Agada Kutimo',
       nodeAction: '10 minutoj da konscia spirado kiam oni sentas streson antaŭ uzo de telefono.',
-      learnHabitAnatomy: 'Vidu la Kutiman Anatomion en Pri Ni →'
+      learnHabitAnatomy: 'Vidu la Kutiman Anatomion en Pri Ni →',
+      viewSuggestedHabits: 'Esplori Sugestitajn Kutimojn'
     },
     cta: {
       badge: 'Via Vojo Atendas',
@@ -882,8 +932,15 @@ const landingTranslations = {
   }
 }
 
-const { t } = useComponentI18n(landingTranslations)
+import { getSuggestedHabits } from '~/composables/useArticleContent'
+import SuggestedHabitCard from '~/components/SuggestedHabitCard.vue'
+
+const { t, currentLocale } = useComponentI18n(landingTranslations)
 const { localePath } = useLocalePath()
+
+const suggestedHabits = computed(() => {
+  return getSuggestedHabits(currentLocale.value)
+})
 
 useHead({
   title: computed(() => t('meta.title'))
@@ -1628,9 +1685,32 @@ const engineSteps = [
   font-weight: 600;
 }
 
+/* Suggested Habits Grid */
+.habits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.step-link {
+  display: inline-block;
+  margin-top: 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.step-link:hover {
+  text-decoration: underline;
+  transform: translateX(2px);
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  .habits-grid { grid-template-columns: repeat(2, 1fr); }
   .engine-steps-grid { grid-template-columns: repeat(2, 1fr); }
   .focus-layout { grid-template-columns: 1fr; }
   .widget-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1638,6 +1718,7 @@ const engineSteps = [
 
 @media (max-width: 640px) {
   .areas-grid { grid-template-columns: 1fr; }
+  .habits-grid { grid-template-columns: 1fr; }
   .engine-steps-grid { grid-template-columns: 1fr; }
   .widget-grid { grid-template-columns: 1fr; }
   .pipeline-container { flex-direction: column; align-items: stretch; }

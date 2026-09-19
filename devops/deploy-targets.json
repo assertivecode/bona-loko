@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "apps": {
+    "web-app": {
+      "name": "Web Application (Nuxt 3)",
+      "paths": [
+        "web-app/**",
+        "content/**"
+      ],
+      "tagPrefix": "web-app",
+      "versionFile": "web-app/package.json",
+      "deployTarget": "cloudflare-pages",
+      "cloudflareProject": "bona-loko"
+    }
+  },
+  "ignoredPaths": [
+    ".changeset/**",
+    ".github/**",
+    ".agents/**",
+    "specs/**",
+    "direction/**",
+    "devops/**",
+    "README.md",
+    "AGENTS.md",
+    "FOUNDATION.md",
+    "GEMINI.md",
+    ".gitignore",
+    "package.json"
+  ]
+}

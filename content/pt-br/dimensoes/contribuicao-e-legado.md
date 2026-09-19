@@ -8,9 +8,10 @@ last_updated: "2026-09-17"
 summary: "Um guia fundamental para cultivar serviço comunitário voluntário, mentoria generosa, filantropia consciente e impacto social duradouro através de hábitos sustentáveis."
 tags:
   - contribuicao-e-legado
+  - retribuicao
   - servico-comunitario
+  - impacto-social
   - mentoria
-  - filantropia
   - vida-com-proposito
 pillars:
   - emoji: "🤝"

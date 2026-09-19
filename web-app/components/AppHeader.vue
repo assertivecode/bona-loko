@@ -26,6 +26,9 @@
         <NuxtLink :to="localePath('mission')" class="nav-link" active-class="active">
           {{ t('nav.mission') }}
         </NuxtLink>
+        <NuxtLink :to="localePath('home') + '#suggested-habits'" class="nav-link">
+          {{ t('nav.habits') }}
+        </NuxtLink>
       </nav>
 
       <!-- Right Controls: Language Switcher, Layout Toggle, CTA -->
@@ -106,6 +109,9 @@
           <NuxtLink :to="localePath('mission')" class="mobile-nav-link" @click="isMobileMenuOpen = false">
             {{ t('nav.mission') }}
           </NuxtLink>
+          <NuxtLink :to="localePath('home') + '#suggested-habits'" class="mobile-nav-link" @click="isMobileMenuOpen = false">
+            {{ t('nav.habits') }}
+          </NuxtLink>
         </nav>
 
         <div class="mobile-drawer-footer">
@@ -150,6 +156,7 @@ const headerTranslations = {
       home: 'Home',
       about: 'About',
       mission: 'Mission & Values',
+      habits: 'Suggested Habits',
       cta: 'Explore Platform',
       toggleMenu: 'Toggle mobile menu'
     },
@@ -166,6 +173,7 @@ const headerTranslations = {
       home: 'Início',
       about: 'Sobre',
       mission: 'Missão & Valores',
+      habits: 'Hábitos Sugeridos',
       cta: 'Explorar Plataforma',
       toggleMenu: 'Alternar menu móvel'
     },
@@ -182,6 +190,7 @@ const headerTranslations = {
       home: 'Ĉefpaĝo',
       about: 'Pri Ni',
       mission: 'Misio & Valoroj',
+      habits: 'Sugestitaj Kutimoj',
       cta: 'Esplori Platformon',
       toggleMenu: 'Ŝalti poŝtelefonan menuon'
     },

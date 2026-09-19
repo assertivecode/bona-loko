@@ -9,9 +9,10 @@ summary: "A foundational guide to cultivating financial sovereignty, conscious s
 tags:
   - personal-finance
   - financial-freedom
-  - conscious-spending
-  - debt-freedom
   - wealth-building
+  - debt-freedom
+  - conscious-spending
+  - emergency-fund
 pillars:
   - emoji: "🧭"
     title: "Conscious Stewardship"

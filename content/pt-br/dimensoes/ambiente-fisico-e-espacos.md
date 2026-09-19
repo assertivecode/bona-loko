@@ -8,9 +8,10 @@ last_updated: "2026-09-17"
 summary: "Um guia fundamental para cultivar santuários domésticos acolhedores, postos de trabalho organizados, ordem visual serena e harmonia sensorial através do design sustentável de hábitos espaciais."
 tags:
   - ambiente-fisico
-  - organizacao-domestica
-  - design-do-espaco-de-trabalho
   - destralhe
+  - organizacao-domestica
+  - minimalismo
+  - design-do-espaco-de-trabalho
   - espacos-de-descanso
 pillars:
   - emoji: "🏡"

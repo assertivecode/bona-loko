@@ -9,8 +9,9 @@ summary: "Um guia fundamental para cultivar laços de parentesco intergeracionai
 tags:
   - vida-familiar
   - parentalidade
+  - criacao-de-filhos
+  - rotinas-familiares
   - presenca-dos-pais
-  - vinculos-geracionais
   - tradicoes-familiares
 pillars:
   - emoji: "👨‍👩‍👧"

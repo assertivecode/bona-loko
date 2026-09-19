@@ -1,0 +1,82 @@
+name: CD Release & Cloudflare Deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release-and-tag:
+    name: Process Changesets & Multi-Tag
+    runs-on: ubuntu-latest
+    outputs:
+      deploy_web_app: ${{ steps.release_step.outputs.deploy_web_app }}
+      web_app_version: ${{ steps.release_step.outputs.web_app_version }}
+      web_app_tag: ${{ steps.release_step.outputs.web_app_tag }}
+      released_apps: ${{ steps.release_step.outputs.released_apps }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Configure Git Identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run Release & Tagging
+        id: release_step
+        run: |
+          node devops/scripts/changeset-release.mjs
+
+      - name: Push Version Bumps & Cleanup to Main
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore(release): bump application versions and clean changesets [skip ci]"
+            git push origin main
+          else
+            echo "Working tree is clean. No version files or changesets were modified."
+          fi
+
+  deploy-web-app:
+    name: Deploy Web App to Cloudflare Pages
+    needs: release-and-tag
+    if: needs.release-and-tag.outputs.deploy_web_app == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: 'web-app/package-lock.json'
+
+      - name: Install Web App Dependencies
+        run: |
+          npm --prefix web-app ci
+
+      - name: Build Web App (Cloudflare Pages Nitro Preset)
+        env:
+          NITRO_PRESET: cloudflare-pages
+        run: |
+          npm --prefix web-app run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy web-app/dist --project-name=bona-loko --branch=main --commit-dirty=true

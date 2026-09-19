@@ -36,6 +36,7 @@
           <li><NuxtLink :to="localePath('mission')">{{ t('footer.linkMission') }}</NuxtLink></li>
           <li><a :href="localePath('home') + '#priority-model'">{{ t('footer.linkPriorityModel') }}</a></li>
           <li><a :href="localePath('home') + '#transformation-engine'">{{ t('footer.linkEngine') }}</a></li>
+          <li><a :href="localePath('home') + '#suggested-habits'">{{ t('footer.linkHabits') }}</a></li>
         </ul>
       </div>
 
@@ -124,6 +125,7 @@ const footerTranslations = {
       linkMission: 'Mission & Moral Constitution',
       linkPriorityModel: 'Priority Model',
       linkEngine: '7-Step Transformation Engine',
+      linkHabits: 'Suggested Habits',
       foundationTitle: 'Core Values & Foundation',
       linkGuardrails: 'Inviolable Guardrails',
       linkValues: '7 Core Values',
@@ -148,6 +150,7 @@ const footerTranslations = {
       linkMission: 'Missão & Constituição Moral',
       linkPriorityModel: 'Modelo de Prioridades',
       linkEngine: 'Motor de Transformação em 7 Passos',
+      linkHabits: 'Hábitos Sugeridos',
       foundationTitle: 'Valores Fundamentais & Fundação',
       linkGuardrails: 'Guard rails Invioláveis',
       linkValues: '7 Valores Fundamentais',
@@ -172,6 +175,7 @@ const footerTranslations = {
       linkMission: 'Misio & Morala Konstitucio',
       linkPriorityModel: 'Prioritata Modelo',
       linkEngine: '7-Paŝa Transformada Motoro',
+      linkHabits: 'Sugestitaj Kutimoj',
       foundationTitle: 'Kernaj Valoroj & Fondo',
       linkGuardrails: 'Netuŝeblaj Sekurbariloj',
       linkValues: '7 Kernaj Valoroj',

@@ -24,8 +24,9 @@ specs/
 │   └── habit-loop.spec.md              # Habit lifecycle, states, cadences, and mechanics
 ├── features/                           # Living Feature Specifications (RFC / PRD)
 │   ├── 001-landing-page/               # Landing page value prop, preview, and i18n
-│   │   └── spec.md
-│   └── ...                             # Future numbered features (e.g. 002-assessment)
+│   ├── 002-dimension-article-view/     # Dimension article dynamic view and routing
+│   ├── 003-monorepo-deployment-pipeline/ # Monorepo changeset and targeted deployment
+│   └── 004-suggested-habits-view/      # Suggested habits showcase and dynamic articles
 └── templates/                          # Reusable Spec Templates
     ├── feature-spec-template.md        # Feature specification scaffolding
     └── acceptance-criteria-template.md # Gherkin test scenarios scaffolding

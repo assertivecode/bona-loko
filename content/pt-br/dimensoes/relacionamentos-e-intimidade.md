@@ -9,7 +9,8 @@ summary: "Um guia fundamental para cultivar uma parceria amorosa profunda, comun
 tags:
   - relacionamentos-amorosos
   - intimidade
-  - comunicacao-vulneravel
+  - escuta-ativa
+  - resolucao-de-conflitos
   - seguranca-emocional
   - confianca-mutua
 pillars:

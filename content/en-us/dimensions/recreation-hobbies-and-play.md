@@ -9,8 +9,9 @@ summary: "A foundational guide to rediscovering spontaneous joy, non-productive 
 tags:
   - recreation-and-leisure
   - hobbies
+  - stress-relief
+  - unplugged-activities
   - creative-play
-  - spontaneous-joy
   - restorative-play
 pillars:
   - emoji: "🎨"

@@ -9,8 +9,9 @@ summary: "Fundamenta gvidilo por retrovi spontanan ĝojon, senprofitajn kreivajn
 tags:
   - distrado-kaj-ripozo
   - satokupoj
+  - stres-malpezigo
+  - senkonektaj-agadoj
   - krea-ludo
-  - spontanea-gojo
   - restaura-ludo
 pillars:
   - emoji: "🎨"

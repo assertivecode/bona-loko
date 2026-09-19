@@ -9,9 +9,10 @@ summary: "Um guia fundamental para cultivar higiene digital intencional, imersã
 tags:
   - dominio-do-foco
   - trabalho-focado
+  - detox-digital
+  - limites-de-tela
+  - habitos-de-produtividade
   - higiene-digital
-  - imersao-cognitiva
-  - solitude
 pillars:
   - emoji: "📵"
     title: "Higiene Digital & Limites"

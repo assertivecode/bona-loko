@@ -9,8 +9,9 @@ summary: "Um guia fundamental para cultivar amizades profundas, lealdade recípr
 tags:
   - habitos-de-amizade
   - construcao-de-comunidade
-  - amizades-autenticas
   - conexao-social
+  - bem-estar-social
+  - amizades-autenticas
   - pertencimento
 pillars:
   - emoji: "🤝"

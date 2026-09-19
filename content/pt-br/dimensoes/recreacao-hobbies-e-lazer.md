@@ -9,8 +9,9 @@ summary: "Um guia fundamental para resgatar a alegria espontânea, práticas cri
 tags:
   - recreacao-e-lazer
   - hobbies
+  - alivio-do-estresse
+  - atividades-desconectadas
   - jogo-criativo
-  - alegria-espontanea
   - brincadeira-restauradora
 pillars:
   - emoji: "🎨"
