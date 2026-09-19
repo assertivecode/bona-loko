@@ -13,5 +13,6 @@ web-app/dist/
 # Environment & OS files
 .env
 .env.*
+!.env.example
 .DS_Store
 *.log
