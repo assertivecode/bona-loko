@@ -8,9 +8,10 @@ last_updated: "2026-09-17"
 summary: "A foundational guide to cultivating community service, selfless mentorship, philanthropic generosity, and enduring societal impact through sustainable habit architecture."
 tags:
   - contribution-and-legacy
+  - giving-back
   - community-service
+  - social-impact
   - mentorship
-  - philanthropy
   - purposeful-living
 pillars:
   - emoji: "🤝"

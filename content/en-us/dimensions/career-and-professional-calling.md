@@ -8,10 +8,11 @@ last_updated: "2026-09-17"
 summary: "A foundational guide to cultivating meaningful vocational impact, craft mastery, unshakeable professional integrity, and sustainable mission alignment through intentional habit architecture."
 tags:
   - career-development
-  - professional-calling
+  - work-life-balance
   - meaningful-work
-  - craft-mastery
+  - professional-calling
   - work-boundaries
+  - vocational-purpose
 pillars:
   - emoji: "🎯"
     title: "Vocational Calling"

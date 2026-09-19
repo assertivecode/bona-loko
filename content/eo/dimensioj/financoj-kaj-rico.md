@@ -9,9 +9,10 @@ summary: "Fundamenta gvidilo por kultivi financan suverenecon, konscian mastruma
 tags:
   - personaj-financoj
   - financa-libereco
-  - konscia-elspezo
-  - sen-sulda-vivo
   - ric-konstruado
+  - sen-sulda-vivo
+  - konscia-elspezo
+  - kriza-fondaĵo
 pillars:
   - emoji: "🧭"
     title: "Konscia Mastrumado"

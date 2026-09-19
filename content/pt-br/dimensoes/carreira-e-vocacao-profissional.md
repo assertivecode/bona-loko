@@ -8,10 +8,11 @@ last_updated: "2026-09-17"
 summary: "Um guia fundamental para cultivar impacto vocacional com propósito, maestria técnica, integridade profissional inabalável e alinhamento sustentável através do design intencional de hábitos."
 tags:
   - desenvolvimento-de-carreira
-  - vocacao-profissional
+  - equilibrio-trabalho-vida
   - trabalho-com-significado
-  - maestria
+  - vocacao-profissional
   - limites-profissionais
+  - proposito-vocacional
 pillars:
   - emoji: "🎯"
     title: "Vocação com Propósito"

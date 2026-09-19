@@ -9,8 +9,9 @@ summary: "Fundamenta gvidilo por kultivi internan trankvilon, emocian lertecon, 
 tags:
   - emocia-bonfarto
   - atenteco
-  - emocia-lerteco
+  - stres-administrado
   - stres-rezisteco
+  - mensa-klareco
   - interna-trankvilo
 pillars:
   - emoji: "🧘"

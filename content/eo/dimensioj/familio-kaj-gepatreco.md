@@ -9,8 +9,9 @@ summary: "Fundamenta gvidilo por nutri transgeneraciajn familiajn ligojn, ameman
 tags:
   - familia-vivo
   - gepatreco
+  - infan-edukado
+  - familiaj-rutinoj
   - gepatra-ceesto
-  - generaciaj-ligoj
   - familiaj-tradicioj
 pillars:
   - emoji: "👨‍👩‍👧"

@@ -8,10 +8,11 @@ last_updated: "2026-09-17"
 summary: "A foundational guide to cultivating self-directed mastery, intellectual curiosity, disciplined reflection, and character development through intentional habit architecture."
 tags:
   - personal-growth
+  - self-improvement
   - continuous-learning
   - deep-reading
   - deliberate-practice
-  - character-development
+  - mindset
 pillars:
   - emoji: "📖"
     title: "Self-Directed Study"

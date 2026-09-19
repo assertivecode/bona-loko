@@ -1,0 +1,13 @@
+{
+  "name": "bona-loko-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "changeset": "node devops/scripts/changeset-create.mjs",
+    "changeset:validate": "node devops/scripts/changeset-validate.mjs",
+    "test:release": "node devops/scripts/test-changeset-pipeline.mjs",
+    "build:web-app": "npm --prefix web-app run build",
+    "generate:web-app": "npm --prefix web-app run generate"
+  }
+}

@@ -9,7 +9,8 @@ summary: "Fundamenta gvidilo por kultivi profundan ampartnerecon, vundeblan komu
 tags:
   - am-rilatoj
   - intimeco
-  - vundebla-komunikado
+  - aktiva-auskultado
+  - konflikt-solvado
   - emocia-sekureco
   - reciproka-fido
 pillars:

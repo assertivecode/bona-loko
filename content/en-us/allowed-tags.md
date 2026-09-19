@@ -19,6 +19,8 @@ This registry defines the approved Search Engine Optimization (SEO) tags for Eng
 - `personal-freedom`
 - `self-reflection`
 - `daily-routines`
+- `self-improvement`
+- `time-management`
 
 ---
 
@@ -34,6 +36,7 @@ This registry defines the approved Search Engine Optimization (SEO) tags for Eng
 - `biological-resilience`
 - `energy-management`
 - `vitality`
+- `sleep-hygiene`
 
 ---
 
@@ -49,6 +52,7 @@ This registry defines the approved Search Engine Optimization (SEO) tags for Eng
 - `self-compassion`
 - `presence`
 - `cognitive-grounding`
+- `stress-management`
 
 ---
 
@@ -79,6 +83,7 @@ This registry defines the approved Search Engine Optimization (SEO) tags for Eng
 - `work-boundaries`
 - `workplace-craft`
 - `purpose-driven-career`
+- `work-life-balance`
 
 ---
 
@@ -169,6 +174,7 @@ This registry defines the approved Search Engine Optimization (SEO) tags for Eng
 - `childlike-wonder`
 - `unplugged-activities`
 - `artistic-expression`
+- `stress-relief`
 
 ---
 
@@ -184,6 +190,7 @@ This registry defines the approved Search Engine Optimization (SEO) tags for Eng
 - `mind-wandering`
 - `solitude`
 - `mental-focus`
+- `productivity-habits`
 
 ---
 

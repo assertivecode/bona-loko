@@ -8,8 +8,9 @@ last_updated: "2026-09-17"
 summary: "Um guia fundamental para cultivar vitalidade sustentável, sono restaurador, movimento funcional e resiliência biológica através do design intencional de hábitos."
 tags:
   - saude-fisica
-  - habitos-de-treino
   - sono-restaurador
+  - habitos-de-treino
+  - higiene-do-sono
   - movimento-funcional
   - vitalidade
 pillars:

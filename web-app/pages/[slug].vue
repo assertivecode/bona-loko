@@ -11,8 +11,8 @@
           </li>
           <li class="breadcrumb-separator" aria-hidden="true">/</li>
           <li class="breadcrumb-item">
-            <NuxtLink :to="localePath('home') + '#life-areas'">
-              {{ t('breadcrumb.areas') }}
+            <NuxtLink :to="localePath('home') + (isHabit ? '#suggested-habits' : '#life-areas')">
+              {{ isHabit ? t('breadcrumb.habits') : t('breadcrumb.areas') }}
             </NuxtLink>
           </li>
           <li class="breadcrumb-separator" aria-hidden="true">/</li>
@@ -140,7 +140,7 @@
             <div v-if="pillars.length > 0" class="sidebar-widget card pillars-widget">
               <div class="widget-header">
                 <span class="widget-icon">🧬</span>
-                <h3>{{ t('pillars_widget.title') }}</h3>
+                <h3>{{ isHabit ? t('pillars_widget.habitTitle') : t('pillars_widget.title') }}</h3>
               </div>
               <ul class="pillars-mini-list">
                 <li v-for="(pillar, idx) in pillars" :key="idx">
@@ -176,13 +176,13 @@
       <div class="container container-wide">
         <div class="footer-nav-card card">
           <div class="footer-nav-lead">
-            <span class="footer-badge">🌟 {{ t('footer_nav.badge') }}</span>
-            <h2>{{ t('footer_nav.title') }}</h2>
-            <p>{{ t('footer_nav.desc') }}</p>
+            <span class="footer-badge">🌟 {{ isHabit ? t('footer_nav.habitBadge') : t('footer_nav.badge') }}</span>
+            <h2>{{ isHabit ? t('footer_nav.habitTitle') : t('footer_nav.title') }}</h2>
+            <p>{{ isHabit ? t('footer_nav.habitDesc') : t('footer_nav.desc') }}</p>
           </div>
           <div class="footer-nav-actions">
-            <NuxtLink :to="localePath('home') + '#life-areas'" class="btn btn-primary btn-lg">
-              <span>← {{ t('back_to_areas') }}</span>
+            <NuxtLink :to="localePath('home') + (isHabit ? '#suggested-habits' : '#life-areas')" class="btn btn-primary btn-lg">
+              <span>← {{ isHabit ? t('back_to_habits') : t('back_to_areas') }}</span>
             </NuxtLink>
             <NuxtLink :to="localePath('mission')" class="btn btn-outline btn-lg">
               <span>{{ t('explore_mission') }} →</span>
@@ -220,7 +220,8 @@ const dimensionTranslations = {
     },
     breadcrumb: {
       home: 'Home',
-      areas: 'Life Areas'
+      areas: 'Life Areas',
+      habits: 'Suggested Habits'
     },
     reading_time: '8 min read',
     last_updated: 'Updated',
@@ -230,13 +231,15 @@ const dimensionTranslations = {
     copy_link: 'Copy Link',
     link_copied: 'Copied!',
     back_to_areas: 'All 12 Life Areas',
+    back_to_habits: 'All 7 Suggested Habits',
     explore_mission: 'Platform Mission & Values',
     toc: {
       title: 'Table of Contents',
       sections: 'sections'
     },
     pillars_widget: {
-      title: 'The Vitality Pillars'
+      title: 'The Vitality Pillars',
+      habitTitle: 'Core Habit Principles'
     },
     values_widget: {
       title: 'Grounded in Core Values',
@@ -246,7 +249,10 @@ const dimensionTranslations = {
     footer_nav: {
       badge: 'Holistic Balance',
       title: 'Continue Exploring Your Life Architecture',
-      desc: 'Discover all 12 interconnected life areas to diagnose your priority gaps and establish keystone daily habits.'
+      desc: 'Discover all 12 interconnected life areas to diagnose your priority gaps and establish keystone daily habits.',
+      habitBadge: 'Daily Consistency',
+      habitTitle: 'Explore More Keystone Habits',
+      habitDesc: 'Discover actionable, multi-dimensional daily practices designed to build life balance without guilt or burnout.'
     }
   },
   'pt-BR': {
@@ -259,7 +265,8 @@ const dimensionTranslations = {
     },
     breadcrumb: {
       home: 'Início',
-      areas: 'Áreas da Vida'
+      areas: 'Áreas da Vida',
+      habits: 'Hábitos Sugeridos'
     },
     reading_time: '8 min de leitura',
     last_updated: 'Atualizado em',
@@ -269,13 +276,15 @@ const dimensionTranslations = {
     copy_link: 'Copiar Link',
     link_copied: 'Copiado!',
     back_to_areas: 'Todas as 12 Áreas',
+    back_to_habits: 'Todos os 7 Hábitos',
     explore_mission: 'Missão e Valores',
     toc: {
       title: 'Sumário do Guia',
       sections: 'seções'
     },
     pillars_widget: {
-      title: 'Os Pilares da Vitalidade'
+      title: 'Os Pilares da Vitalidade',
+      habitTitle: 'Princípios do Hábito'
     },
     values_widget: {
       title: 'Ancorado em Valores',
@@ -285,7 +294,10 @@ const dimensionTranslations = {
     footer_nav: {
       badge: 'Equilíbrio Holístico',
       title: 'Continue Explorando Sua Arquitetura de Vida',
-      desc: 'Descubra todas as 12 áreas conectadas para diagnosticar suas lacunas de prioridade e criar hábitos duradouros.'
+      desc: 'Descubra todas as 12 áreas conectadas para diagnosticar suas lacunas de prioridade e criar hábitos duradouros.',
+      habitBadge: 'Constância Diária',
+      habitTitle: 'Explore Mais Hábitos de Referência',
+      habitDesc: 'Descubra práticas diárias práticas e multidimensionais projetadas para cultivar o equilíbrio sem culpa ou esgotamento.'
     }
   },
   'eo': {
@@ -298,7 +310,8 @@ const dimensionTranslations = {
     },
     breadcrumb: {
       home: 'Ĉefpaĝo',
-      areas: 'Vivfakoj'
+      areas: 'Vivfakoj',
+      habits: 'Sugestitaj Kutimoj'
     },
     reading_time: '8 min da legado',
     last_updated: 'Ĝisdatigita je',
@@ -308,13 +321,15 @@ const dimensionTranslations = {
     copy_link: 'Kopii ligilon',
     link_copied: 'Kopiita!',
     back_to_areas: 'Ĉiuj 12 Vivfakoj',
+    back_to_habits: 'Ĉiuj 7 Sugestitaj Kutimoj',
     explore_mission: 'Misiaj & Moralaj Valoroj',
     toc: {
       title: 'Enhavtabelo',
       sections: 'sekcioj'
     },
     pillars_widget: {
-      title: 'La Kolonoj de Vigleco'
+      title: 'La Kolonoj de Vigleco',
+      habitTitle: 'Principoj de la Kutimo'
     },
     values_widget: {
       title: 'Enradikigita en Valoroj',
@@ -324,7 +339,10 @@ const dimensionTranslations = {
     footer_nav: {
       badge: 'Holistika Ekvilibro',
       title: 'Daŭrigu Esplori Vian Vivan Arkitekturon',
-      desc: 'Esploru ĉiujn 12 interligitajn fakojn por diagnozi prioritatajn mankojn kaj krei ĉiutagajn kutimojn.'
+      desc: 'Esploru ĉiujn 12 interligitajn fakojn por diagnozi prioritatajn mankojn kaj krei ĉiutagajn kutimojn.',
+      habitBadge: 'Ĉiutaga Konstanto',
+      habitTitle: 'Esploru Pli da Ŝlosilaj Kutimoj',
+      habitDesc: 'Malkovru agadeblajn, plurdimensiajn ĉiutagajn praktikojn por konstrui viv-ekvilibron sen kulpo aŭ elĉerpiĝo.'
     }
   }
 }
@@ -361,6 +379,17 @@ const frontmatter = computed(() => article.value?.frontmatter || {})
 const markdownBody = computed(() => article.value?.markdownBody || '')
 const pillars = computed(() => frontmatter.value.pillars || [])
 const tags = computed(() => frontmatter.value.tags || [])
+
+// Habit Context Detection
+const isHabit = computed(() => {
+  const collection = article.value?.collection || ''
+  return (
+    collection === 'suggested-habits' ||
+    collection === 'habitos-sugeridos' ||
+    collection === 'sugestitaj-kutimoj' ||
+    Boolean(frontmatter.value.id?.startsWith('habit_'))
+  )
+})
 
 // Formatted Area Pill e.g. "Area #01"
 const areaPillText = computed(() => {

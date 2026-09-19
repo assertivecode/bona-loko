@@ -8,9 +8,10 @@ last_updated: "2026-09-17"
 summary: "Fundamenta gvidilo por kultivi senprofitan komunumservon, malavaran mentorecon, konscian filantropion kaj daŭran socian efikon per daŭripova kutim-arkitekturo."
 tags:
   - kontribuo-kaj-heredajo
+  - redonado
   - komunuma-servo
+  - socia-efiko
   - mentorado
-  - filantropio
   - cel-plena-vivado
 pillars:
   - emoji: "🤝"

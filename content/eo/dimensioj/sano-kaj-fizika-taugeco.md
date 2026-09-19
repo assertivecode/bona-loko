@@ -8,8 +8,9 @@ last_updated: "2026-09-17"
 summary: "Fundamenta gvidilo por kultivi daŭripovan viglecon, restaŭran dormon, nutran movadon kaj biologian rezistecon per intenca kutim-dezajno."
 tags:
   - fizika-sano
-  - ekzerc-kutimoj
   - restaura-dormo
+  - ekzerc-kutimoj
+  - dorm-higieno
   - funkcia-movado
   - vigleco
 pillars:

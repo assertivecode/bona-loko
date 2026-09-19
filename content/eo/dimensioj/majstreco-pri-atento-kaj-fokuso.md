@@ -9,9 +9,10 @@ summary: "Fundamenta gvidilo por kultivi intencan ciferecan higienon, profundan 
 tags:
   - majstreco-pri-fokuso
   - profunda-laboro
+  - cifereca-sendangereca-detokso
+  - ekran-limoj
+  - produktivecaj-kutimoj
   - cifereca-higieno
-  - kognitiva-mergo
-  - soleco
 pillars:
   - emoji: "📵"
     title: "Cifereca Higieno & Limoj"

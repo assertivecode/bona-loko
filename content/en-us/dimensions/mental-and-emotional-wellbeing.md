@@ -9,8 +9,9 @@ summary: "A foundational guide to cultivating inner serenity, emotional agility,
 tags:
   - emotional-wellbeing
   - mindfulness
-  - emotional-agility
+  - stress-management
   - stress-resilience
+  - mental-clarity
   - inner-calm
 pillars:
   - emoji: "🧘"

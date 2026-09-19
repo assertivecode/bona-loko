@@ -8,8 +8,9 @@ last_updated: "2026-09-17"
 summary: "A foundational guide to cultivating sustained vitality, restorative sleep, nourishing movement, and biological resilience through intentional habit design."
 tags:
   - physical-health
-  - fitness-habits
   - restorative-sleep
+  - fitness-habits
+  - sleep-hygiene
   - functional-movement
   - vitality
 pillars:

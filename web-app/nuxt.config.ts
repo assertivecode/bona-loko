@@ -41,11 +41,17 @@ export default defineNuxtConfig({
           { name: 'mission-eo', path: '/eo/misio', file: missionPage.file }
         )
       }
-      // Dynamic Markdown Article Routes
+      // Dynamic Markdown Article Routes - Dimensions
       pages.push(
         { name: 'dimension-en', path: '/dimensions/:slug', file: slugFile },
         { name: 'dimension-pt-br', path: '/pt-br/dimensoes/:slug', file: slugFile },
         { name: 'dimension-eo', path: '/eo/dimensioj/:slug', file: slugFile }
+      )
+      // Dynamic Markdown Article Routes - Suggested Habits
+      pages.push(
+        { name: 'habit-en', path: '/suggested-habits/:slug', file: slugFile },
+        { name: 'habit-pt-br', path: '/pt-br/habitos-sugeridos/:slug', file: slugFile },
+        { name: 'habit-eo', path: '/eo/sugestitaj-kutimoj/:slug', file: slugFile }
       )
     }
   },

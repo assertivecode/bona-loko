@@ -8,10 +8,11 @@ last_updated: "2026-09-17"
 summary: "Um guia fundamental para cultivar maestria autodirigida, curiosidade intelectual, reflexão disciplinada e desenvolvimento do caráter através da arquitetura intencional de hábitos."
 tags:
   - crescimento-pessoal
+  - desenvolvimento-pessoal
   - aprendizado-continuo
   - leitura-profunda
   - pratica-deliberada
-  - desenvolvimento-de-carater
+  - mentalidade
 pillars:
   - emoji: "📖"
     title: "Estudo Autodirigido"

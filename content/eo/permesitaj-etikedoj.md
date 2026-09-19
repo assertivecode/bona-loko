@@ -19,6 +19,8 @@
 - `persona-libereco`
 - `mem-reflekto`
 - `ciutagaj-rutinoj`
+- `mem-plibonigo`
+- `temp-administrado`
 
 ---
 
@@ -34,6 +36,7 @@
 - `biologia-rezisteco`
 - `energia-administrado`
 - `vigleco`
+- `dorm-higieno`
 
 ---
 
@@ -49,6 +52,7 @@
 - `mem-kompato`
 - `ceesto`
 - `kognitiva-ankrado`
+- `stres-administrado`
 
 ---
 
@@ -79,6 +83,7 @@
 - `laboraj-limoj`
 - `laboreja-majstreco`
 - `cel-direktita-kariero`
+- `labor-viva-ekvilibro`
 
 ---
 
@@ -169,6 +174,7 @@
 - `infana-miro`
 - `senkonektaj-agadoj`
 - `arta-esprimo`
+- `stres-malpezigo`
 
 ---
 
@@ -184,6 +190,7 @@
 - `mensa-vagado`
 - `soleco`
 - `mensa-fokuso`
+- `produktivecaj-kutimoj`
 
 ---
 

@@ -36,7 +36,17 @@ Every tag used in an article's frontmatter `tags` array **MUST** be explicitly l
 > - **Cardinality**: Each article must contain between **3 and 6** approved tags.
 > - **Canonical Dimension Tag**: Every dimension article must include its canonical dimension tag (e.g. `physical-health` / `saude-fisica` / `fizika-sano`) plus 2 to 5 habit/theme tags.
 
-### 2. Article Frontmatter Metadata Contract
+### 2. Assertive Tag Selection & Market Search Intent Criteria
+Tag choices must align directly with terms users actually type into search engines when seeking personal development, habit formation, and life balance guidance:
+- **High-Intent Market Phrasing**: Favor established, high-volume search terms (e.g., `sleep-hygiene`, `restorative-sleep`, `deep-work`, `burnout-recovery`, `work-life-balance`) over obscure academic or internal jargon (e.g., avoid `circadian-ontological-repair`, `temporal-habit-calculus`).
+- **3-Tier Tag Architecture (3–6 tags per article)**:
+  1. **Tier 1 (1 tag)**: Canonical Topic / Dimension Anchor (e.g., `physical-health`, `personal-finance`, `habit-building`).
+  2. **Tier 2 (2–3 tags)**: Core Problem & Target Search Query (e.g., `restorative-sleep`, `circadian-rhythm`, `debt-freedom`, `stress-resilience`).
+  3. **Tier 3 (1–2 tags)**: Action & Habit Modifiers (e.g., `daily-routines`, `morning-routine`, `evening-routine`, `mindful-spending`).
+- **Natural Language Search Fit**: Prefer tags that seamlessly complete common search patterns like *"how to improve [tag]"*, *"best practices for [tag]"*, or *"[tag] guide"*.
+- **Cross-Lingual Cultural Equivalence**: Localize mirrored tags to the natural search idiom of each target locale (e.g., `sono-reparador` in pt-BR instead of a forced literal transliteration).
+
+### 3. Article Frontmatter Metadata Contract
 Every markdown article authored in `./content/` must provide:
 ```yaml
 ---
@@ -55,7 +65,7 @@ tags:
 ---
 ```
 
-### 3. Page & Component SEO Metadata Contract
+### 4. Page & Component SEO Metadata Contract
 Every Nuxt page (`web-app/pages/`) must configure `useHead`:
 ```typescript
 useHead({
@@ -73,7 +83,7 @@ useHead({
 - **Heading Hierarchy**: Exactly one `<h1>` per page. Subsections must follow semantic `<h2>`, `<h3>` order without skipping levels.
 - **Images**: All `<img>` tags must feature descriptive, accessible `alt` text.
 
-### 4. Dynamic XML Sitemap Synchronization Invariant
+### 5. Dynamic XML Sitemap Synchronization Invariant
 The dynamic sitemap endpoint at [`web-app/server/routes/sitemap.xml.ts`](file:///c:/github_accounts/assertivecode/bona-loko/web-app/server/routes/sitemap.xml.ts) serves `/sitemap.xml` and must automatically include:
 1. **Static Routes**: All root and canonical static hubs for all 3 supported languages:
    - Home: `/`, `/pt-br`, `/eo` (priority `1.0`, `daily`)
@@ -94,10 +104,11 @@ The dynamic sitemap endpoint at [`web-app/server/routes/sitemap.xml.ts`](file://
 ## Workflow Playbook
 
 ### Scenario A: Writing a New Article
-1. **Identify Dimension & Tags**: Select 3–6 tags from the corresponding language registry:
-   - `content/en-us/allowed-tags.md` for English
-   - `content/pt-br/tags-permitidas.md` for Portuguese
-   - `content/eo/permesitaj-etikedoj.md` for Esperanto
+1. **Assertive Tag Selection (3-Tier Distribution)**: Select 3–6 tags from the corresponding language registry using market search intent:
+   - **Tier 1 (1 tag)**: Canonical Dimension / Domain anchor (e.g., `physical-health`).
+   - **Tier 2 (2–3 tags)**: High-intent problem / solution query terms (e.g., `restorative-sleep`, `circadian-rhythm`).
+   - **Tier 3 (1–2 tags)**: Action or context modifiers (e.g., `daily-routines`, `vitality`).
+   - Registries: `content/en-us/allowed-tags.md` (EN), `content/pt-br/tags-permitidas.md` (PT), `content/eo/permesitaj-etikedoj.md` (EO).
 2. **Synchronize Missing Tags**: If the article requires a new tag that does not yet exist, execute **Scenario C** first.
 3. **Format Frontmatter**: Add `id`, `title`, `slug`, `last_updated`, `summary`, and the `tags` array.
 4. **Verify Rendered Head**: Navigate to the rendered URL in the browser / SSR output and verify `<meta name="keywords">` and `<meta property="article:tag">`.

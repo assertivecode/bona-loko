@@ -19,6 +19,8 @@ Este registro define as tags de Otimização para Motores de Busca (SEO) aprovad
 - `liberdade-pessoal`
 - `autorreflexao`
 - `rotinas-diarias`
+- `desenvolvimento-pessoal`
+- `gestao-do-tempo`
 
 ---
 
@@ -34,6 +36,7 @@ Este registro define as tags de Otimização para Motores de Busca (SEO) aprovad
 - `resiliencia-biologica`
 - `gestao-de-energia`
 - `vitalidade`
+- `higiene-do-sono`
 
 ---
 
@@ -49,6 +52,7 @@ Este registro define as tags de Otimização para Motores de Busca (SEO) aprovad
 - `autocompaixao`
 - `presenca`
 - `ancoragem-cognitiva`
+- `gestao-do-estresse`
 
 ---
 
@@ -79,6 +83,7 @@ Este registro define as tags de Otimização para Motores de Busca (SEO) aprovad
 - `limites-profissionais`
 - `excelencia-profissional`
 - `carreira-com-proposito`
+- `equilibrio-trabalho-vida`
 
 ---
 
@@ -169,6 +174,7 @@ Este registro define as tags de Otimização para Motores de Busca (SEO) aprovad
 - `encantamento`
 - `atividades-desconectadas`
 - `expressao-artistica`
+- `alivio-do-estresse`
 
 ---
 
@@ -184,6 +190,7 @@ Este registro define as tags de Otimização para Motores de Busca (SEO) aprovad
 - `divagacao-mental`
 - `solitude`
 - `foco-mental`
+- `habitos-de-produtividade`
 
 ---
 

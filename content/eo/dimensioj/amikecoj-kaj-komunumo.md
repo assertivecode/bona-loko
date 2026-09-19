@@ -9,8 +9,9 @@ summary: "Fundamenta gvidilo por kultivi profundajn amikecojn, reciprokan lojale
 tags:
   - amikecaj-kutimoj
   - komunum-konstruado
-  - autentaj-amikecoj
   - socia-konekto
+  - socia-bonfarto
+  - autentaj-amikecoj
   - aparteno
 pillars:
   - emoji: "🤝"

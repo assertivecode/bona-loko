@@ -8,10 +8,11 @@ last_updated: "2026-09-17"
 summary: "Fundamenta gvidilo por kultivi sencohavan profesian efikon, metian majstrecon, neŝanceleblan etikan integrecon kaj daŭripovan cel-akordon per intenca kutim-arkitekturo."
 tags:
   - kariera-evoluo
-  - profesia-vokigo
+  - labor-viva-ekvilibro
   - signifoplena-laboro
-  - metia-majstreco
+  - profesia-vokigo
   - laboraj-limoj
+  - vokia-celo
 pillars:
   - emoji: "🎯"
     title: "Profesia Vokiĝo"
