@@ -3,6 +3,7 @@ name: CD Release & Cloudflare Deploy
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -51,7 +52,7 @@ jobs:
   deploy-web-app:
     name: Deploy Web App to Cloudflare Pages
     needs: release-and-tag
-    if: needs.release-and-tag.outputs.deploy_web_app == 'true'
+    if: needs.release-and-tag.outputs.deploy_web_app == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment: production
     steps:
