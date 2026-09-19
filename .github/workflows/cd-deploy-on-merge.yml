@@ -53,6 +53,7 @@ jobs:
     needs: release-and-tag
     if: needs.release-and-tag.outputs.deploy_web_app == 'true'
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4

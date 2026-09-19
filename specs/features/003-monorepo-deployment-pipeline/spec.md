@@ -33,7 +33,7 @@ Provides predictable, reproducible, and verifiable continuous integration and co
 - **Strict CI Path-Filtering Validator** (`devops/scripts/changeset-validate.mjs`): Enforces the exact-match invariant between git diff paths and declared changeset tags.
 - **Merge Release & Multi-Tagging** (`devops/scripts/changeset-release.mjs`): Bumps `web-app/package.json` version, tags the merge commit (e.g. `web-app/v1.0.1`), outputs deployment manifest, and cleans consumed changesets.
 - **GitHub Actions PR Workflow** (`.github/workflows/pr-validate-changeset.yml`): Blocks PR merges on validation failures.
-- **GitHub Actions CD Workflow** (`.github/workflows/cd-deploy-on-merge.yml`): Builds Nuxt 3 with Nitro Cloudflare Pages preset and deploys `web-app/dist` to Cloudflare Pages using Wrangler action.
+- **GitHub Actions CD Workflow** (`.github/workflows/cd-deploy-on-merge.yml`): Runs in the `production` environment, builds Nuxt 3 with Nitro Cloudflare Pages preset, and deploys `web-app/dist` to Cloudflare Pages using Wrangler action.
 
 ### 2.2 Out of Scope
 - Standalone external CMS or dynamic database fetching for content articles (all content is statically bundled via Vite).
