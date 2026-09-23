@@ -69,6 +69,11 @@ export default defineEventHandler((event) => {
   addUrl('/pt-br/missao', '0.8', 'weekly')
   addUrl('/eo/misio', '0.8', 'weekly')
 
+  // Privacy Policy & Data Sovereignty
+  addUrl('/privacy', '0.5', 'monthly')
+  addUrl('/pt-br/privacidade', '0.5', 'monthly')
+  addUrl('/eo/privateco', '0.5', 'monthly')
+
   // 2. Dynamic Content Articles pre-bundled from content-routes.json
   // (Works natively in Cloudflare Workers with 0 runtime fs dependencies)
   for (const item of contentRoutes) {

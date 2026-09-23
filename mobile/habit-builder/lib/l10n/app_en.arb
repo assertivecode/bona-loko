@@ -1,0 +1,962 @@
+{
+  "@@locale": "en",
+  "appTitle": "Bona Loko",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "assessmentTitle": "Life Balance Assessment",
+  "@assessmentTitle": {
+    "description": "Title for the 12 life areas assessment"
+  },
+  "startAssessment": "Start Assessment",
+  "@startAssessment": {
+    "description": "Call to action button to begin assessment"
+  },
+  "preferredLanguage": "Preferred Language",
+  "@preferredLanguage": {
+    "description": "Label for selecting preferred language"
+  },
+  "yourName": "Your Name",
+  "@yourName": {
+    "description": "Label for user name input field"
+  },
+  "namePlaceholder": "Enter your name",
+  "@namePlaceholder": {
+    "description": "Placeholder for user name input field"
+  },
+  "assessmentDescription": "Reflect on 12 essential areas of your life to identify priority gaps and understand where you wish to invest your time and energy to cultivate balance and sustainable daily habits.",
+  "@assessmentDescription": {
+    "description": "Short description explaining what the 12 life areas assessment is about"
+  },
+  "scoreLabel": "Current State Score",
+  "@scoreLabel": {
+    "description": "Label for the score evaluation slider"
+  },
+  "scoreDescription": "Reflect on your present condition and satisfaction in this area.",
+  "@scoreDescription": {
+    "description": "Instruction for rating score"
+  },
+  "priorityLabel": "Priority to Focus / Practice",
+  "@priorityLabel": {
+    "description": "Label for priority selection"
+  },
+  "priorityDescription": "How critical is it to allocate energy and build daily habits here? (1 = Low, 5 = Highest Focus)",
+  "@priorityDescription": {
+    "description": "Instruction for rating priority"
+  },
+  "priorityLevel1Title": "1 - Low / Baseline",
+  "@priorityLevel1Title": {
+    "description": "Title for priority level 1"
+  },
+  "priorityLevel1Desc": "Bare minimum effort",
+  "@priorityLevel1Desc": {
+    "description": "Meaning for priority level 1"
+  },
+  "priorityLevel2Title": "2 - Gentle Maintenance",
+  "@priorityLevel2Title": {
+    "description": "Title for priority level 2"
+  },
+  "priorityLevel2Desc": "Enough effort to not decrease much the current score",
+  "@priorityLevel2Desc": {
+    "description": "Meaning for priority level 2"
+  },
+  "priorityLevel3Title": "3 - Moderate",
+  "@priorityLevel3Title": {
+    "description": "Title for priority level 3"
+  },
+  "priorityLevel3Desc": "Active effort to maintain the current score",
+  "@priorityLevel3Desc": {
+    "description": "Meaning for priority level 3"
+  },
+  "priorityLevel4Title": "4 - Dedicated",
+  "@priorityLevel4Title": {
+    "description": "Title for priority level 4"
+  },
+  "priorityLevel4Desc": "Active effort focusing in having a small improvement in the current score",
+  "@priorityLevel4Desc": {
+    "description": "Meaning for priority level 4"
+  },
+  "priorityLevel5Title": "5 - High Priority",
+  "@priorityLevel5Title": {
+    "description": "Title for priority level 5"
+  },
+  "priorityLevel5Desc": "Active effort focusing in having a significant improvement in the current score",
+  "@priorityLevel5Desc": {
+    "description": "Meaning for priority level 5"
+  },
+  "saveEvaluation": "Save Evaluation",
+  "@saveEvaluation": {
+    "description": "Action to save a single area evaluation"
+  },
+  "nextArea": "Next Area",
+  "@nextArea": {
+    "description": "Action to move to next area in wizard"
+  },
+  "previousArea": "Previous",
+  "@previousArea": {
+    "description": "Action to move to previous area in wizard"
+  },
+  "completeAssessment": "Complete Assessment",
+  "@completeAssessment": {
+    "description": "Action to finalize the 12-area assessment"
+  },
+  "wizardStepIndicator": "Step {current} of {total}",
+  "@wizardStepIndicator": {
+    "description": "Step progress indicator in assessment wizard",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "wizardPercentCompleted": "{percent}% Completed",
+  "@wizardPercentCompleted": {
+    "description": "Percentage completed in assessment wizard",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "areaOfTotal": "Area {current} of {total}",
+  "@areaOfTotal": {
+    "description": "Area index indicator",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "homeTitle": "Home",
+  "@homeTitle": {
+    "description": "Home screen app bar title"
+  },
+  "userGreeting": "Hello, {userName}",
+  "@userGreeting": {
+    "description": "Greeting on the home screen",
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
+  "scorePrefix": "Score",
+  "@scorePrefix": {
+    "description": "Prefix for score indicator on cards and list items"
+  },
+  "priorityPrefix": "Priority",
+  "@priorityPrefix": {
+    "description": "Prefix for priority indicator on cards and list items"
+  },
+  "notEvaluated": "Not evaluated",
+  "@notEvaluated": {
+    "description": "Text displayed when a life area has not been evaluated yet"
+  },
+  "profileTitle": "Profile & Settings",
+  "@profileTitle": {
+    "description": "Title for the profile and settings screen"
+  },
+  "saveProfile": "Save Changes",
+  "@saveProfile": {
+    "description": "Button label to save user profile changes"
+  },
+  "profileUpdated": "Profile updated successfully",
+  "@profileUpdated": {
+    "description": "Snackbar message shown when profile is updated"
+  },
+  "topPrioritiesTitle": "Top Focus Areas",
+  "@topPrioritiesTitle": {
+    "description": "Heading for high priority life areas"
+  },
+  "topPrioritiesSubtitle": "Dimensions where intentional daily practice can create the most meaningful balance.",
+  "@topPrioritiesSubtitle": {
+    "description": "Subtitle for high priority life areas"
+  },
+  "allAreasTitle": "12 Life Areas Overview",
+  "@allAreasTitle": {
+    "description": "Heading for the complete list of life areas"
+  },
+  "reEvaluate": "Re-evaluate",
+  "@reEvaluate": {
+    "description": "Button to re-evaluate an area"
+  },
+  "retakeAssessment": "Retake Full Assessment",
+  "@retakeAssessment": {
+    "description": "Button to restart the full 12-area assessment"
+  },
+  "area_health_fitness_name": "Health & Physical Fitness",
+  "@area_health_fitness_name": {
+    "description": "Name for health & fitness area"
+  },
+  "area_health_fitness_desc": "Vitality, regular movement and exercise, restorative sleep, nourishing nutrition, and physical recovery.",
+  "@area_health_fitness_desc": {
+    "description": "Description of health & fitness"
+  },
+  "area_emotional_wellbeing_name": "Mental & Emotional Wellbeing",
+  "@area_emotional_wellbeing_name": {
+    "description": "Name for emotional wellbeing area"
+  },
+  "area_emotional_wellbeing_desc": "Mindfulness, emotional stability, inner peace of mind, stress resilience, and grounded presence.",
+  "@area_emotional_wellbeing_desc": {
+    "description": "Description of emotional wellbeing"
+  },
+  "area_personal_growth_name": "Personal Growth & Learning",
+  "@area_personal_growth_name": {
+    "description": "Name for personal growth area"
+  },
+  "area_personal_growth_desc": "Acquiring craft skills, intellectual curiosity, self-directed education, reading, and thoughtful reflection.",
+  "@area_personal_growth_desc": {
+    "description": "Description of personal growth"
+  },
+  "area_career_calling_name": "Career & Professional Calling",
+  "@area_career_calling_name": {
+    "description": "Name for career & calling area"
+  },
+  "area_career_calling_desc": "Meaningful vocational pursuit, craft mastery, purposeful professional impact, and long-term career mission.",
+  "@area_career_calling_desc": {
+    "description": "Description of career & calling"
+  },
+  "area_finances_wealth_name": "Finances & Wealth",
+  "@area_finances_wealth_name": {
+    "description": "Name for finances & wealth area"
+  },
+  "area_finances_wealth_desc": "Financial security, intentional spending, consistent saving, responsible investing, and sustainable debt freedom.",
+  "@area_finances_wealth_desc": {
+    "description": "Description of finances & wealth"
+  },
+  "area_relationships_intimacy_name": "Relationships & Intimacy",
+  "@area_relationships_intimacy_name": {
+    "description": "Name for relationships & intimacy area"
+  },
+  "area_relationships_intimacy_desc": "Romantic partnership, mutual trust, authentic and vulnerable communication, and shared emotional depth.",
+  "@area_relationships_intimacy_desc": {
+    "description": "Description of relationships & intimacy"
+  },
+  "area_family_parenting_name": "Family & Parenting",
+  "@area_family_parenting_name": {
+    "description": "Name for family & parenting area"
+  },
+  "area_family_parenting_desc": "Kinship bonds, thoughtful parenting presence, ancestral connections, and mutual family care.",
+  "@area_family_parenting_desc": {
+    "description": "Description of family & parenting"
+  },
+  "area_friendships_community_name": "Friendships & Community",
+  "@area_friendships_community_name": {
+    "description": "Name for friendships & community area"
+  },
+  "area_friendships_community_desc": "Social circles, meaningful camaraderie, genuine belonging, shared experiences, and mutual encouragement.",
+  "@area_friendships_community_desc": {
+    "description": "Description of friendships & community"
+  },
+  "area_physical_environment_name": "Physical Environment & Spaces",
+  "@area_physical_environment_name": {
+    "description": "Name for physical environment area"
+  },
+  "area_physical_environment_desc": "A restful home, organized workspaces, aesthetic harmony, functional simplicity, and intentional decluttering.",
+  "@area_physical_environment_desc": {
+    "description": "Description of physical environment"
+  },
+  "area_recreation_play_name": "Recreation, Hobbies & Play",
+  "@area_recreation_play_name": {
+    "description": "Name for recreation & play area"
+  },
+  "area_recreation_play_desc": "Playfulness, spontaneous joy, non-productive creative pursuits, restorative leisure, and engaging hobbies.",
+  "@area_recreation_play_desc": {
+    "description": "Description of recreation & play"
+  },
+  "area_focus_mastery_name": "Focus & Attention Mastery",
+  "@area_focus_mastery_name": {
+    "description": "Name for focus mastery area"
+  },
+  "area_focus_mastery_desc": "Digital hygiene, deliberate screen boundaries, deep focused work, and protecting your daily attention.",
+  "@area_focus_mastery_desc": {
+    "description": "Description of focus mastery"
+  },
+  "area_contribution_legacy_name": "Contribution & Legacy",
+  "@area_contribution_legacy_name": {
+    "description": "Name for contribution & legacy area"
+  },
+  "area_contribution_legacy_desc": "Community service, mentorship, philanthropic giving, and creating a positive, lasting human impact.",
+  "@area_contribution_legacy_desc": {
+    "description": "Description of contribution & legacy"
+  },
+  "gratitudeSectionTitle": "Gratitude Practice",
+  "@gratitudeSectionTitle": {
+    "description": "Title for the gratitude practice section on Home Page"
+  },
+  "gratitudeSectionSubtitle": "Cultivate gratitude throughout the day",
+  "@gratitudeSectionSubtitle": {
+    "description": "Subtitle for the gratitude practice section"
+  },
+  "gratitudeMorningRec": "Morning (1 min)",
+  "@gratitudeMorningRec": {
+    "description": "Recommendation label for morning gratitude practice"
+  },
+  "gratitudeMorningDesc": "Contemplate your surroundings and give thanks for the gifts in your life.",
+  "@gratitudeMorningDesc": {
+    "description": "Description for morning gratitude grounding"
+  },
+  "gratitudeEveningRec": "Evening (5 min)",
+  "@gratitudeEveningRec": {
+    "description": "Recommendation label for evening gratitude practice"
+  },
+  "gratitudeEveningDesc": "Reflect specifically on what you are grateful for that happened during your day.",
+  "@gratitudeEveningDesc": {
+    "description": "Description for evening gratitude reflection"
+  },
+  "gratitudeAddButton": "Gratitude Reasons",
+  "@gratitudeAddButton": {
+    "description": "Button label to add a gratitude reason"
+  },
+  "gratitudeDialogTitle": "New Gratitude Reason",
+  "@gratitudeDialogTitle": {
+    "description": "Title for the dialog adding a gratitude entry"
+  },
+  "gratitudePlaceholder": "What are you grateful for right now? (Aim for a concrete detail)",
+  "@gratitudePlaceholder": {
+    "description": "Placeholder text for gratitude reason input"
+  },
+  "gratitudePeriodMorning": "Morning",
+  "@gratitudePeriodMorning": {
+    "description": "Label for morning period"
+  },
+  "gratitudePeriodEvening": "Evening",
+  "@gratitudePeriodEvening": {
+    "description": "Label for evening period"
+  },
+  "gratitudePeriodAnytime": "Anytime",
+  "@gratitudePeriodAnytime": {
+    "description": "Label for anytime/general period"
+  },
+  "gratitudeEmptyState": "No reasons recorded today. How about taking 1 minute now?",
+  "@gratitudeEmptyState": {
+    "description": "Empty state message when no gratitude reasons exist today"
+  },
+  "gratitudeToday": "Today",
+  "@gratitudeToday": {
+    "description": "Header label for today's entries"
+  },
+  "gratitudeYesterday": "Yesterday",
+  "@gratitudeYesterday": {
+    "description": "Header label for yesterday's entries"
+  },
+  "gratitudeSave": "Save Reason",
+  "@gratitudeSave": {
+    "description": "Button to save a gratitude entry"
+  },
+  "gratitudeCancel": "Cancel",
+  "@gratitudeCancel": {
+    "description": "Cancel button label"
+  },
+  "gratitudeDeleteTooltip": "Delete reason",
+  "@gratitudeDeleteTooltip": {
+    "description": "Tooltip for deleting a gratitude entry"
+  },
+  "dailyTasksTitle": "Daily Tasks",
+  "@dailyTasksTitle": {
+    "description": "Section header for daily tasks on the Home screen"
+  },
+  "dailyTasksSubtitle": "Small, intentional actions to cultivate daily balance.",
+  "@dailyTasksSubtitle": {
+    "description": "Subtitle for the daily tasks section"
+  },
+  "practiceGratitudeTaskTitle": "Practice Gratitude",
+  "@practiceGratitudeTaskTitle": {
+    "description": "Title for the daily gratitude practice task"
+  },
+  "practiceGratitudeTaskSubtitle": "Morning grounding (1 min) & bedtime reflection (5 min)",
+  "@practiceGratitudeTaskSubtitle": {
+    "description": "Subtitle for the daily gratitude practice task"
+  },
+  "viewAssessedLifeAreasButton": "Life Areas & Priorities",
+  "@viewAssessedLifeAreasButton": {
+    "description": "Button to navigate to the assessed life areas screen"
+  },
+  "viewAssessedLifeAreasSubtitle": "Review focus dimensions, balance scores, and adjust priorities",
+  "@viewAssessedLifeAreasSubtitle": {
+    "description": "Subtitle for the assessed life areas navigation card"
+  },
+  "assessedLifeAreasScreenTitle": "Assessed Life Areas",
+  "@assessedLifeAreasScreenTitle": {
+    "description": "Title of the assessed life areas screen"
+  },
+  "dailyPhysicalActivitiesTaskTitle": "Daily Physical Activities",
+  "@dailyPhysicalActivitiesTaskTitle": {
+    "description": "Title for the daily physical activities task on Home screen"
+  },
+  "dailyPhysicalActivitiesTaskSubtitle": "Walking, running, and daily movement practices",
+  "@dailyPhysicalActivitiesTaskSubtitle": {
+    "description": "Subtitle for the daily physical activities task"
+  },
+  "physicalActivitiesScreenTitle": "Daily Physical Activities",
+  "@physicalActivitiesScreenTitle": {
+    "description": "Title for the daily physical activities screen"
+  },
+  "physicalActivitiesSubtitle": "Cultivate somatic vitality through sustainable daily movement",
+  "@physicalActivitiesSubtitle": {
+    "description": "Subtitle for the daily physical activities screen"
+  },
+  "addPhysicalActivityButton": "Add Activity",
+  "@addPhysicalActivityButton": {
+    "description": "Button to add a new physical activity"
+  },
+  "newPhysicalActivityDialogTitle": "New Physical Activity",
+  "@newPhysicalActivityDialogTitle": {
+    "description": "Title for dialog creating a new physical activity"
+  },
+  "activityTypeWalking": "Walking",
+  "@activityTypeWalking": {
+    "description": "Activity type: Walking"
+  },
+  "activityTypeRunning": "Running",
+  "@activityTypeRunning": {
+    "description": "Activity type: Running"
+  },
+  "activityTypeCycling": "Cycling",
+  "@activityTypeCycling": {
+    "description": "Activity type: Cycling"
+  },
+  "activityTypeSwimming": "Swimming",
+  "@activityTypeSwimming": {
+    "description": "Activity type: Swimming"
+  },
+  "activityTypePushups": "Push-ups",
+  "@activityTypePushups": {
+    "description": "Activity type: Push-ups"
+  },
+  "activityTypeSquats": "Squats",
+  "@activityTypeSquats": {
+    "description": "Activity type: Squats"
+  },
+  "activityTypeStretching": "Stretching & Mobility",
+  "@activityTypeStretching": {
+    "description": "Activity type: Stretching & Mobility"
+  },
+  "activityTypeCustom": "Custom Activity",
+  "@activityTypeCustom": {
+    "description": "Activity type: Custom Activity"
+  },
+  "metricDuration": "Duration (minutes)",
+  "@metricDuration": {
+    "description": "Target metric: Duration in minutes"
+  },
+  "metricRepetitions": "Repetitions",
+  "@metricRepetitions": {
+    "description": "Target metric: Repetition count"
+  },
+  "targetValueLabel": "Target",
+  "@targetValueLabel": {
+    "description": "Label for target duration or repetition number"
+  },
+  "customActivityNamePlaceholder": "Activity name (e.g. Jump rope)",
+  "@customActivityNamePlaceholder": {
+    "description": "Placeholder for custom physical activity name"
+  },
+  "minutesUnit": "min",
+  "@minutesUnit": {
+    "description": "Unit abbreviation for minutes"
+  },
+  "repetitionsUnit": "reps",
+  "@repetitionsUnit": {
+    "description": "Unit abbreviation for repetitions"
+  },
+  "physicalActivitiesEmptyState": "No daily physical activities defined yet. Tap below to add walking, running, or your favorite exercises!",
+  "@physicalActivitiesEmptyState": {
+    "description": "Empty state message for daily physical activities"
+  },
+  "activityCompletedTooltip": "Completed today",
+  "@activityCompletedTooltip": {
+    "description": "Tooltip indicating activity was completed today"
+  },
+  "activityMarkCompleted": "Mark as completed",
+  "@activityMarkCompleted": {
+    "description": "Tooltip/action to mark activity as completed today"
+  },
+  "deleteActivityTooltip": "Delete activity",
+  "@deleteActivityTooltip": {
+    "description": "Tooltip to delete physical activity"
+  },
+  "saveActivityButton": "Save Activity",
+  "@saveActivityButton": {
+    "description": "Button to save configured physical activity"
+  },
+  "physicalActivitiesProgressSummary": "{completed} of {total} completed today",
+  "@physicalActivitiesProgressSummary": {
+    "description": "Summary of completed physical activities for today",
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "gratitudeMorningCheckLabel": "Morning Grounding (1 min)",
+  "@gratitudeMorningCheckLabel": {
+    "description": "Label for morning gratitude grounding completion check"
+  },
+  "gratitudeEveningCheckLabel": "Evening Reflection (5 min)",
+  "@gratitudeEveningCheckLabel": {
+    "description": "Label for evening gratitude reflection completion check"
+  },
+  "gratitudeReorderTooltip": "Drag to reorder reasons",
+  "@gratitudeReorderTooltip": {
+    "description": "Tooltip explaining drag to reorder gratitude reasons"
+  },
+  "trainingRoutineTitle": "Training Routine",
+  "@trainingRoutineTitle": {
+    "description": "Title for the training routine builder"
+  },
+  "buildTrainingTitle": "Workout Routine Builder",
+  "@buildTrainingTitle": {
+    "description": "Title for building exercises in training"
+  },
+  "buildTrainingSubtitle": "Configure your daily exercises, targets, and weights",
+  "@buildTrainingSubtitle": {
+    "description": "Subtitle for training builder"
+  },
+  "startTrainingButton": "Start Workout",
+  "@startTrainingButton": {
+    "description": "Button to begin daily training session"
+  },
+  "concludeTrainingButton": "Conclude Workout",
+  "@concludeTrainingButton": {
+    "description": "Button to conclude daily training session"
+  },
+  "trainingInProgress": "Workout in Progress",
+  "@trainingInProgress": {
+    "description": "Badge showing workout is currently in progress"
+  },
+  "trainingCompletedToday": "Workout Completed Today",
+  "@trainingCompletedToday": {
+    "description": "Badge showing workout has been completed today"
+  },
+  "dailyTrainingTitle": "Daily Workout Session",
+  "@dailyTrainingTitle": {
+    "description": "Title for daily workout execution session"
+  },
+  "addExerciseTitle": "Add Exercise",
+  "@addExerciseTitle": {
+    "description": "Title for dialog adding an exercise to the workout"
+  },
+  "exerciseNameLabel": "Exercise Name",
+  "@exerciseNameLabel": {
+    "description": "Label for exercise name field"
+  },
+  "exerciseWeightLabel": "Weight (kg)",
+  "@exerciseWeightLabel": {
+    "description": "Label for exercise weight field"
+  },
+  "weightUnit": "kg",
+  "@weightUnit": {
+    "description": "Unit abbreviation for kilograms"
+  },
+  "secondsUnit": "s",
+  "@secondsUnit": {
+    "description": "Unit abbreviation for seconds"
+  },
+  "resumeTrainingButton": "Resume Workout",
+  "@resumeTrainingButton": {
+    "description": "Button to resume an in-progress workout"
+  },
+  "trainingRoutineEmptyState": "No exercises in your routine yet. Tap below to build your daily workout!",
+  "@trainingRoutineEmptyState": {
+    "description": "Empty state when training plan has no exercises"
+  },
+  "workoutGroupsTitle": "Workout Groups",
+  "@workoutGroupsTitle": {
+    "description": "Title for workout groups section"
+  },
+  "workoutGroupsSubtitle": "Select a group to view and manage its workout routines",
+  "@workoutGroupsSubtitle": {
+    "description": "Subtitle for workout groups section"
+  },
+  "addGroupButton": "Add Group",
+  "@addGroupButton": {
+    "description": "Button to add a new workout group"
+  },
+  "newGroupDialogTitle": "New Workout Group",
+  "@newGroupDialogTitle": {
+    "description": "Title for dialog creating a new group"
+  },
+  "groupNameLabel": "Group Name",
+  "@groupNameLabel": {
+    "description": "Label for group name text field"
+  },
+  "defaultGroupName": "Default Group",
+  "@defaultGroupName": {
+    "description": "Default name for initial group"
+  },
+  "deleteGroupDialogTitle": "Delete Group",
+  "@deleteGroupDialogTitle": {
+    "description": "Title for delete group confirmation dialog"
+  },
+  "deleteGroupConfirmation": "Are you sure you want to delete this group and all its routines?",
+  "@deleteGroupConfirmation": {
+    "description": "Confirmation message when deleting a group"
+  },
+  "editGroupNameTitle": "Edit Group Name",
+  "@editGroupNameTitle": {
+    "description": "Title for editing group name dialog"
+  },
+  "workoutRoutinesTitle": "Workout Routines",
+  "@workoutRoutinesTitle": {
+    "description": "Title for workout routines section"
+  },
+  "workoutRoutinesSubtitle": "Select a routine to view exercises or start training",
+  "@workoutRoutinesSubtitle": {
+    "description": "Subtitle for workout routines section"
+  },
+  "addRoutineButton": "Add Routine",
+  "@addRoutineButton": {
+    "description": "Button to add a new workout routine"
+  },
+  "newRoutineDialogTitle": "New Workout Routine",
+  "@newRoutineDialogTitle": {
+    "description": "Title for dialog creating a new routine"
+  },
+  "routineNameLabel": "Routine Name",
+  "@routineNameLabel": {
+    "description": "Label for routine name text field"
+  },
+  "defaultRoutineName": "Sample Workout",
+  "@defaultRoutineName": {
+    "description": "Default name for initial routine"
+  },
+  "deleteRoutineDialogTitle": "Delete Routine",
+  "@deleteRoutineDialogTitle": {
+    "description": "Title for delete routine confirmation dialog"
+  },
+  "deleteRoutineConfirmation": "Are you sure you want to delete this routine?",
+  "@deleteRoutineConfirmation": {
+    "description": "Confirmation message when deleting a routine"
+  },
+  "editRoutineNameTitle": "Edit Routine Name",
+  "@editRoutineNameTitle": {
+    "description": "Title for editing routine name dialog"
+  },
+  "trainRoutineButton": "Train Routine",
+  "@trainRoutineButton": {
+    "description": "Button to train the selected routine"
+  },
+  "individualExercisesTitle": "Individual Exercises",
+  "@individualExercisesTitle": {
+    "description": "Title for individual exercises section"
+  },
+  "emptyRoutinesInGroup": "No routines in this group yet. Tap above to create your first routine!",
+  "@emptyRoutinesInGroup": {
+    "description": "Empty state when a group has no routines"
+  },
+  "emptyExercisesInRoutine": "No exercises in this routine yet. Tap below to add exercises!",
+  "@emptyExercisesInRoutine": {
+    "description": "Empty state when a routine has no exercises"
+  },
+  "setsLabel": "Sets",
+  "@setsLabel": {
+    "description": "Label for exercise sets"
+  },
+  "setsUnit": "sets",
+  "@setsUnit": {
+    "description": "Unit label for sets"
+  },
+  "targetSetsLabel": "Number of Sets",
+  "@targetSetsLabel": {
+    "description": "Label for inputting number of sets"
+  },
+  "deleteButton": "Delete",
+  "@deleteButton": {
+    "description": "General delete button label"
+  },
+  "exerciseSquats": "Squats",
+  "@exerciseSquats": {
+    "description": "Exercise name: Squats"
+  },
+  "exercisePushUps": "Push-ups",
+  "@exercisePushUps": {
+    "description": "Exercise name: Push-ups"
+  },
+  "exerciseWalking": "Walking",
+  "@exerciseWalking": {
+    "description": "Exercise name: Walking"
+  },
+  "exerciseRunning": "Running",
+  "@exerciseRunning": {
+    "description": "Exercise name: Running"
+  },
+  "exerciseCycling": "Cycling",
+  "@exerciseCycling": {
+    "description": "Exercise name: Cycling"
+  },
+  "exerciseSwimming": "Swimming",
+  "@exerciseSwimming": {
+    "description": "Exercise name: Swimming"
+  },
+  "exerciseStretching": "Stretching",
+  "@exerciseStretching": {
+    "description": "Exercise name: Stretching"
+  },
+  "exerciseCustom": "Custom",
+  "@exerciseCustom": {
+    "description": "Exercise name: Custom"
+  },
+  "customExercisePlaceholder": "e.g., Pull-ups, Plank, Lunges",
+  "@customExercisePlaceholder": {
+    "description": "Placeholder for custom exercise name text field"
+  },
+  "metricTypeLabel": "Target Metric",
+  "@metricTypeLabel": {
+    "description": "Label for choosing duration or repetition target metric"
+  },
+  "exercisesCompletedCount": "{completed} of {total} completed",
+  "@exercisesCompletedCount": {
+    "description": "Counter of completed exercises in workout session",
+    "placeholders": {
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "exercisesCompletedBanner": "{completed} of {total} exercises completed.",
+  "@exercisesCompletedBanner": {
+    "description": "Summary banner when exercises are completed",
+    "placeholders": {
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "deleteSessionDialogTitle": "Delete Workout Session",
+  "@deleteSessionDialogTitle": {
+    "description": "Title for dialog confirming deletion of workout session"
+  },
+  "deleteSessionConfirmation": "Are you sure you want to delete today's workout session? Your progress for today will be cleared.",
+  "@deleteSessionConfirmation": {
+    "description": "Confirmation message when deleting today's workout session"
+  },
+  "deleteSessionTooltip": "Delete Session",
+  "@deleteSessionTooltip": {
+    "description": "Tooltip for deleting the daily workout session"
+  },
+  "financialManagementTitle": "Financial Management",
+  "@financialManagementTitle": {
+    "description": "Title for the financial management screen"
+  },
+  "financialManagementSubtitle": "Track monthly incomes, expenses, and cultivate mindful stewardship.",
+  "@financialManagementSubtitle": {
+    "description": "Subtitle describing the financial management screen"
+  },
+  "financialManagementCardTitle": "Financial Management",
+  "@financialManagementCardTitle": {
+    "description": "Title for the financial management card on Home Screen"
+  },
+  "financialManagementCardSubtitle": "Track monthly incomes, expenses, and cultivate mindful stewardship",
+  "@financialManagementCardSubtitle": {
+    "description": "Subtitle for the financial management card on Home Screen"
+  },
+  "monthlyIncomesLabel": "Incomes",
+  "@monthlyIncomesLabel": {
+    "description": "Label for monthly incomes total"
+  },
+  "monthlyExpensesLabel": "Expenses",
+  "@monthlyExpensesLabel": {
+    "description": "Label for monthly expenses/outcomes total"
+  },
+  "monthlyBalanceLabel": "Net Balance",
+  "@monthlyBalanceLabel": {
+    "description": "Label for monthly net balance"
+  },
+  "addTransactionTitle": "Register Transaction",
+  "@addTransactionTitle": {
+    "description": "Title for registering a new financial transaction"
+  },
+  "addTransactionButton": "Add Transaction",
+  "@addTransactionButton": {
+    "description": "Action button to open add transaction modal"
+  },
+  "transactionTypeIncome": "Income",
+  "@transactionTypeIncome": {
+    "description": "Segment label for income transaction type"
+  },
+  "transactionTypeExpense": "Expense",
+  "@transactionTypeExpense": {
+    "description": "Segment label for expense/outcome transaction type"
+  },
+  "amountFieldLabel": "Amount",
+  "@amountFieldLabel": {
+    "description": "Label for amount input field"
+  },
+  "amountFieldPlaceholder": "0.00",
+  "@amountFieldPlaceholder": {
+    "description": "Placeholder for amount input field"
+  },
+  "descriptionFieldLabel": "Description",
+  "@descriptionFieldLabel": {
+    "description": "Label for description input field"
+  },
+  "descriptionFieldPlaceholder": "e.g., Monthly Salary, Groceries, Rent",
+  "@descriptionFieldPlaceholder": {
+    "description": "Placeholder for description input field"
+  },
+  "dateFieldLabel": "Date",
+  "@dateFieldLabel": {
+    "description": "Label for transaction date field"
+  },
+  "categoryFieldLabel": "Category",
+  "@categoryFieldLabel": {
+    "description": "Label for category selector"
+  },
+  "currencyFieldLabel": "Currency",
+  "@currencyFieldLabel": {
+    "description": "Label for currency selector"
+  },
+  "saveTransactionButton": "Save Transaction",
+  "@saveTransactionButton": {
+    "description": "Button to save a new financial transaction"
+  },
+  "emptyFinancialMonthMessage": "No transactions registered for this month. Tap the button below to register an income or expense.",
+  "@emptyFinancialMonthMessage": {
+    "description": "Empty state message when no transactions exist for the selected month"
+  },
+  "deleteTransactionDialogTitle": "Delete Transaction",
+  "@deleteTransactionDialogTitle": {
+    "description": "Title for dialog confirming transaction deletion"
+  },
+  "deleteTransactionConfirmation": "Are you sure you want to delete this transaction?",
+  "@deleteTransactionConfirmation": {
+    "description": "Confirmation message when deleting a financial transaction"
+  },
+  "previousMonthTooltip": "Previous Month",
+  "@previousMonthTooltip": {
+    "description": "Tooltip for previous month navigation"
+  },
+  "nextMonthTooltip": "Next Month",
+  "@nextMonthTooltip": {
+    "description": "Tooltip for next month navigation"
+  },
+  "currentMonthTooltip": "Current Month",
+  "@currentMonthTooltip": {
+    "description": "Tooltip to jump to current month"
+  },
+  "categorySalary": "Salary",
+  "@categorySalary": {
+    "description": "Category name: Salary"
+  },
+  "categoryInvestments": "Investments",
+  "@categoryInvestments": {
+    "description": "Category name: Investments"
+  },
+  "categoryFreelance": "Freelance",
+  "@categoryFreelance": {
+    "description": "Category name: Freelance"
+  },
+  "categoryHousing": "Housing",
+  "@categoryHousing": {
+    "description": "Category name: Housing"
+  },
+  "categoryFood": "Food & Groceries",
+  "@categoryFood": {
+    "description": "Category name: Food"
+  },
+  "categoryTransportation": "Transportation",
+  "@categoryTransportation": {
+    "description": "Category name: Transportation"
+  },
+  "categoryHealth": "Health",
+  "@categoryHealth": {
+    "description": "Category name: Health"
+  },
+  "categoryEducation": "Education",
+  "@categoryEducation": {
+    "description": "Category name: Education"
+  },
+  "categoryLeisure": "Leisure",
+  "@categoryLeisure": {
+    "description": "Category name: Leisure"
+  },
+  "categoryOther": "Other",
+  "@categoryOther": {
+    "description": "Category name: Other"
+  },
+  "addCategoryButton": "+ Category",
+  "@addCategoryButton": {
+    "description": "Button to add a custom category"
+  },
+  "newCategoryDialogTitle": "New Category",
+  "@newCategoryDialogTitle": {
+    "description": "Title for dialog to create a new category"
+  },
+  "categoryNameFieldLabel": "Category Name",
+  "@categoryNameFieldLabel": {
+    "description": "Label for category name input field"
+  },
+  "categoryNamePlaceholder": "e.g., Pet Care, Gym, Books",
+  "@categoryNamePlaceholder": {
+    "description": "Placeholder for category name input field"
+  },
+  "addCategoryConfirm": "Add",
+  "@addCategoryConfirm": {
+    "description": "Confirmation button to create new category"
+  },
+  "editTransactionTitle": "Edit Transaction",
+  "@editTransactionTitle": {
+    "description": "Title for editing an existing financial transaction"
+  },
+  "editTransactionTooltip": "Edit",
+  "@editTransactionTooltip": {
+    "description": "Tooltip for editing a transaction"
+  },
+  "updateTransactionButton": "Save Changes",
+  "@updateTransactionButton": {
+    "description": "Button to save changes when editing a transaction"
+  },
+  "monthCurrenciesLabel": "Currencies",
+  "@monthCurrenciesLabel": {
+    "description": "Label for month currencies section"
+  },
+  "registerCurrencyButton": "+ Currency",
+  "@registerCurrencyButton": {
+    "description": "Button to register a new currency for the month"
+  },
+  "registerCurrencyDialogTitle": "Register Currency for Month",
+  "@registerCurrencyDialogTitle": {
+    "description": "Title for dialog to register a currency for the month"
+  },
+  "selectCurrencyPrompt": "Select a currency to manage in this month",
+  "@selectCurrencyPrompt": {
+    "description": "Prompt in currency selection dialog"
+  },
+  "emptyCurrencyTransactionsMessage": "No transactions registered in this currency for this month. Tap the button below to register an income or expense.",
+  "@emptyCurrencyTransactionsMessage": {
+    "description": "Message shown when no transactions exist for the selected currency"
+  },
+  "deleteCurrencyMonthTransactionsTooltip": "Remove currency and its transactions for this month",
+  "@deleteCurrencyMonthTransactionsTooltip": {
+    "description": "Tooltip for removing a currency and its transactions for this month"
+  },
+  "deleteCurrencyMonthTransactionsTitle": "Remove Month Currency",
+  "@deleteCurrencyMonthTransactionsTitle": {
+    "description": "Title for dialog confirming removal of a month currency"
+  },
+  "deleteCurrencyMonthTransactionsConfirmation": "Are you sure you want to remove {currency} and delete all its registered transactions for {monthYear}? This action cannot be undone.",
+  "@deleteCurrencyMonthTransactionsConfirmation": {
+    "description": "Confirmation message when removing a month currency and deleting its transactions",
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      },
+      "monthYear": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCurrencyMonthTransactionsButton": "Remove Currency",
+  "@deleteCurrencyMonthTransactionsButton": {
+    "description": "Button to confirm removing a currency and its transactions for the month"
+  }
+}
+

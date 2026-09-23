@@ -49,6 +49,11 @@ This rule establishes the inviolable standard for respectful, humble, and non-pr
    - Never use comparative phrases or slogans such as *"Humility before Integrity"*, *"Humility comes before Integrity"*, or declare that one value is superior, prior, or a prerequisite condition for another.
    - Each virtue must be celebrated affirmatively on its own merits and in complementary, mutual harmony.
 
+7. **Pedagogical & Structural Flexibility for Suggested Habits (No Rigid Templates)**:
+   - **Zero Cookie-Cutter Rigidity**: Suggested habit articles are not required to follow an identical, inflexible, or formulaic structure.
+   - **Didactic & Analogical Freedom**: Each article possesses full creative and pedagogical freedom to organize its sections, narratives, analogies, visual tables, and practical workflows in whatever manner best fosters clarity, insight, and genuine understanding for the reader.
+   - **Preserve Invariant Anchors**: While internal structure is flexible, articles must maintain core frontmatter metadata (`id`, `title`, `slug`, `category`, `reading_time`, `summary`, `tags`, `pillars`), adhere to approved tag registries, and uphold all moral, tone, and non-prescriptive invariants.
+
 ---
 
 ## Scope of Application
