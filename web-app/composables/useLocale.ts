@@ -19,6 +19,7 @@ export type CanonicalRouteKey =
   | 'home'
   | 'about'
   | 'mission'
+  | 'privacy'
   | 'dimension_health_fitness'
   | 'dimension_mental_emotional'
   | 'dimension_personal_growth'
@@ -47,6 +48,11 @@ export const ROUTE_SLUGS: Record<CanonicalRouteKey, Record<Locale, string>> = {
     'en-US': '/mission',
     'pt-BR': '/pt-br/missao',
     eo: '/eo/misio'
+  },
+  privacy: {
+    'en-US': '/privacy',
+    'pt-BR': '/pt-br/privacidade',
+    eo: '/eo/privateco'
   },
   dimension_health_fitness: {
     'en-US': '/dimensions/health-and-physical-fitness',

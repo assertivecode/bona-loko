@@ -37,6 +37,7 @@ export default defineNuxtConfig({
       const indexPage = pages.find(p => p.path === '/')
       const aboutPage = pages.find(p => p.path === '/about')
       const missionPage = pages.find(p => p.path === '/mission')
+      const privacyPage = pages.find(p => p.path === '/privacy')
       const slugPage = pages.find(p => p.path === '/:slug')
       const slugFile = slugPage?.file || fileURLToPath(new URL('./pages/[slug].vue', import.meta.url))
 
@@ -56,6 +57,12 @@ export default defineNuxtConfig({
         pages.push(
           { name: 'mission-pt-br', path: '/pt-br/missao', file: missionPage.file },
           { name: 'mission-eo', path: '/eo/misio', file: missionPage.file }
+        )
+      }
+      if (privacyPage) {
+        pages.push(
+          { name: 'privacy-pt-br', path: '/pt-br/privacidade', file: privacyPage.file },
+          { name: 'privacy-eo', path: '/eo/privateco', file: privacyPage.file }
         )
       }
       // Dynamic Markdown Article Routes - Dimensions
