@@ -26,6 +26,11 @@ pillars:
   - emoji: "⚓"
     title: "Perspectiva Equilibrada"
     desc: "Ancorar o sistema nervoso naquilo que é real, nutriente e presente."
+life_area_weights:
+  emotional_wellbeing: 5
+  relationships_intimacy: 4
+  personal_growth: 3
+  family_parenting: 3
 ---
 
 # Cultivo da Gratidão: Resgatando o Encantamento Sereno e a Abundância Cotidiana

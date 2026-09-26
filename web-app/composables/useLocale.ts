@@ -20,6 +20,19 @@ export type CanonicalRouteKey =
   | 'about'
   | 'mission'
   | 'privacy'
+  | 'life_area_health_fitness'
+  | 'life_area_mental_emotional'
+  | 'life_area_personal_growth'
+  | 'life_area_career_calling'
+  | 'life_area_finances_wealth'
+  | 'life_area_physical_environment'
+  | 'life_area_relationships_intimacy'
+  | 'life_area_family_parenting'
+  | 'life_area_friendships_community'
+  | 'life_area_recreation_play'
+  | 'life_area_focus_mastery'
+  | 'life_area_contribution_legacy'
+  // Backwards compatibility aliases
   | 'dimension_health_fitness'
   | 'dimension_mental_emotional'
   | 'dimension_personal_growth'
@@ -32,6 +45,69 @@ export type CanonicalRouteKey =
   | 'dimension_recreation_play'
   | 'dimension_focus_mastery'
   | 'dimension_contribution_legacy'
+
+const lifeAreaRoutes: Record<string, Record<Locale, string>> = {
+  health_fitness: {
+    'en-US': '/life-areas/health-and-physical-fitness',
+    'pt-BR': '/pt-br/areas-da-vida/saude-e-condicionamento-fisico',
+    eo: '/eo/viv-areoj/sano-kaj-fizika-taugeco'
+  },
+  mental_emotional: {
+    'en-US': '/life-areas/mental-and-emotional-wellbeing',
+    'pt-BR': '/pt-br/areas-da-vida/bem-estar-mental-e-emocional',
+    eo: '/eo/viv-areoj/mensa-kaj-emocia-bonfarto'
+  },
+  personal_growth: {
+    'en-US': '/life-areas/personal-growth-and-learning',
+    'pt-BR': '/pt-br/areas-da-vida/crescimento-pessoal-e-aprendizado',
+    eo: '/eo/viv-areoj/persona-kresko-kaj-lernado'
+  },
+  career_calling: {
+    'en-US': '/life-areas/career-and-professional-calling',
+    'pt-BR': '/pt-br/areas-da-vida/carreira-e-vocacao-profissional',
+    eo: '/eo/viv-areoj/kariero-kaj-profesia-vokigo'
+  },
+  finances_wealth: {
+    'en-US': '/life-areas/finances-and-wealth',
+    'pt-BR': '/pt-br/areas-da-vida/financas-e-prosperidade',
+    eo: '/eo/viv-areoj/financoj-kaj-rico'
+  },
+  physical_environment: {
+    'en-US': '/life-areas/physical-environment-and-spaces',
+    'pt-BR': '/pt-br/areas-da-vida/ambiente-fisico-e-espacos',
+    eo: '/eo/viv-areoj/fizika-medio-kaj-spacoj'
+  },
+  relationships_intimacy: {
+    'en-US': '/life-areas/relationships-and-intimacy',
+    'pt-BR': '/pt-br/areas-da-vida/relacionamentos-e-intimidade',
+    eo: '/eo/viv-areoj/rilatoj-kaj-intimeco'
+  },
+  family_parenting: {
+    'en-US': '/life-areas/family-and-parenting',
+    'pt-BR': '/pt-br/areas-da-vida/familia-e-parentalidade',
+    eo: '/eo/viv-areoj/familio-kaj-gepatreco'
+  },
+  friendships_community: {
+    'en-US': '/life-areas/friendships-and-community',
+    'pt-BR': '/pt-br/areas-da-vida/amizades-e-comunidade',
+    eo: '/eo/viv-areoj/amikecoj-kaj-komunumo'
+  },
+  recreation_play: {
+    'en-US': '/life-areas/recreation-hobbies-and-play',
+    'pt-BR': '/pt-br/areas-da-vida/recreacao-hobbies-e-lazer',
+    eo: '/eo/viv-areoj/distrado-satokupoj-kaj-ludo'
+  },
+  focus_mastery: {
+    'en-US': '/life-areas/focus-and-attention-mastery',
+    'pt-BR': '/pt-br/areas-da-vida/dominio-do-foco-e-atencao',
+    eo: '/eo/viv-areoj/majstreco-pri-atento-kaj-fokuso'
+  },
+  contribution_legacy: {
+    'en-US': '/life-areas/contribution-and-legacy',
+    'pt-BR': '/pt-br/areas-da-vida/contribuicao-e-legado',
+    eo: '/eo/viv-areoj/kontribuo-kaj-heredajo'
+  }
+}
 
 export const ROUTE_SLUGS: Record<CanonicalRouteKey, Record<Locale, string>> = {
   home: {
@@ -54,66 +130,32 @@ export const ROUTE_SLUGS: Record<CanonicalRouteKey, Record<Locale, string>> = {
     'pt-BR': '/pt-br/privacidade',
     eo: '/eo/privateco'
   },
-  dimension_health_fitness: {
-    'en-US': '/dimensions/health-and-physical-fitness',
-    'pt-BR': '/pt-br/dimensoes/saude-e-condicionamento-fisico',
-    eo: '/eo/dimensioj/sano-kaj-fizika-taugeco'
-  },
-  dimension_mental_emotional: {
-    'en-US': '/dimensions/mental-and-emotional-wellbeing',
-    'pt-BR': '/pt-br/dimensoes/bem-estar-mental-e-emocional',
-    eo: '/eo/dimensioj/mensa-kaj-emocia-bonfarto'
-  },
-  dimension_personal_growth: {
-    'en-US': '/dimensions/personal-growth-and-learning',
-    'pt-BR': '/pt-br/dimensoes/crescimento-pessoal-e-aprendizado',
-    eo: '/eo/dimensioj/persona-kresko-kaj-lernado'
-  },
-  dimension_career_calling: {
-    'en-US': '/dimensions/career-and-professional-calling',
-    'pt-BR': '/pt-br/dimensoes/carreira-e-vocacao-profissional',
-    eo: '/eo/dimensioj/kariero-kaj-profesia-vokigo'
-  },
-  dimension_finances_wealth: {
-    'en-US': '/dimensions/finances-and-wealth',
-    'pt-BR': '/pt-br/dimensoes/financas-e-prosperidade',
-    eo: '/eo/dimensioj/financoj-kaj-rico'
-  },
-  dimension_physical_environment: {
-    'en-US': '/dimensions/physical-environment-and-spaces',
-    'pt-BR': '/pt-br/dimensoes/ambiente-fisico-e-espacos',
-    eo: '/eo/dimensioj/fizika-medio-kaj-spacoj'
-  },
-  dimension_relationships_intimacy: {
-    'en-US': '/dimensions/relationships-and-intimacy',
-    'pt-BR': '/pt-br/dimensoes/relacionamentos-e-intimidade',
-    eo: '/eo/dimensioj/rilatoj-kaj-intimeco'
-  },
-  dimension_family_parenting: {
-    'en-US': '/dimensions/family-and-parenting',
-    'pt-BR': '/pt-br/dimensoes/familia-e-parentalidade',
-    eo: '/eo/dimensioj/familio-kaj-gepatreco'
-  },
-  dimension_friendships_community: {
-    'en-US': '/dimensions/friendships-and-community',
-    'pt-BR': '/pt-br/dimensoes/amizades-e-comunidade',
-    eo: '/eo/dimensioj/amikecoj-kaj-komunumo'
-  },
-  dimension_recreation_play: {
-    'en-US': '/dimensions/recreation-hobbies-and-play',
-    'pt-BR': '/pt-br/dimensoes/recreacao-hobbies-e-lazer',
-    eo: '/eo/dimensioj/distrado-satokupoj-kaj-ludo'
-  },
-  dimension_focus_mastery: {
-    'en-US': '/dimensions/focus-and-attention-mastery',
-    'pt-BR': '/pt-br/dimensoes/dominio-do-foco-e-atencao',
-    eo: '/eo/dimensioj/majstreco-pri-atento-kaj-fokuso'
-  },
-  dimension_contribution_legacy: {
-    'en-US': '/dimensions/contribution-and-legacy',
-    'pt-BR': '/pt-br/dimensoes/contribuicao-e-legado',
-    eo: '/eo/dimensioj/kontribuo-kaj-heredajo'
-  }
+  // Canonical life_area_* keys
+  life_area_health_fitness: lifeAreaRoutes.health_fitness,
+  life_area_mental_emotional: lifeAreaRoutes.mental_emotional,
+  life_area_personal_growth: lifeAreaRoutes.personal_growth,
+  life_area_career_calling: lifeAreaRoutes.career_calling,
+  life_area_finances_wealth: lifeAreaRoutes.finances_wealth,
+  life_area_physical_environment: lifeAreaRoutes.physical_environment,
+  life_area_relationships_intimacy: lifeAreaRoutes.relationships_intimacy,
+  life_area_family_parenting: lifeAreaRoutes.family_parenting,
+  life_area_friendships_community: lifeAreaRoutes.friendships_community,
+  life_area_recreation_play: lifeAreaRoutes.recreation_play,
+  life_area_focus_mastery: lifeAreaRoutes.focus_mastery,
+  life_area_contribution_legacy: lifeAreaRoutes.contribution_legacy,
+  // Backwards compatibility dimension_* keys
+  dimension_health_fitness: lifeAreaRoutes.health_fitness,
+  dimension_mental_emotional: lifeAreaRoutes.mental_emotional,
+  dimension_personal_growth: lifeAreaRoutes.personal_growth,
+  dimension_career_calling: lifeAreaRoutes.career_calling,
+  dimension_finances_wealth: lifeAreaRoutes.finances_wealth,
+  dimension_physical_environment: lifeAreaRoutes.physical_environment,
+  dimension_relationships_intimacy: lifeAreaRoutes.relationships_intimacy,
+  dimension_family_parenting: lifeAreaRoutes.family_parenting,
+  dimension_friendships_community: lifeAreaRoutes.friendships_community,
+  dimension_recreation_play: lifeAreaRoutes.recreation_play,
+  dimension_focus_mastery: lifeAreaRoutes.focus_mastery,
+  dimension_contribution_legacy: lifeAreaRoutes.contribution_legacy
 }
 
 // Global singleton state for current locale across the application

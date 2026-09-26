@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:habit_builder/domain/engine/priority_engine.dart';
 import 'package:habit_builder/domain/models/life_area.dart';
 import 'package:habit_builder/domain/models/life_area_evaluation.dart';
+import 'package:habit_builder/domain/models/suggested_habit.dart';
 
 void main() {
   group('PriorityEngine Mathematical Calculations', () {
@@ -138,6 +139,112 @@ void main() {
       expect(ranked[1].lifeArea, LifeArea.healthFitness);
       expect(ranked[2].lifeArea, LifeArea.personalGrowth);
       expect(ranked[3].lifeArea, LifeArea.recreationPlay);
+    });
+
+    test('calculateHabitRelevanceScore: computes weighted sum (weight * userPriority)', () {
+      final now = DateTime.now();
+      final exerciseHabit = SuggestedHabit(
+        id: 'habit_exercise',
+        title: 'Exercise',
+        description: 'Workout',
+        areaWeights: {
+          LifeArea.healthFitness: 5,
+          LifeArea.emotionalWellbeing: 4,
+          LifeArea.focusMastery: 3,
+          LifeArea.recreationPlay: 2,
+        },
+      );
+
+      final evaluations = [
+        LifeAreaEvaluation(id: '1', lifeArea: LifeArea.healthFitness, score: 5.0, currentPriority: 5, evaluatedAt: now),
+        LifeAreaEvaluation(id: '2', lifeArea: LifeArea.emotionalWellbeing, score: 5.0, currentPriority: 4, evaluatedAt: now),
+        LifeAreaEvaluation(id: '3', lifeArea: LifeArea.focusMastery, score: 5.0, currentPriority: 3, evaluatedAt: now),
+        LifeAreaEvaluation(id: '4', lifeArea: LifeArea.recreationPlay, score: 5.0, currentPriority: 2, evaluatedAt: now),
+      ];
+
+      // 5*5 + 4*4 + 3*3 + 2*2 = 25 + 16 + 9 + 4 = 54.0
+      final score = PriorityEngine.calculateHabitRelevanceScore(
+        habit: exerciseHabit,
+        evaluations: evaluations,
+      );
+      expect(score, 54.0);
+    });
+
+    test('calculateHabitRelevanceScore: applies default priority 3 for unassessed areas', () {
+      final habit = SuggestedHabit(
+        id: 'habit_partial',
+        title: 'Habit',
+        description: 'Desc',
+        areaWeights: {
+          LifeArea.healthFitness: 5,
+          LifeArea.financesWealth: 4,
+        },
+      );
+
+      // Only healthFitness evaluated with P=5, financesWealth unassessed (defaults to 3)
+      final evaluations = [
+        LifeAreaEvaluation(id: '1', lifeArea: LifeArea.healthFitness, score: 5.0, currentPriority: 5, evaluatedAt: DateTime.now()),
+      ];
+
+      // 5*5 + 4*3 = 25 + 12 = 37.0
+      final score = PriorityEngine.calculateHabitRelevanceScore(
+        habit: habit,
+        evaluations: evaluations,
+      );
+      expect(score, 37.0);
+    });
+
+    test('rankHabitsByPriority: sorts habits descending by user priority relevance', () {
+      final now = DateTime.now();
+      final exerciseHabit = SuggestedHabit(
+        id: 'habit_exercise',
+        title: 'Exercise',
+        description: 'Workout',
+        areaWeights: {
+          LifeArea.healthFitness: 5,
+          LifeArea.emotionalWellbeing: 4,
+        },
+      );
+
+      final readingHabit = SuggestedHabit(
+        id: 'habit_reading',
+        title: 'Reading',
+        description: 'Books',
+        areaWeights: {
+          LifeArea.personalGrowth: 5,
+          LifeArea.careerCalling: 4,
+        },
+      );
+
+      // Case 1: User prioritizes Health (P=5) and de-prioritizes Growth (P=1)
+      final healthFocusedEvals = [
+        LifeAreaEvaluation(id: '1', lifeArea: LifeArea.healthFitness, score: 5.0, currentPriority: 5, evaluatedAt: now),
+        LifeAreaEvaluation(id: '2', lifeArea: LifeArea.emotionalWellbeing, score: 5.0, currentPriority: 4, evaluatedAt: now),
+        LifeAreaEvaluation(id: '3', lifeArea: LifeArea.personalGrowth, score: 5.0, currentPriority: 1, evaluatedAt: now),
+        LifeAreaEvaluation(id: '4', lifeArea: LifeArea.careerCalling, score: 5.0, currentPriority: 1, evaluatedAt: now),
+      ];
+
+      final ranked1 = PriorityEngine.rankHabitsByPriority(
+        habits: [readingHabit, exerciseHabit],
+        evaluations: healthFocusedEvals,
+      );
+      expect(ranked1.first.id, 'habit_exercise');
+      expect(ranked1.last.id, 'habit_reading');
+
+      // Case 2: User prioritizes Growth (P=5) and de-prioritizes Health (P=1)
+      final growthFocusedEvals = [
+        LifeAreaEvaluation(id: '1', lifeArea: LifeArea.healthFitness, score: 5.0, currentPriority: 1, evaluatedAt: now),
+        LifeAreaEvaluation(id: '2', lifeArea: LifeArea.emotionalWellbeing, score: 5.0, currentPriority: 1, evaluatedAt: now),
+        LifeAreaEvaluation(id: '3', lifeArea: LifeArea.personalGrowth, score: 5.0, currentPriority: 5, evaluatedAt: now),
+        LifeAreaEvaluation(id: '4', lifeArea: LifeArea.careerCalling, score: 5.0, currentPriority: 5, evaluatedAt: now),
+      ];
+
+      final ranked2 = PriorityEngine.rankHabitsByPriority(
+        habits: [exerciseHabit, readingHabit],
+        evaluations: growthFocusedEvals,
+      );
+      expect(ranked2.first.id, 'habit_reading');
+      expect(ranked2.last.id, 'habit_exercise');
     });
   });
 }

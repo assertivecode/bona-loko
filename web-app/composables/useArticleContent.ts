@@ -18,6 +18,7 @@ export interface ArticleFrontmatter {
   reading_time?: string
   tags?: string[]
   pillars?: PillarItem[]
+  life_area_weights?: Record<string, number>
   [key: string]: any
 }
 
@@ -44,7 +45,7 @@ function stripQuotes(val: string): string {
   return trimmed
 }
 
-// Light YAML frontmatter parser handling primitives and array of objects (e.g. pillars)
+// Light YAML frontmatter parser handling primitives, lists, and key-value maps
 export function parseMarkdownDoc(rawContent: string): { frontmatter: ArticleFrontmatter; body: string } {
   const frontmatterRegex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/
   const match = rawContent.match(frontmatterRegex)
@@ -61,7 +62,9 @@ export function parseMarkdownDoc(rawContent: string): { frontmatter: ArticleFron
   const meta: Record<string, any> = {}
 
   const lines = yamlBlock.split(/\r?\n/)
-  let currentListKey: string | null = null
+  let currentKey: string | null = null
+  let currentList: any[] | null = null
+  let currentMap: Record<string, any> | null = null
   let currentListItem: Record<string, any> | null = null
 
   for (const line of lines) {
@@ -69,20 +72,22 @@ export function parseMarkdownDoc(rawContent: string): { frontmatter: ArticleFron
 
     // List item start: e.g. "  - emoji: 🌙" or simple "  - some-tag"
     const listItemMatch = line.match(/^  -\s+(.*)$/)
-    if (listItemMatch && currentListKey) {
+    if (listItemMatch && currentKey) {
+      if (!currentList) {
+        currentList = []
+        meta[currentKey] = currentList
+      }
       const rest = listItemMatch[1].trim()
       const colonIdx = rest.indexOf(':')
       if (colonIdx > -1) {
-        // Object item (e.g. pillars with key: value pairs)
         currentListItem = {}
-        meta[currentListKey].push(currentListItem)
+        currentList.push(currentListItem)
         const k = rest.slice(0, colonIdx).trim()
         const v = stripQuotes(rest.slice(colonIdx + 1))
         currentListItem[k] = v
       } else {
-        // Simple string item (e.g. tags: - career-development)
         currentListItem = null
-        meta[currentListKey].push(stripQuotes(rest))
+        currentList.push(stripQuotes(rest))
       }
       continue
     }
@@ -96,21 +101,35 @@ export function parseMarkdownDoc(rawContent: string): { frontmatter: ArticleFron
       continue
     }
 
-    // Top-level key: e.g. "id: health_fitness" or "pillars:"
+    // Key-value pair inside an object mapping: e.g. "  health_fitness: 5"
+    const mapEntryMatch = line.match(/^  ([a-zA-Z0-9_-]+):\s*(.*)$/)
+    if (mapEntryMatch && currentKey && !currentList) {
+      if (!currentMap) {
+        currentMap = {}
+        meta[currentKey] = currentMap
+      }
+      const k = mapEntryMatch[1].trim()
+      const rawV = stripQuotes(mapEntryMatch[2])
+      const numV = Number(rawV)
+      currentMap[k] = !isNaN(numV) && rawV !== '' ? numV : rawV
+      continue
+    }
+
+    // Top-level key: e.g. "id: health_fitness", "pillars:", "life_area_weights:"
     const topKeyMatch = line.match(/^([a-zA-Z0-9_-]+):\s*(.*)$/)
     if (topKeyMatch) {
       const k = topKeyMatch[1].trim()
       const v = topKeyMatch[2].trim()
 
-      if (v === '') {
-        // Begins a list
-        currentListKey = k
-        currentListItem = null
-        meta[k] = []
-      } else {
-        currentListKey = null
-        currentListItem = null
-        meta[k] = stripQuotes(v)
+      currentKey = k
+      currentList = null
+      currentMap = null
+      currentListItem = null
+
+      if (v !== '') {
+        const rawV = stripQuotes(v)
+        const numV = Number(rawV)
+        meta[k] = !isNaN(numV) && rawV !== '' ? numV : rawV
       }
     }
   }
@@ -189,10 +208,14 @@ function initializeContentRegistry(force = false) {
     if (!articlesById[id]) articlesById[id] = {}
     articlesById[id][locale] = record
 
-    // Also alias dimension_xxx id for backwards compatibility
-    const aliasId = `dimension_${id}`
-    if (!articlesById[aliasId]) articlesById[aliasId] = {}
-    articlesById[aliasId][locale] = record
+    // Alias life_area_xxx and dimension_xxx id
+    const lifeAreaAliasId = `life_area_${id}`
+    if (!articlesById[lifeAreaAliasId]) articlesById[lifeAreaAliasId] = {}
+    articlesById[lifeAreaAliasId][locale] = record
+
+    const dimensionAliasId = `dimension_${id}`
+    if (!articlesById[dimensionAliasId]) articlesById[dimensionAliasId] = {}
+    articlesById[dimensionAliasId][locale] = record
 
     // Index by slug and locale
     articlesBySlugAndLocale[`${locale}:${slug}`] = record
@@ -216,9 +239,10 @@ export function useAllArticles() {
 }
 
 const HABIT_ORDER = [
+  'habit_nurture_of_gratitude',
+  'habit_regular_exercise_workout',
   'habit_consistent_sleep_evening_transition',
   'habit_morning_screen_free_window',
-  'habit_nurture_of_gratitude',
   'habit_daily_protected_reading',
   'habit_mindful_daily_expense_tracking',
   'habit_daily_family_connection_ritual',
@@ -246,6 +270,48 @@ export function getSuggestedHabits(locale: Locale): ArticleRecord[] {
   })
 }
 
+/**
+ * Calculates relevance score between a habit and user's current life area priorities.
+ * Score = sum(weight_A * priority_A)
+ * If priority_A is not provided in userPriorities, defaults to neutral priority 3.
+ */
+export function calculateHabitRelevanceScore(
+  habit: ArticleRecord,
+  userPriorities: Record<string, number> = {}
+): number {
+  const weights = habit.frontmatter.life_area_weights || {}
+  let totalScore = 0
+  for (const [areaKey, rawWeight] of Object.entries(weights)) {
+    const weight = typeof rawWeight === 'number' ? rawWeight : parseInt(String(rawWeight), 10) || 0
+    if (weight < 1 || weight > 5) continue
+    const priority = userPriorities[areaKey] !== undefined ? userPriorities[areaKey] : 3
+    totalScore += weight * priority
+  }
+  return totalScore
+}
+
+/**
+ * Returns suggested habit articles ranked by relevance score according to user life area priorities.
+ * Highest score has highest suggestion precedence.
+ */
+export function getSuggestedHabitsRanked(
+  locale: Locale,
+  userPriorities?: Record<string, number>
+): ArticleRecord[] {
+  const habits = getSuggestedHabits(locale)
+  if (!userPriorities || Object.keys(userPriorities).length === 0) {
+    return habits
+  }
+
+  return [...habits].sort((a, b) => {
+    const scoreA = calculateHabitRelevanceScore(a, userPriorities)
+    const scoreB = calculateHabitRelevanceScore(b, userPriorities)
+    if (scoreB !== scoreA) {
+      return scoreB - scoreA
+    }
+    return (a.frontmatter.title || '').localeCompare(b.frontmatter.title || '')
+  })
+}
 
 /**
  * Finds an article record matching a route slug and active locale
@@ -268,7 +334,7 @@ export function findArticleBySlug(slug: string, locale: Locale): ArticleRecord |
   }
 
   // 3. Fallback: match by article ID
-  const byId = articlesById[slug]?.[locale] || articlesById[`dimension_${slug}`]?.[locale]
+  const byId = articlesById[slug]?.[locale] || articlesById[`life_area_${slug}`]?.[locale] || articlesById[`dimension_${slug}`]?.[locale]
   if (byId) return byId
 
   return null
@@ -317,7 +383,7 @@ export function getArticleCounterpartPath(currentPath: string, targetLocale: Loc
  */
 export function getArticlePathById(id: string, locale: Locale): string | null {
   initializeContentRegistry()
-  const target = articlesById[id]?.[locale] || articlesById[`dimension_${id}`]?.[locale]
+  const target = articlesById[id]?.[locale] || articlesById[`life_area_${id}`]?.[locale] || articlesById[`dimension_${id}`]?.[locale]
   return target ? target.path : null
 }
 

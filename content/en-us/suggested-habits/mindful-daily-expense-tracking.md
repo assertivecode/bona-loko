@@ -26,6 +26,10 @@ pillars:
   - emoji: "⚓"
     title: "Sovereign Peace"
     desc: "Freeing mental bandwidth from avoidance and anxiety."
+life_area_weights:
+  finances_wealth: 5
+  focus_mastery: 3
+  emotional_wellbeing: 3
 ---
 
 # Mindful Daily Expense Tracking: Cultivating Calm Clarity in Financial Stewardship

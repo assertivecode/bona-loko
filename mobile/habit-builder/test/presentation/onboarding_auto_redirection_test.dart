@@ -7,6 +7,7 @@ import 'package:habit_builder/data/local/app_database.dart';
 import 'package:habit_builder/data/local/database_provider.dart';
 import 'package:habit_builder/data/local/tables/users_table.dart';
 import 'package:habit_builder/data/repositories/life_area_evaluation_repository.dart';
+import 'package:habit_builder/data/repositories/user_habits_repository.dart';
 import 'package:habit_builder/data/repositories/user_repository.dart';
 import 'package:habit_builder/domain/models/life_area.dart';
 import 'package:habit_builder/domain/models/life_area_evaluation.dart';
@@ -255,11 +256,13 @@ void main() {
       final testDb = AppDatabase(NativeDatabase.memory());
       final userRepo = UserRepository(testDb);
       final evalRepo = LifeAreaEvaluationRepository(testDb);
+      final habitsRepo = UserHabitsRepository(testDb);
 
       // Configure user with Portuguese and completed onboarding
       await userRepo.saveLanguage(AppLanguage.portuguese);
       await userRepo.saveName('Mateus');
       await userRepo.setOnboardingCompleted(true);
+      await habitsRepo.selectHabit('habit_nurture_of_gratitude');
 
       // Insert evaluations for all 12 areas
       for (final area in LifeArea.values) {

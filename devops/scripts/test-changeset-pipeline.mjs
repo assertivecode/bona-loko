@@ -78,7 +78,7 @@ test('evaluateRequiredApps maps touched web-app and content files, ignoring docs
   assert.deepEqual(evaluateRequiredApps(filesA, deployTargets), ['web-app']);
 
   // Scenario B: content file changed -> requires web-app because articles are bundled into the build
-  const filesB = ['content/pt-br/dimensoes/saude.md'];
+  const filesB = ['content/pt-br/areas-da-vida/saude.md'];
   assert.deepEqual(evaluateRequiredApps(filesB, deployTargets), ['web-app']);
 
   // Scenario C: only ignored documentation, devops, and meta files changed
@@ -130,7 +130,7 @@ test('Acceptance Scenario 4: Documentation/specs change with unnecessary web-app
 
 test('Acceptance Scenario 5: Content update without changeset fails validation', () => {
   const deployTargets = loadDeployTargets();
-  const changedFiles = ['content/pt-br/dimensoes/saude.md'];
+  const changedFiles = ['content/pt-br/areas-da-vida/saude.md'];
   const requiredApps = evaluateRequiredApps(changedFiles, deployTargets);
 
   const result = validateChangesetMatch({
@@ -143,7 +143,7 @@ test('Acceptance Scenario 5: Content update without changeset fails validation',
 
 test('Acceptance Scenario 6: Content update with declared web-app changeset passes validation', () => {
   const deployTargets = loadDeployTargets();
-  const changedFiles = ['content/pt-br/dimensoes/saude.md'];
+  const changedFiles = ['content/pt-br/areas-da-vida/saude.md'];
   const requiredApps = evaluateRequiredApps(changedFiles, deployTargets);
 
   const result = validateChangesetMatch({

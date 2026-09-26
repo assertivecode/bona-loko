@@ -26,6 +26,10 @@ pillars:
   - emoji: "☕"
     title: "Camaradagem Viva"
     desc: "Transformar lembranças espontâneas em conversas significativas."
+life_area_weights:
+  friendships_community: 5
+  relationships_intimacy: 3
+  contribution_legacy: 3
 ---
 
 # Contato Pessoal Semanal: Sustentando Afeto e Camaradagem ao Longo do Tempo

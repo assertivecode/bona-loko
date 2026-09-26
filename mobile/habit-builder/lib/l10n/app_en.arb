@@ -28,6 +28,86 @@
   "@assessmentDescription": {
     "description": "Short description explaining what the 12 life areas assessment is about"
   },
+  "continueToExpectations": "Continue",
+  "@continueToExpectations": {
+    "description": "Button on welcome screen to advance to expectations screen"
+  },
+  "expectationsScreenTitle": "Aligning Expectations",
+  "@expectationsScreenTitle": {
+    "description": "Title of the expectations alignment screen"
+  },
+  "expectationsScreenSubtitle": "A thoughtful approach to life balance and daily habits",
+  "@expectationsScreenSubtitle": {
+    "description": "Subtitle of the expectations alignment screen"
+  },
+  "philosophySectionTitle": "Our Core Philosophy",
+  "@philosophySectionTitle": {
+    "description": "Title for the philosophy section"
+  },
+  "faithInSmallChangesTitle": "Faith in Small Changes",
+  "@faithInSmallChangesTitle": {
+    "description": "Card title for faith in small changes"
+  },
+  "faithInSmallChangesDesc": "This app is designed for people with faith that small, mindful changes compound into immense transformation over time. Even when you are not fully consistent, every step already taken represents genuine progress.",
+  "@faithInSmallChangesDesc": {
+    "description": "Card description for faith in small changes"
+  },
+  "sustainablePaceTitle": "A Measured, Sustainable Pace",
+  "@sustainablePaceTitle": {
+    "description": "Card title for sustainable pace"
+  },
+  "sustainablePaceDesc": "While we aim to increase focus and reduce unhealthy distractions, this is not a high-pressure productivity tool. Real, solid growth takes root when given the time it genuinely requires, without hurried expectations.",
+  "@sustainablePaceDesc": {
+    "description": "Card description for sustainable pace"
+  },
+  "nurturingCalmTitle": "The Importance of Nurturing Calm",
+  "@nurturingCalmTitle": {
+    "description": "Card title for nurturing calm recommendation"
+  },
+  "nurturingCalmDesc": "An unhurried mind sees long-term horizons clearly. We warmly recommend reading our article exploring why calm is the foundation of durable life balance.",
+  "@nurturingCalmDesc": {
+    "description": "Card description for nurturing calm recommendation"
+  },
+  "readArticleAction": "Read Article Online",
+  "@readArticleAction": {
+    "description": "Button to open the calm article online"
+  },
+  "nextStepsSectionTitle": "What to Expect Next",
+  "@nextStepsSectionTitle": {
+    "description": "Title for next steps section"
+  },
+  "nextStep1Title": "1. Calm Life Areas Assessment",
+  "@nextStep1Title": {
+    "description": "Title for step 1"
+  },
+  "nextStep1Desc": "Take the necessary time to properly reflect and evaluate each of the 12 areas of your life at your present season.",
+  "@nextStep1Desc": {
+    "description": "Description for step 1"
+  },
+  "nextStep2Title": "2. Prioritized Habit Suggestions",
+  "@nextStep2Title": {
+    "description": "Title for step 2"
+  },
+  "nextStep2Desc": "The app will organize and recommend habits based on your personal priorities and identified priority gaps.",
+  "@nextStep2Desc": {
+    "description": "Description for step 2"
+  },
+  "nextStep3Title": "3. Choose Daily Habits",
+  "@nextStep3Title": {
+    "description": "Title for step 3"
+  },
+  "nextStep3Desc": "Select habits to cultivate daily. If you already practice positive habits, select them too to keep a holistic overview of your rhythms.",
+  "@nextStep3Desc": {
+    "description": "Description for step 3"
+  },
+  "nextStep4Title": "4. Reflect at Your Own Pace",
+  "@nextStep4Title": {
+    "description": "Title for step 4"
+  },
+  "nextStep4Desc": "Pick reflections to think about whenever you have space, reaching your own conclusions with complete personal autonomy.",
+  "@nextStep4Desc": {
+    "description": "Description for step 4"
+  },
   "scoreLabel": "Current State Score",
   "@scoreLabel": {
     "description": "Label for the score evaluation slider"
@@ -174,9 +254,21 @@
   "@topPrioritiesTitle": {
     "description": "Heading for high priority life areas"
   },
-  "topPrioritiesSubtitle": "Dimensions where intentional daily practice can create the most meaningful balance.",
+  "topPrioritiesSubtitle": "Areas where intentional daily practice can create the most meaningful balance.",
   "@topPrioritiesSubtitle": {
     "description": "Subtitle for high priority life areas"
+  },
+  "suggestedHabitsSectionTitle": "Suggested Habits for Your Priorities",
+  "@suggestedHabitsSectionTitle": {
+    "description": "Heading for habits recommended based on life area priorities"
+  },
+  "suggestedHabitsSectionSubtitle": "Actionable daily practices prioritized by your current life focus.",
+  "@suggestedHabitsSectionSubtitle": {
+    "description": "Subtitle explaining how habits are prioritized"
+  },
+  "habitSynergyTitle": "Life Area Synergy",
+  "@habitSynergyTitle": {
+    "description": "Label for habit weights across life areas"
   },
   "allAreasTitle": "12 Life Areas Overview",
   "@allAreasTitle": {
@@ -378,7 +470,7 @@
   "@viewAssessedLifeAreasButton": {
     "description": "Button to navigate to the assessed life areas screen"
   },
-  "viewAssessedLifeAreasSubtitle": "Review focus dimensions, balance scores, and adjust priorities",
+  "viewAssessedLifeAreasSubtitle": "Review focus areas, balance scores, and adjust priorities",
   "@viewAssessedLifeAreasSubtitle": {
     "description": "Subtitle for the assessed life areas navigation card"
   },
@@ -957,6 +1049,226 @@
   "deleteCurrencyMonthTransactionsButton": "Remove Currency",
   "@deleteCurrencyMonthTransactionsButton": {
     "description": "Button to confirm removing a currency and its transactions for the month"
-  }
+  },
+  "suggestedHabitsScreenTitle": "Suggested Habits",
+  "@suggestedHabitsScreenTitle": {
+    "description": "Title for the dedicated Suggested Habits screen"
+  },
+  "suggestedHabitsScreenSubtitle": "Actionable daily practices prioritized by your current life focus.",
+  "@suggestedHabitsScreenSubtitle": {
+    "description": "Subtitle for the dedicated Suggested Habits screen"
+  },
+  "addHabitToRoutine": "Add to Routine",
+  "@addHabitToRoutine": {
+    "description": "Button to add a suggested habit to the user daily routine"
+  },
+  "habitInRoutine": "In Routine",
+  "@habitInRoutine": {
+    "description": "Button or badge indicating habit is currently in user routine"
+  },
+  "removeHabitFromRoutine": "Remove from Routine",
+  "@removeHabitFromRoutine": {
+    "description": "Tooltip or button to remove a habit from daily routine"
+  },
+  "noHabitsSelectedTitle": "No Habits in Your Daily Routine",
+  "@noHabitsSelectedTitle": {
+    "description": "Title when no habits have been selected yet"
+  },
+  "noHabitsSelectedSubtitle": "Choose habits aligned with your life area priorities to build your daily routine.",
+  "@noHabitsSelectedSubtitle": {
+    "description": "Subtitle when no habits have been selected yet"
+  },
+  "exploreSuggestedHabitsButton": "Explore Suggested Habits",
+  "@exploreSuggestedHabitsButton": {
+    "description": "Button to navigate to suggested habits screen from empty state"
+  },
+  "viewHabitsScreenButton": "Suggested Habits & Routines",
+  "@viewHabitsScreenButton": {
+    "description": "Title for navigation card to suggested habits screen"
+  },
+  "viewHabitsScreenSubtitle": "Explore and select habits prioritized for your current life focus",
+  "@viewHabitsScreenSubtitle": {
+    "description": "Subtitle for navigation card to suggested habits screen"
+  },
+  "dailyHabitsRoutineTitle": "Daily Routine",
+  "@dailyHabitsRoutineTitle": {
+    "description": "Section header for user daily routine"
+  },
+  "dailyHabitsRoutineSubtitle": "Practices you have chosen to cultivate daily.",
+  "@dailyHabitsRoutineSubtitle": {
+    "description": "Subtitle for user daily routine section"
+  },
+  "dailyPracticeBadge": "Daily Practice",
+  "@dailyPracticeBadge": {
+    "description": "Badge for daily habit practice"
+  },
+  "openHabitFeature": "Open Practice",
+  "@openHabitFeature": {
+    "description": "Button to open dedicated interactive habit practice screen"
+  },
+  "habitComingSoon": "Coming Soon",
+  "@habitComingSoon": {
+    "description": "Badge indicating that a habit feature is under development and cannot yet be added to routine"
+  },
+  "manageRoutineButton": "Manage Daily Routine",
+  "@manageRoutineButton": {
+    "description": "Button to manage or add more habits to routine"
+  },
+  "habitRegularExerciseTitle": "Daily Physical Exercise & Movement",
+  "@habitRegularExerciseTitle": {
+    "description": "Title for exercise habit"
+  },
+  "habitRegularExerciseDesc": "Engage in 20–30 minutes of intentional physical movement to energize cellular vitality and mental clarity.",
+  "@habitRegularExerciseDesc": {
+    "description": "Description for exercise habit"
+  },
+  "habitConsistentSleepTitle": "Consistent Sleep & Evening Transition",
+  "@habitConsistentSleepTitle": {
+    "description": "Title for sleep habit"
+  },
+  "habitConsistentSleepDesc": "Anchor consistent sleep and wake timing with a soothing 20-minute wind-down routine.",
+  "@habitConsistentSleepDesc": {
+    "description": "Description for sleep habit"
+  },
+  "habitMorningScreenFreeTitle": "Morning Screen-Free Window",
+  "@habitMorningScreenFreeTitle": {
+    "description": "Title for morning screen-free habit"
+  },
+  "habitMorningScreenFreeDesc": "Protect the first 30–60 minutes after waking from digital inputs to step into the day with calm sovereignty.",
+  "@habitMorningScreenFreeDesc": {
+    "description": "Description for morning screen-free habit"
+  },
+  "habitCultivationGratitudeTitle": "Cultivation of Gratitude",
+  "@habitCultivationGratitudeTitle": {
+    "description": "Title for gratitude habit"
+  },
+  "habitCultivationGratitudeDesc": "Anchor the nervous system daily in quiet wonder, noticing goodness and heartfelt appreciation.",
+  "@habitCultivationGratitudeDesc": {
+    "description": "Description for gratitude habit"
+  },
+  "habitDailyReadingTitle": "Daily Protected Reading",
+  "@habitDailyReadingTitle": {
+    "description": "Title for reading habit"
+  },
+  "habitDailyReadingDesc": "Dedicate 20 quiet minutes to reading books that expand mental models, craft wisdom, and perspective.",
+  "@habitDailyReadingDesc": {
+    "description": "Description for reading habit"
+  },
+  "habitExpenseTrackingTitle": "Mindful Daily Expense Tracking",
+  "@habitExpenseTrackingTitle": {
+    "description": "Title for expense tracking habit"
+  },
+  "habitExpenseTrackingDesc": "Spend 2 minutes each evening reviewing daily transactions with calm presence and zero judgment.",
+  "@habitExpenseTrackingDesc": {
+    "description": "Description for expense tracking habit"
+  },
+  "habitFamilyConnectionTitle": "Daily Family Connection Ritual",
+  "@habitFamilyConnectionTitle": {
+    "description": "Title for family connection habit"
+  },
+  "habitFamilyConnectionDesc": "Dedicate 15–30 undistracted minutes to meaningful connection with family members or children.",
+  "@habitFamilyConnectionDesc": {
+    "description": "Description for family connection habit"
+  },
+  "habitWeeklyOutreachTitle": "Weekly Personal Outreach",
+  "@habitWeeklyOutreachTitle": {
+    "description": "Title for weekly outreach habit"
+  },
+  "habitWeeklyOutreachDesc": "Reach out intentionally to a friend or mentor with a warm, unhurried message or phone call.",
+  "@habitWeeklyOutreachDesc": {
+    "description": "Description for weekly outreach habit"
+  },
+  "habitMicroLeisureTitle": "Daily Guilt-Free Micro-Leisure",
+  "@habitMicroLeisureTitle": {
+    "description": "Title for micro-leisure habit"
+  },
+  "habitMicroLeisureDesc": "Enjoy 15 minutes of non-utilitarian play, creative hobbies, or restful joy without guilt.",
+  "@habitMicroLeisureDesc": {
+    "description": "Description for micro-leisure habit"
+  },
+  "scoreReferenceTitle": "Scoring Reference Guide",
+  "@scoreReferenceTitle": {
+    "description": "Title for the score reference section"
+  },
+  "scoreReferenceDisclaimer": "These examples are illustrative personal references, not absolute metrics. Compare your score only to your own journey and values.",
+  "@scoreReferenceDisclaimer": {
+    "description": "Disclaimer that scoring benchmarks are personal and relative"
+  },
+  "readLifeAreaArticleAction": "Read Life Area Guide",
+  "@readLifeAreaArticleAction": {
+    "description": "Button label to read the external web article for the life area"
+  },
+  "area_health_fitness_score_3": "Occasional movement or sporadic walks when time permits; irregular sleep and physical rest.",
+  "@area_health_fitness_score_3": { "description": "Score 3 anchor for health and fitness" },
+  "area_health_fitness_score_6": "Regular weekly exercise (2–3 times/week), intentional hydration, and reasonably consistent sleep.",
+  "@area_health_fitness_score_6": { "description": "Score 6 anchor for health and fitness" },
+  "area_health_fitness_score_10": "Consistent daily movement, restorative sleep, balanced nourishing nutrition, and joyful body respect.",
+  "@area_health_fitness_score_10": { "description": "Score 10 anchor for health and fitness" },
+  "area_emotional_wellbeing_score_3": "Rare intentional pauses; feelings frequently feel reactive or overwhelmed by daily pressures.",
+  "@area_emotional_wellbeing_score_3": { "description": "Score 3 anchor for emotional wellbeing" },
+  "area_emotional_wellbeing_score_6": "Regular moments of quiet reflection, conscious breathing during tense moments, and basic emotional awareness.",
+  "@area_emotional_wellbeing_score_6": { "description": "Score 6 anchor for emotional wellbeing" },
+  "area_emotional_wellbeing_score_10": "Deep inner calm nurtured daily; healthy emotional boundaries, gratitude practice, and resilient self-compassion.",
+  "@area_emotional_wellbeing_score_10": { "description": "Score 10 anchor for emotional wellbeing" },
+  "area_personal_growth_score_3": "Occasional reading or sporadic learning when a video or article catches attention.",
+  "@area_personal_growth_score_3": { "description": "Score 3 anchor for personal growth" },
+  "area_personal_growth_score_6": "Regular reading habit (15–20 minutes daily or several books a year) and deliberate study of personal interests.",
+  "@area_personal_growth_score_6": { "description": "Score 6 anchor for personal growth" },
+  "area_personal_growth_score_10": "Dedicated daily learning routine; continuous application of insights into character, craft, and lifelong curiosity.",
+  "@area_personal_growth_score_10": { "description": "Score 10 anchor for personal growth" },
+  "area_career_calling_score_3": "Executing basic work tasks primarily for financial stability, with little connection to deeper vocational purpose.",
+  "@area_career_calling_score_3": { "description": "Score 3 anchor for career and calling" },
+  "area_career_calling_score_6": "Engaged craft execution with steady competence, clear professional contributions, and intentional development goals.",
+  "@area_career_calling_score_6": { "description": "Score 6 anchor for career and calling" },
+  "area_career_calling_score_10": "Deep vocational alignment and meaningful impact; exercising craft with excellence, integrity, mentorship, and joy.",
+  "@area_career_calling_score_10": { "description": "Score 10 anchor for career and calling" },
+  "area_finances_wealth_score_3": "Occasional awareness of bank balance and bills, without a clear written budget or regular savings.",
+  "@area_finances_wealth_score_3": { "description": "Score 3 anchor for finances and wealth" },
+  "area_finances_wealth_score_6": "Conscious daily or weekly expense tracking, living well within means, and steady monthly savings.",
+  "@area_finances_wealth_score_6": { "description": "Score 6 anchor for finances and wealth" },
+  "area_finances_wealth_score_10": "Peaceful financial stewardship; disciplined budgeting, zero high-interest debt, steady long-term investments, and generous giving.",
+  "@area_finances_wealth_score_10": { "description": "Score 10 anchor for finances and wealth" },
+  "area_relationships_intimacy_score_3": "Infrequent quality time; conversations revolve primarily around logistical chores or quick updates.",
+  "@area_relationships_intimacy_score_3": { "description": "Score 3 anchor for relationships and intimacy" },
+  "area_relationships_intimacy_score_6": "Regular dedicated date nights or deep unhurried conversations, active listening, and heartfelt appreciation.",
+  "@area_relationships_intimacy_score_6": { "description": "Score 6 anchor for relationships and intimacy" },
+  "area_relationships_intimacy_score_10": "Flourishing emotional, intellectual, and physical connection; profound trust, mutual respect, vulnerability, and daily care.",
+  "@area_relationships_intimacy_score_10": { "description": "Score 10 anchor for relationships and intimacy" },
+  "area_family_parenting_score_3": "Sharing the same physical space but often distracted by screens; infrequent focused family time.",
+  "@area_family_parenting_score_3": { "description": "Score 3 anchor for family and parenting" },
+  "area_family_parenting_score_6": "Consistent shared family meals, weekly rituals, and present, attentive engagement with family members.",
+  "@area_family_parenting_score_6": { "description": "Score 6 anchor for family and parenting" },
+  "area_family_parenting_score_10": "Deeply harmonious family culture; patient empathetic communication, cherished traditions, and joyful mutual support.",
+  "@area_family_parenting_score_10": { "description": "Score 10 anchor for family and parenting" },
+  "area_friendships_community_score_3": "Infrequent contact with friends; social connection sustained mainly through passive social media viewing.",
+  "@area_friendships_community_score_3": { "description": "Score 3 anchor for friendships and community" },
+  "area_friendships_community_score_6": "Monthly personal outreach, phone calls, or gatherings with close friends; reliable presence in each other's lives.",
+  "@area_friendships_community_score_6": { "description": "Score 6 anchor for friendships and community" },
+  "area_friendships_community_score_10": "Rich circle of loyal, trusted friends; mutual vulnerability, active presence in good and hard times, and communal belonging.",
+  "@area_friendships_community_score_10": { "description": "Score 10 anchor for friendships and community" },
+  "area_physical_environment_score_3": "Living or working areas frequently accumulate clutter; cleaning and organizing happen reactively.",
+  "@area_physical_environment_score_3": { "description": "Score 3 anchor for physical environment" },
+  "area_physical_environment_score_6": "Regular weekly reset of living spaces; functional organization that reliably supports daily calm.",
+  "@area_physical_environment_score_6": { "description": "Score 6 anchor for physical environment" },
+  "area_physical_environment_score_10": "Environment is an intentional sanctuary of tranquility and light; orderly, inspiring spaces that nurture focus and peaceful rest.",
+  "@area_physical_environment_score_10": { "description": "Score 10 anchor for physical environment" },
+  "area_recreation_play_score_3": "Leisure is mostly passive (scrolling feeds or watching TV while exhausted); rare creative hobbies.",
+  "@area_recreation_play_score_3": { "description": "Score 3 anchor for recreation and play" },
+  "area_recreation_play_score_6": "Regular weekly time set aside for genuine hobbies, sports, creative play, or outdoor exploration without guilt.",
+  "@area_recreation_play_score_6": { "description": "Score 6 anchor for recreation and play" },
+  "area_recreation_play_score_10": "Restorative, guilt-free play deeply woven into life; regular flow states through creative passions, humor, and refreshing vitality.",
+  "@area_recreation_play_score_10": { "description": "Score 10 anchor for recreation and play" },
+  "area_focus_mastery_score_3": "Frequent digital distractions, constant interruptions, and chronic reactive multitasking.",
+  "@area_focus_mastery_score_3": { "description": "Score 3 anchor for focus mastery" },
+  "area_focus_mastery_score_6": "Established screen-free windows, single-tasking during primary work blocks, and well-managed notifications.",
+  "@area_focus_mastery_score_6": { "description": "Score 6 anchor for focus mastery" },
+  "area_focus_mastery_score_10": "Serene mastery over attention; extended periods of deep focus, unhurried presence, and calm mental clarity throughout the day.",
+  "@area_focus_mastery_score_10": { "description": "Score 10 anchor for focus mastery" },
+  "area_contribution_legacy_score_3": "Occasional small donations or sporadic helpful acts when directly requested by someone in need.",
+  "@area_contribution_legacy_score_3": { "description": "Score 3 anchor for contribution and legacy" },
+  "area_contribution_legacy_score_6": "Consistent monthly financial contributions to meaningful causes, or regular community support.",
+  "@area_contribution_legacy_score_6": { "description": "Score 6 anchor for contribution and legacy" },
+  "area_contribution_legacy_score_10": "Sustained recurring contributions coupled with dedicated volunteering, selfless mentorship, and building enduring positive human impact.",
+  "@area_contribution_legacy_score_10": { "description": "Score 10 anchor for contribution and legacy" }
 }
 

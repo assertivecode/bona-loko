@@ -65,7 +65,13 @@ export default defineNuxtConfig({
           { name: 'privacy-eo', path: '/eo/privateco', file: privacyPage.file }
         )
       }
-      // Dynamic Markdown Article Routes - Dimensions
+      // Dynamic Markdown Article Routes - Life Areas (New Canonical Routes)
+      pages.push(
+        { name: 'life-area-en', path: '/life-areas/:slug', file: slugFile },
+        { name: 'life-area-pt-br', path: '/pt-br/areas-da-vida/:slug', file: slugFile },
+        { name: 'life-area-eo', path: '/eo/viv-areoj/:slug', file: slugFile }
+      )
+      // Dynamic Markdown Article Routes - Dimensions (Backwards Compatibility)
       pages.push(
         { name: 'dimension-en', path: '/dimensions/:slug', file: slugFile },
         { name: 'dimension-pt-br', path: '/pt-br/dimensoes/:slug', file: slugFile },
@@ -76,6 +82,12 @@ export default defineNuxtConfig({
         { name: 'habit-en', path: '/suggested-habits/:slug', file: slugFile },
         { name: 'habit-pt-br', path: '/pt-br/habitos-sugeridos/:slug', file: slugFile },
         { name: 'habit-eo', path: '/eo/sugestitaj-kutimoj/:slug', file: slugFile }
+      )
+      // Dynamic Markdown Article Routes - Thoughts and Reflections
+      pages.push(
+        { name: 'thought-en', path: '/thoughts-and-reflections/:slug', file: slugFile },
+        { name: 'thought-pt-br', path: '/pt-br/pensamentos-e-reflexoes/:slug', file: slugFile },
+        { name: 'thought-eo', path: '/eo/pensoj-kaj-reflektoj/:slug', file: slugFile }
       )
     }
   },

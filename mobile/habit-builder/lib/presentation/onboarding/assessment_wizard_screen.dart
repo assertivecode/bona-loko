@@ -66,6 +66,7 @@ class _AssessmentWizardScreenState extends ConsumerState<AssessmentWizardScreen>
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final assessmentState = ref.watch(assessmentControllerProvider);
+    final userState = ref.watch(userControllerProvider);
     final int currentStep = assessmentState.currentStepIndex;
     final int totalSteps = LifeArea.values.length;
     final double progress = (currentStep + 1) / totalSteps;
@@ -141,6 +142,7 @@ class _AssessmentWizardScreenState extends ConsumerState<AssessmentWizardScreen>
                       lifeArea: lifeArea,
                       score: currentScore,
                       currentPriority: currentPriority,
+                      language: userState.selectedLanguage,
                       onScoreChanged: (newScore) {
                         ref
                             .read(assessmentControllerProvider.notifier)

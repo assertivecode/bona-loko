@@ -26,6 +26,10 @@ pillars:
   - emoji: "🤝"
     title: "Emocia Sekureco"
     desc: "Kultivi kulturon de akcepto, kuraĝigo kaj reciproka varmo."
+life_area_weights:
+  family_parenting: 5
+  relationships_intimacy: 4
+  emotional_wellbeing: 3
 ---
 
 # Ĉiutaga Familia Rilata Rito: Ankri la Hejmon en Senrapida Ĉeesto

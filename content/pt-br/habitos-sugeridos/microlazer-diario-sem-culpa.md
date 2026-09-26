@@ -26,6 +26,10 @@ pillars:
   - emoji: "🌱"
     title: "Renovação Restauradora"
     desc: "Recarregar o ânimo e a curiosidade criativa através da leveza."
+life_area_weights:
+  recreation_play: 5
+  emotional_wellbeing: 4
+  health_fitness: 2
 ---
 
 # Microlazer Diário Sem Culpa: Resgatando a Alegria, a Curiosidade e o Brincar

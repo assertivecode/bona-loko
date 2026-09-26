@@ -26,6 +26,10 @@ pillars:
   - emoji: "🛏️"
     title: "Restful Haven"
     desc: "A cool, dark, and peaceful sleeping environment."
+life_area_weights:
+  health_fitness: 5
+  emotional_wellbeing: 4
+  focus_mastery: 3
 ---
 
 # Consistent Sleep & Evening Transition: Whole-Life Vitality & Calm

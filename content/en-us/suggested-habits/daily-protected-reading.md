@@ -26,6 +26,10 @@ pillars:
   - emoji: "🌱"
     title: "Cumulative Growth"
     desc: "Trusting small daily pages to compound into profound insight."
+life_area_weights:
+  personal_growth: 5
+  focus_mastery: 4
+  career_calling: 3
 ---
 
 # Daily Protected Reading: Expanding Perspective Through Substantive Focus

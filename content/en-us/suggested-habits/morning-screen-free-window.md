@@ -26,6 +26,10 @@ pillars:
   - emoji: "🛡️"
     title: "Cognitive Sovereignty"
     desc: "Guarding mental bandwidth against reactive dopamine spikes."
+life_area_weights:
+  focus_mastery: 5
+  emotional_wellbeing: 4
+  health_fitness: 3
 ---
 
 # Morning Screen-Free Window: Starting the Day with Intention and Calm

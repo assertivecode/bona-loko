@@ -26,6 +26,11 @@ pillars:
   - emoji: "⚓"
     title: "Grounded Perspective"
     desc: "Anchoring the nervous system in what is present, nourishing, and real."
+life_area_weights:
+  emotional_wellbeing: 5
+  relationships_intimacy: 4
+  personal_growth: 3
+  family_parenting: 3
 ---
 
 # Nurture of Gratitude: Cultivating Quiet Wonder and Lasting Abundance

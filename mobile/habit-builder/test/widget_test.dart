@@ -41,19 +41,19 @@ void main() {
       final descriptionFinder = find.textContaining('Reflect on 12 essential areas of your life');
       expect(descriptionFinder, findsOneWidget);
 
-      // 4. Start assessment button is at the bottom
-      final startButtonFinder = find.byKey(const Key('start_assessment_button'));
-      expect(startButtonFinder, findsOneWidget);
+      // 4. Continue button is at the bottom
+      final continueButtonFinder = find.byKey(const Key('continue_button'));
+      expect(continueButtonFinder, findsOneWidget);
 
       // Verify vertical positioning order: Language < Name < Description < Button
       final langTop = tester.getTopLeft(languageFinder).dy;
       final nameTop = tester.getTopLeft(nameInputFinder).dy;
       final descTop = tester.getTopLeft(descriptionFinder).dy;
-      final btnTop = tester.getTopLeft(startButtonFinder).dy;
+      final btnTop = tester.getTopLeft(continueButtonFinder).dy;
 
       expect(langTop, lessThan(nameTop), reason: 'Language selector must be above name input');
       expect(nameTop, lessThan(descTop), reason: 'Name input must be above assessment description');
-      expect(descTop, lessThan(btnTop), reason: 'Assessment description must be above start button');
+      expect(descTop, lessThan(btnTop), reason: 'Assessment description must be above continue button');
 
       await testDb.close();
     });
@@ -102,7 +102,7 @@ void main() {
       // Verify UI dynamically updated to Esperanto strings
       expect(find.text('Preferata Lingvo'), findsOneWidget);
       expect(find.text('Via Nomo'), findsOneWidget);
-      expect(find.text('Komenci Taksadon'), findsOneWidget);
+      expect(find.text('Daŭrigi'), findsOneWidget);
       expect(find.textContaining('Pripensu 12 esencajn viv-areojn'), findsOneWidget);
 
       await testDb.close();

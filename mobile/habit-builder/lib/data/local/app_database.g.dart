@@ -5896,6 +5896,230 @@ class MonthlyCurrenciesCompanion extends UpdateCompanion<MonthlyCurrencyData> {
   }
 }
 
+class $UserHabitsTable extends UserHabits
+    with TableInfo<$UserHabitsTable, UserHabitData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UserHabitsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+      'id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _selectedAtMeta =
+      const VerificationMeta('selectedAt');
+  @override
+  late final GeneratedColumn<DateTime> selectedAt = GeneratedColumn<DateTime>(
+      'selected_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _isActiveMeta =
+      const VerificationMeta('isActive');
+  @override
+  late final GeneratedColumn<bool> isActive = GeneratedColumn<bool>(
+      'is_active', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("is_active" IN (0, 1))'),
+      defaultValue: const Constant(true));
+  @override
+  List<GeneratedColumn> get $columns => [id, selectedAt, isActive];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_habits';
+  @override
+  VerificationContext validateIntegrity(Insertable<UserHabitData> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('selected_at')) {
+      context.handle(
+          _selectedAtMeta,
+          selectedAt.isAcceptableOrUnknown(
+              data['selected_at']!, _selectedAtMeta));
+    } else if (isInserting) {
+      context.missing(_selectedAtMeta);
+    }
+    if (data.containsKey('is_active')) {
+      context.handle(_isActiveMeta,
+          isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UserHabitData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserHabitData(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      selectedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}selected_at'])!,
+      isActive: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_active'])!,
+    );
+  }
+
+  @override
+  $UserHabitsTable createAlias(String alias) {
+    return $UserHabitsTable(attachedDatabase, alias);
+  }
+}
+
+class UserHabitData extends DataClass implements Insertable<UserHabitData> {
+  final String id;
+  final DateTime selectedAt;
+  final bool isActive;
+  const UserHabitData(
+      {required this.id, required this.selectedAt, required this.isActive});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['selected_at'] = Variable<DateTime>(selectedAt);
+    map['is_active'] = Variable<bool>(isActive);
+    return map;
+  }
+
+  UserHabitsCompanion toCompanion(bool nullToAbsent) {
+    return UserHabitsCompanion(
+      id: Value(id),
+      selectedAt: Value(selectedAt),
+      isActive: Value(isActive),
+    );
+  }
+
+  factory UserHabitData.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UserHabitData(
+      id: serializer.fromJson<String>(json['id']),
+      selectedAt: serializer.fromJson<DateTime>(json['selectedAt']),
+      isActive: serializer.fromJson<bool>(json['isActive']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'selectedAt': serializer.toJson<DateTime>(selectedAt),
+      'isActive': serializer.toJson<bool>(isActive),
+    };
+  }
+
+  UserHabitData copyWith({String? id, DateTime? selectedAt, bool? isActive}) =>
+      UserHabitData(
+        id: id ?? this.id,
+        selectedAt: selectedAt ?? this.selectedAt,
+        isActive: isActive ?? this.isActive,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('UserHabitData(')
+          ..write('id: $id, ')
+          ..write('selectedAt: $selectedAt, ')
+          ..write('isActive: $isActive')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, selectedAt, isActive);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UserHabitData &&
+          other.id == this.id &&
+          other.selectedAt == this.selectedAt &&
+          other.isActive == this.isActive);
+}
+
+class UserHabitsCompanion extends UpdateCompanion<UserHabitData> {
+  final Value<String> id;
+  final Value<DateTime> selectedAt;
+  final Value<bool> isActive;
+  final Value<int> rowid;
+  const UserHabitsCompanion({
+    this.id = const Value.absent(),
+    this.selectedAt = const Value.absent(),
+    this.isActive = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UserHabitsCompanion.insert({
+    required String id,
+    required DateTime selectedAt,
+    this.isActive = const Value.absent(),
+    this.rowid = const Value.absent(),
+  })  : id = Value(id),
+        selectedAt = Value(selectedAt);
+  static Insertable<UserHabitData> custom({
+    Expression<String>? id,
+    Expression<DateTime>? selectedAt,
+    Expression<bool>? isActive,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (selectedAt != null) 'selected_at': selectedAt,
+      if (isActive != null) 'is_active': isActive,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UserHabitsCompanion copyWith(
+      {Value<String>? id,
+      Value<DateTime>? selectedAt,
+      Value<bool>? isActive,
+      Value<int>? rowid}) {
+    return UserHabitsCompanion(
+      id: id ?? this.id,
+      selectedAt: selectedAt ?? this.selectedAt,
+      isActive: isActive ?? this.isActive,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (selectedAt.present) {
+      map['selected_at'] = Variable<DateTime>(selectedAt.value);
+    }
+    if (isActive.present) {
+      map['is_active'] = Variable<bool>(isActive.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserHabitsCompanion(')
+          ..write('id: $id, ')
+          ..write('selectedAt: $selectedAt, ')
+          ..write('isActive: $isActive, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   _$AppDatabaseManager get managers => _$AppDatabaseManager(this);
@@ -5928,6 +6152,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $FinancialCategoriesTable(this);
   late final $MonthlyCurrenciesTable monthlyCurrencies =
       $MonthlyCurrenciesTable(this);
+  late final $UserHabitsTable userHabits = $UserHabitsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -5948,7 +6173,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         dailyTrainingRecords,
         financialTransactions,
         financialCategories,
-        monthlyCurrencies
+        monthlyCurrencies,
+        userHabits
       ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
@@ -8834,6 +9060,115 @@ class $$MonthlyCurrenciesTableOrderingComposer
           ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
+typedef $$UserHabitsTableInsertCompanionBuilder = UserHabitsCompanion Function({
+  required String id,
+  required DateTime selectedAt,
+  Value<bool> isActive,
+  Value<int> rowid,
+});
+typedef $$UserHabitsTableUpdateCompanionBuilder = UserHabitsCompanion Function({
+  Value<String> id,
+  Value<DateTime> selectedAt,
+  Value<bool> isActive,
+  Value<int> rowid,
+});
+
+class $$UserHabitsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $UserHabitsTable,
+    UserHabitData,
+    $$UserHabitsTableFilterComposer,
+    $$UserHabitsTableOrderingComposer,
+    $$UserHabitsTableProcessedTableManager,
+    $$UserHabitsTableInsertCompanionBuilder,
+    $$UserHabitsTableUpdateCompanionBuilder> {
+  $$UserHabitsTableTableManager(_$AppDatabase db, $UserHabitsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer:
+              $$UserHabitsTableFilterComposer(ComposerState(db, table)),
+          orderingComposer:
+              $$UserHabitsTableOrderingComposer(ComposerState(db, table)),
+          getChildManagerBuilder: (p) =>
+              $$UserHabitsTableProcessedTableManager(p),
+          getUpdateCompanionBuilder: ({
+            Value<String> id = const Value.absent(),
+            Value<DateTime> selectedAt = const Value.absent(),
+            Value<bool> isActive = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              UserHabitsCompanion(
+            id: id,
+            selectedAt: selectedAt,
+            isActive: isActive,
+            rowid: rowid,
+          ),
+          getInsertCompanionBuilder: ({
+            required String id,
+            required DateTime selectedAt,
+            Value<bool> isActive = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              UserHabitsCompanion.insert(
+            id: id,
+            selectedAt: selectedAt,
+            isActive: isActive,
+            rowid: rowid,
+          ),
+        ));
+}
+
+class $$UserHabitsTableProcessedTableManager extends ProcessedTableManager<
+    _$AppDatabase,
+    $UserHabitsTable,
+    UserHabitData,
+    $$UserHabitsTableFilterComposer,
+    $$UserHabitsTableOrderingComposer,
+    $$UserHabitsTableProcessedTableManager,
+    $$UserHabitsTableInsertCompanionBuilder,
+    $$UserHabitsTableUpdateCompanionBuilder> {
+  $$UserHabitsTableProcessedTableManager(super.$state);
+}
+
+class $$UserHabitsTableFilterComposer
+    extends FilterComposer<_$AppDatabase, $UserHabitsTable> {
+  $$UserHabitsTableFilterComposer(super.$state);
+  ColumnFilters<String> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<DateTime> get selectedAt => $state.composableBuilder(
+      column: $state.table.selectedAt,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<bool> get isActive => $state.composableBuilder(
+      column: $state.table.isActive,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+}
+
+class $$UserHabitsTableOrderingComposer
+    extends OrderingComposer<_$AppDatabase, $UserHabitsTable> {
+  $$UserHabitsTableOrderingComposer(super.$state);
+  ColumnOrderings<String> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<DateTime> get selectedAt => $state.composableBuilder(
+      column: $state.table.selectedAt,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<bool> get isActive => $state.composableBuilder(
+      column: $state.table.isActive,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+}
+
 class _$AppDatabaseManager {
   final _$AppDatabase _db;
   _$AppDatabaseManager(this._db);
@@ -8872,4 +9207,6 @@ class _$AppDatabaseManager {
       $$FinancialCategoriesTableTableManager(_db, _db.financialCategories);
   $$MonthlyCurrenciesTableTableManager get monthlyCurrencies =>
       $$MonthlyCurrenciesTableTableManager(_db, _db.monthlyCurrencies);
+  $$UserHabitsTableTableManager get userHabits =>
+      $$UserHabitsTableTableManager(_db, _db.userHabits);
 }

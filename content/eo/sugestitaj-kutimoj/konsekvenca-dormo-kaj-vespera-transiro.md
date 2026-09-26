@@ -26,6 +26,10 @@ pillars:
   - emoji: "🛏️"
     title: "Ripoza Medio"
     desc: "Freŝa, malluma kaj silenta dormmedio favore al ripozo."
+life_area_weights:
+  health_fitness: 5
+  emotional_wellbeing: 4
+  focus_mastery: 3
 ---
 
 # Konsekvenca Dormo & Vespera Transiro: Tutviva Vigleco kaj Trankvilo

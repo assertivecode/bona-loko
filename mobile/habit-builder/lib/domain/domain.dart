@@ -5,4 +5,5 @@ export 'models/life_area.dart';
 export 'models/life_area_evaluation.dart';
 export 'models/currency.dart';
 export 'models/financial_transaction.dart';
+export 'models/suggested_habit.dart';
 export 'engine/priority_engine.dart';

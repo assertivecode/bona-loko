@@ -61,7 +61,7 @@ class UserRepository {
       final newUser = UsersCompanion.insert(
         id: _uuid.v4(),
         createdAt: DateTime.now(),
-        selectedLanguage: AppLanguage.english,
+        selectedLanguage: AppLanguage.fromDeviceLocale(),
         name: Value(name),
       );
       await _db.into(_db.users).insert(newUser);
@@ -83,7 +83,7 @@ class UserRepository {
       final newUser = UsersCompanion.insert(
         id: _uuid.v4(),
         createdAt: DateTime.now(),
-        selectedLanguage: AppLanguage.english,
+        selectedLanguage: AppLanguage.fromDeviceLocale(),
         name: const Value(''),
         onboardingCompleted: Value(completed),
       );

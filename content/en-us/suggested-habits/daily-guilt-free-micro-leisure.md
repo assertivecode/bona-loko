@@ -26,6 +26,10 @@ pillars:
   - emoji: "🌱"
     title: "Restorative Renewal"
     desc: "Replenishing spirit and creative curiosity through lighthearted play."
+life_area_weights:
+  recreation_play: 5
+  emotional_wellbeing: 4
+  health_fitness: 2
 ---
 
 # Daily Guilt-Free Micro-Leisure: Reclaiming Joy, Curiosity, and Play

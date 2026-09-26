@@ -39,7 +39,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // 1. Initial State: App shows Welcome screen because onboarding is incomplete
-      expect(find.byKey(const Key('start_assessment_button')), findsOneWidget);
+      expect(find.byKey(const Key('continue_button')), findsOneWidget);
       expect(find.byKey(const Key('language_selector')), findsOneWidget);
       expect(find.byKey(const Key('name_input_field')), findsOneWidget);
 
@@ -48,8 +48,17 @@ void main() {
       await tester.pump(const Duration(milliseconds: 350));
       await tester.pumpAndSettle();
 
-      // Tap "Start Assessment"
-      await tester.ensureVisible(find.byKey(const Key('start_assessment_button')));
+      // Tap "Continue" to navigate to Expectations Alignment screen
+      await tester.ensureVisible(find.byKey(const Key('continue_button')));
+      await tester.tap(find.byKey(const Key('continue_button')));
+      await tester.pumpAndSettle();
+
+      // Expectations screen is displayed
+      expect(find.byKey(const Key('expectations_scroll_view')), findsOneWidget);
+
+      // Tap "Start Assessment" on Expectations screen
+      await tester.drag(find.byKey(const Key('expectations_scroll_view')), const Offset(0, -800));
+      await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('start_assessment_button')));
       await tester.pumpAndSettle();
 
@@ -59,6 +68,7 @@ void main() {
       expect(find.text('Health & Physical Fitness'), findsOneWidget);
 
       // Set health_fitness priority to 5 (top focus) and score to 8.5
+      await tester.ensureVisible(find.byKey(const Key('priority_button_health_fitness_5')));
       await tester.tap(find.byKey(const Key('priority_button_health_fitness_5')));
       await tester.pumpAndSettle();
 
@@ -92,14 +102,36 @@ void main() {
       expect(user!.onboardingCompleted, isTrue);
       expect(user.name, 'Maya Lin');
 
-      // 5. Verify Home Page is now displayed with Daily Tasks and Life Areas redirection button
+      // 5. Verify Home Page is now displayed with empty routine state and navigation buttons
       expect(find.byKey(const Key('home_user_greeting')), findsOneWidget);
       expect(find.text('Hello, Maya Lin'), findsOneWidget);
-      expect(find.byKey(const Key('daily_tasks_section_title')), findsOneWidget);
-      expect(find.byKey(const Key('home_daily_task_gratitude')), findsOneWidget);
       expect(find.byKey(const Key('view_assessed_life_areas_button')), findsOneWidget);
+      expect(find.byKey(const Key('view_habits_screen_button')), findsOneWidget);
+      expect(find.byKey(const Key('empty_habits_container')), findsOneWidget);
+      expect(find.byKey(const Key('home_daily_task_gratitude')), findsNothing);
 
-      // 6. Tap view_assessed_life_areas_button to navigate to dedicated AssessedLifeAreasScreen
+      // 6. Navigate to Suggested Habits screen to pick a habit
+      await tester.tap(find.byKey(const Key('view_habits_screen_button')));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('suggested_habits_screen_title')), findsOneWidget);
+      // Exercise is ranked top because health_fitness was prioritized at 5
+      expect(find.byKey(const Key('suggested_habit_habit_regular_exercise_workout')), findsOneWidget);
+
+      // Tap toggle to add exercise workout to routine
+      await tester.tap(find.byKey(const Key('toggle_habit_habit_regular_exercise_workout')));
+      await tester.pumpAndSettle();
+
+      // Return to Home
+      final NavigatorState nav = tester.state(find.byType(Navigator));
+      nav.pop();
+      await tester.pumpAndSettle();
+
+      // 7. Verify physical activity task card is NOW displayed on Home page!
+      expect(find.byKey(const Key('home_daily_task_physical_activity')), findsOneWidget);
+      expect(find.byKey(const Key('empty_habits_container')), findsNothing);
+
+      // 8. Tap view_assessed_life_areas_button to navigate to dedicated AssessedLifeAreasScreen
       await tester.tap(find.byKey(const Key('view_assessed_life_areas_button')));
       await tester.pumpAndSettle();
 

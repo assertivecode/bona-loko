@@ -26,6 +26,10 @@ pillars:
   - emoji: "🛏️"
     title: "Ambiente de Repouso"
     desc: "Um espaço fresco, escuro e silencioso propício ao descanso."
+life_area_weights:
+  health_fitness: 5
+  emotional_wellbeing: 4
+  focus_mastery: 3
 ---
 
 # Sono Consistente & Transição Noturna: Vitalidade e Serenidade Integral

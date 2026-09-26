@@ -1,72 +1,72 @@
 [
   {
-    "path": "/dimensions/career-and-professional-calling",
+    "path": "/life-areas/career-and-professional-calling",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/contribution-and-legacy",
+    "path": "/life-areas/contribution-and-legacy",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/family-and-parenting",
+    "path": "/life-areas/family-and-parenting",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/finances-and-wealth",
+    "path": "/life-areas/finances-and-wealth",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/focus-and-attention-mastery",
+    "path": "/life-areas/focus-and-attention-mastery",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/friendships-and-community",
+    "path": "/life-areas/friendships-and-community",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/health-and-physical-fitness",
+    "path": "/life-areas/health-and-physical-fitness",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/mental-and-emotional-wellbeing",
+    "path": "/life-areas/mental-and-emotional-wellbeing",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/personal-growth-and-learning",
+    "path": "/life-areas/personal-growth-and-learning",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/physical-environment-and-spaces",
+    "path": "/life-areas/physical-environment-and-spaces",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/recreation-hobbies-and-play",
+    "path": "/life-areas/recreation-hobbies-and-play",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/dimensions/relationships-and-intimacy",
+    "path": "/life-areas/relationships-and-intimacy",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
@@ -86,6 +86,12 @@
   {
     "path": "/suggested-habits/daily-guilt-free-micro-leisure",
     "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/suggested-habits/daily-physical-exercise-and-movement",
+    "lastmod": "2026-09-25",
     "changefreq": "weekly",
     "priority": "0.8"
   },
@@ -120,73 +126,79 @@
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/ambiente-fisico-e-espacos",
+    "path": "/thoughts-and-reflections/the-importance-of-nurturing-calm",
+    "lastmod": "2026-09-25",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/areas-da-vida/ambiente-fisico-e-espacos",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/amizades-e-comunidade",
+    "path": "/pt-br/areas-da-vida/amizades-e-comunidade",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/bem-estar-mental-e-emocional",
+    "path": "/pt-br/areas-da-vida/bem-estar-mental-e-emocional",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/carreira-e-vocacao-profissional",
+    "path": "/pt-br/areas-da-vida/carreira-e-vocacao-profissional",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/contribuicao-e-legado",
+    "path": "/pt-br/areas-da-vida/contribuicao-e-legado",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/crescimento-pessoal-e-aprendizado",
+    "path": "/pt-br/areas-da-vida/crescimento-pessoal-e-aprendizado",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/dominio-do-foco-e-atencao",
+    "path": "/pt-br/areas-da-vida/dominio-do-foco-e-atencao",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/familia-e-parentalidade",
+    "path": "/pt-br/areas-da-vida/familia-e-parentalidade",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/financas-e-prosperidade",
+    "path": "/pt-br/areas-da-vida/financas-e-prosperidade",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/recreacao-hobbies-e-lazer",
+    "path": "/pt-br/areas-da-vida/recreacao-hobbies-e-lazer",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/relacionamentos-e-intimidade",
+    "path": "/pt-br/areas-da-vida/relacionamentos-e-intimidade",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/pt-br/dimensoes/saude-e-condicionamento-fisico",
+    "path": "/pt-br/areas-da-vida/saude-e-condicionamento-fisico",
     "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
@@ -200,6 +212,12 @@
   {
     "path": "/pt-br/habitos-sugeridos/cultivo-da-gratidao",
     "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/habitos-sugeridos/exercicio-fisico-diario-e-movimento",
+    "lastmod": "2026-09-25",
     "changefreq": "weekly",
     "priority": "0.8"
   },
@@ -240,80 +258,26 @@
     "priority": "0.8"
   },
   {
-    "path": "/eo/dimensioj/amikecoj-kaj-komunumo",
-    "lastmod": "2026-09-17",
+    "path": "/pt-br/pensamentos-e-reflexoes/a-importancia-de-cultivar-a-calma",
+    "lastmod": "2026-09-25",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
-    "path": "/eo/dimensioj/distrado-satokupoj-kaj-ludo",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/familio-kaj-gepatreco",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/financoj-kaj-rico",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/fizika-medio-kaj-spacoj",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/kariero-kaj-profesia-vokigo",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/kontribuo-kaj-heredajo",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/majstreco-pri-atento-kaj-fokuso",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/mensa-kaj-emocia-bonfarto",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/persona-kresko-kaj-lernado",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/rilatoj-kaj-intimeco",
-    "lastmod": "2026-09-17",
-    "changefreq": "weekly",
-    "priority": "0.8"
-  },
-  {
-    "path": "/eo/dimensioj/sano-kaj-fizika-taugeco",
-    "lastmod": "2026-09-17",
+    "path": "/eo/pensoj-kaj-reflektoj/la-graveco-de-flegi-trankvilon",
+    "lastmod": "2026-09-25",
     "changefreq": "weekly",
     "priority": "0.8"
   },
   {
     "path": "/eo/sugestitaj-kutimoj/ciutaga-familia-rilata-rito",
     "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/sugestitaj-kutimoj/ciutaga-fizika-ekzercado-kaj-movado",
+    "lastmod": "2026-09-25",
     "changefreq": "weekly",
     "priority": "0.8"
   },
@@ -356,6 +320,78 @@
   {
     "path": "/eo/sugestitaj-kutimoj/semajna-persona-kontakto",
     "lastmod": "2026-09-18",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/amikecoj-kaj-komunumo",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/distrado-satokupoj-kaj-ludo",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/familio-kaj-gepatreco",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/financoj-kaj-rico",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/fizika-medio-kaj-spacoj",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/kariero-kaj-profesia-vokigo",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/kontribuo-kaj-heredajo",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/majstreco-pri-atento-kaj-fokuso",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/mensa-kaj-emocia-bonfarto",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/persona-kresko-kaj-lernado",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/rilatoj-kaj-intimeco",
+    "lastmod": "2026-09-17",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/viv-areoj/sano-kaj-fizika-taugeco",
+    "lastmod": "2026-09-17",
     "changefreq": "weekly",
     "priority": "0.8"
   }

@@ -26,6 +26,10 @@ pillars:
   - emoji: "🤝"
     title: "Segurança Emocional"
     desc: "Cultivar uma cultura de aceitação, incentivo e carinho mútuo."
+life_area_weights:
+  family_parenting: 5
+  relationships_intimacy: 4
+  emotional_wellbeing: 3
 ---
 
 # Ritual Diário de Conexão Familiar: Ancorando o Lar em Presença e Afeto

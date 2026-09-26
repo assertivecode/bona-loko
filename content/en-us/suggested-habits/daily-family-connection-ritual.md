@@ -26,6 +26,10 @@ pillars:
   - emoji: "🤝"
     title: "Emotional Safety"
     desc: "Cultivating a culture of acceptance, encouragement, and warmth."
+life_area_weights:
+  family_parenting: 5
+  relationships_intimacy: 4
+  emotional_wellbeing: 3
 ---
 
 # Daily Family Connection Ritual: Anchoring the Heart in Unhurried Presence

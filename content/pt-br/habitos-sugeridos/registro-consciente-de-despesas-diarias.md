@@ -26,6 +26,10 @@ pillars:
   - emoji: "⚓"
     title: "Paz e Autonomia"
     desc: "Liberar espaço mental da esquiva e da ansiedade financeira."
+life_area_weights:
+  finances_wealth: 5
+  focus_mastery: 3
+  emotional_wellbeing: 3
 ---
 
 # Registro Consciente de Despesas Diárias: Cultivando Clareza Serena na Gestão Financeira

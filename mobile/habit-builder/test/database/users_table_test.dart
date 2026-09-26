@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -88,6 +89,35 @@ void main() {
       expect(userAfterLangUpdate.selectedLanguage, AppLanguage.english);
       expect(userAfterLangUpdate.selectedLanguage.id, 3);
       expect(userAfterLangUpdate.name, 'Karlo');
+    });
+
+    test('fromDeviceLocale auto-detects Portuguese for pt language and Lusophone regions', () {
+      // 1. Explicit Portuguese language code
+      expect(AppLanguage.fromDeviceLocale(const Locale('pt')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('pt', 'BR')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('pt', 'PT')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('pt', 'AO')), AppLanguage.portuguese);
+
+      // 2. Esperanto language code
+      expect(AppLanguage.fromDeviceLocale(const Locale('eo')), AppLanguage.esperanto);
+
+      // 3. Lusophone territories with non-Portuguese device system language (e.g. English UI in Brazil)
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'BR')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'PT')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'AO')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'MZ')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'CV')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'GW')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'ST')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'TL')), AppLanguage.portuguese);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'MO')), AppLanguage.portuguese);
+
+      // 4. Default fallback to English for other languages and regions
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'US')), AppLanguage.english);
+      expect(AppLanguage.fromDeviceLocale(const Locale('en', 'GB')), AppLanguage.english);
+      expect(AppLanguage.fromDeviceLocale(const Locale('fr', 'FR')), AppLanguage.english);
+      expect(AppLanguage.fromDeviceLocale(const Locale('de', 'DE')), AppLanguage.english);
+      expect(AppLanguage.fromDeviceLocale(const Locale('es', 'ES')), AppLanguage.english);
     });
   });
 }

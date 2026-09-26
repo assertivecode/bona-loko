@@ -26,6 +26,10 @@ pillars:
   - emoji: "🌱"
     title: "Restaŭra Renoviĝo"
     desc: "Refreŝigi la spiriton kaj kreivan scivolemon per ludemo."
+life_area_weights:
+  recreation_play: 5
+  emotional_wellbeing: 4
+  health_fitness: 2
 ---
 
 # Ĉiutaga Senkulpa Mikro-Libertempo: Rekuperi Ĝojon, Scivolemon kaj Ludemon

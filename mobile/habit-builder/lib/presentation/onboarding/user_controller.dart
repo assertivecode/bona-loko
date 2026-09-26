@@ -12,14 +12,14 @@ class UserProfileState {
   final bool profileConfigured;
   final bool isLoading;
 
-  const UserProfileState({
+  UserProfileState({
     this.id,
     this.name = '',
-    this.selectedLanguage = AppLanguage.english,
+    AppLanguage? selectedLanguage,
     this.onboardingCompleted = false,
     this.profileConfigured = false,
     this.isLoading = false,
-  });
+  }) : selectedLanguage = selectedLanguage ?? AppLanguage.fromDeviceLocale();
 
   UserProfileState copyWith({
     String? id,
@@ -44,7 +44,7 @@ class UserProfileState {
 class UserController extends StateNotifier<UserProfileState> {
   final UserRepository _repository;
 
-  UserController(this._repository) : super(const UserProfileState(isLoading: true)) {
+  UserController(this._repository) : super(UserProfileState(isLoading: true)) {
     _loadUser();
   }
 
@@ -62,7 +62,10 @@ class UserController extends StateNotifier<UserProfileState> {
           isLoading: false,
         );
       } else {
-        state = state.copyWith(isLoading: false);
+        state = state.copyWith(
+          selectedLanguage: AppLanguage.fromDeviceLocale(),
+          isLoading: false,
+        );
       }
     } catch (_) {
       state = state.copyWith(isLoading: false);

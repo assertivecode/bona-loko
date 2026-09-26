@@ -26,6 +26,10 @@ pillars:
   - emoji: "🛡️"
     title: "Soberania Cognitiva"
     desc: "Proteger a energia mental de picos de dopamina e urgências artificiais."
+life_area_weights:
+  focus_mastery: 5
+  emotional_wellbeing: 4
+  health_fitness: 3
 ---
 
 # Janela Matinal Livre de Telas: Iniciando o Dia com Intenção e Serenidade

@@ -13,6 +13,7 @@ import 'tables/life_areas_evaluations_table.dart';
 import 'tables/monthly_currencies_table.dart';
 import 'tables/physical_activities_table.dart';
 import 'tables/training_tables.dart';
+import 'tables/user_habits_table.dart';
 import 'tables/users_table.dart';
 import '../../domain/models/life_area.dart';
 
@@ -36,6 +37,7 @@ part 'app_database.g.dart';
   FinancialTransactions,
   FinancialCategories,
   MonthlyCurrencies,
+  UserHabits,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? e]) : super(e ?? _openConnection());
@@ -86,6 +88,7 @@ class AppDatabase extends _$AppDatabase {
     await checkAndCreate(financialTransactions.actualTableName, financialTransactions);
     await checkAndCreate(financialCategories.actualTableName, financialCategories);
     await checkAndCreate(monthlyCurrencies.actualTableName, monthlyCurrencies);
+    await checkAndCreate(userHabits.actualTableName, userHabits);
   }
 
   @override

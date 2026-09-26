@@ -26,6 +26,10 @@ pillars:
   - emoji: "☕"
     title: "Viva Kamaradeco"
     desc: "Transformi spontaneajn memorojn en signifoplenajn konversaciojn."
+life_area_weights:
+  friendships_community: 5
+  relationships_intimacy: 3
+  contribution_legacy: 3
 ---
 
 # Semajna Persona Kontakto: Konservi Varmon kaj Kamaradecon Tra la Tempo

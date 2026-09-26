@@ -26,6 +26,10 @@ pillars:
   - emoji: "☕"
     title: "Shared Camaraderie"
     desc: "Transforming casual thoughts into meaningful conversations."
+life_area_weights:
+  friendships_community: 5
+  relationships_intimacy: 3
+  contribution_legacy: 3
 ---
 
 # Weekly Personal Outreach: Sustaining Warmth and Camaraderie Across Time

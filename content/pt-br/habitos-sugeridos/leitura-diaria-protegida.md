@@ -26,6 +26,10 @@ pillars:
   - emoji: "🌱"
     title: "Progresso Cumulativo"
     desc: "Confiar que poucas páginas diárias constroem uma sabedoria profunda."
+life_area_weights:
+  personal_growth: 5
+  focus_mastery: 4
+  career_calling: 3
 ---
 
 # Leitura Diária Protegida: Expandindo Horizontes através do Foco Substancial

@@ -21,12 +21,18 @@ specs/
 │   ├── core-values.spec.md             # 7 Core Values, Humility position, and moral architecture
 │   ├── 12-life-areas.spec.md           # 12 Life Areas definitions, keys, and scope
 │   ├── priority-model.spec.md          # Multi-dimensional investment & gap calculation model
-│   └── habit-loop.spec.md              # Habit lifecycle, states, cadences, and mechanics
+│   ├── habit-loop.spec.md              # Habit lifecycle, states, cadences, and mechanics
+│   └── habit-life-area-weights.spec.md # Habit and life area weighted relations and scoring
 ├── features/                           # Living Feature Specifications (RFC / PRD)
 │   ├── 001-landing-page/               # Landing page value prop, preview, and i18n
 │   ├── 002-dimension-article-view/     # Dimension article dynamic view and routing
 │   ├── 003-monorepo-deployment-pipeline/ # Monorepo changeset and targeted deployment
-│   └── 004-suggested-habits-view/      # Suggested habits showcase and dynamic articles
+│   ├── 004-suggested-habits-view/      # Suggested habits showcase and dynamic articles
+│   ├── 009-habit-life-area-weighted-relations/ # Weighted habit-life area relations and prioritization
+│   ├── 010-mobile-device-locale-auto-detection/ # Mobile device locale and region auto-detection
+│   ├── 011-mobile-onboarding-expectations-alignment/ # Mobile onboarding expectations alignment
+│   ├── 012-mobile-suggested-habits-selection-and-home-sync/ # Mobile suggested habits selection and home sync
+│   └── 013-life-areas-reference-scoring-and-article-links/ # Life areas reference scoring and web article links
 └── templates/                          # Reusable Spec Templates
     ├── feature-spec-template.md        # Feature specification scaffolding
     └── acceptance-criteria-template.md # Gherkin test scenarios scaffolding

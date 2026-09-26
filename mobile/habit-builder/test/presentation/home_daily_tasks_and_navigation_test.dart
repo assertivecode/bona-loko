@@ -7,11 +7,13 @@ import 'package:habit_builder/data/local/app_database.dart';
 import 'package:habit_builder/data/local/database_provider.dart';
 import 'package:habit_builder/data/local/tables/users_table.dart';
 import 'package:habit_builder/data/repositories/life_area_evaluation_repository.dart';
+import 'package:habit_builder/data/repositories/user_habits_repository.dart';
 import 'package:habit_builder/data/repositories/user_repository.dart';
 import 'package:habit_builder/domain/models/life_area.dart';
 import 'package:habit_builder/domain/models/life_area_evaluation.dart';
 import 'package:habit_builder/presentation/evaluation/assessed_life_areas_screen.dart';
 import 'package:habit_builder/presentation/gratitude/gratitude_screen.dart';
+import 'package:habit_builder/presentation/habits/suggested_habits_screen.dart';
 import 'package:habit_builder/presentation/physical_activity/physical_activities_screen.dart';
 import '../test_helper.dart';
 
@@ -51,6 +53,10 @@ void main() {
         );
       }
 
+      final habitsRepo = UserHabitsRepository(testDb);
+      await habitsRepo.selectHabit('habit_nurture_of_gratitude');
+      await habitsRepo.selectHabit('habit_regular_exercise_workout');
+
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
@@ -72,12 +78,45 @@ void main() {
       expect(find.text('Daily Physical Activities'), findsOneWidget);
       expect(find.byKey(const Key('view_assessed_life_areas_button')), findsOneWidget);
       expect(find.text('Life Areas & Priorities'), findsOneWidget);
+      expect(find.byKey(const Key('view_habits_screen_button')), findsOneWidget);
+      expect(find.text('Suggested Habits & Routines'), findsOneWidget);
 
       // Invariant: 12 Life Areas and Top Focus Areas are NOT directly on HomeScreen
       expect(find.byKey(const Key('top_focus_title')), findsNothing);
       expect(find.byKey(const Key('all_areas_title')), findsNothing);
 
-      // 2. Navigate to Gratitude Practice Screen
+      // Verify layout ordering invariant:
+      // 1. Daily tasks section is displayed first (above suggested habits card)
+      // 2. Suggested habits card is displayed below the user's habits list
+      // 3. Life areas & priorities card is displayed lastly (below suggested habits)
+      final dailyTasksTop = tester.getTopLeft(find.byKey(const Key('daily_tasks_section_title'))).dy;
+      final suggestedHabitsTop = tester.getTopLeft(find.byKey(const Key('view_habits_screen_button'))).dy;
+      final lifeAreasTop = tester.getTopLeft(find.byKey(const Key('view_assessed_life_areas_button'))).dy;
+
+      expect(
+        dailyTasksTop < suggestedHabitsTop,
+        isTrue,
+        reason: 'Daily Tasks must appear before Suggested Habits card ($dailyTasksTop < $suggestedHabitsTop)',
+      );
+      expect(
+        suggestedHabitsTop < lifeAreasTop,
+        isTrue,
+        reason: 'Suggested Habits card must appear before Life Areas card ($suggestedHabitsTop < $lifeAreasTop)',
+      );
+
+      // 2. Navigate to Suggested Habits Screen
+      await tester.tap(find.byKey(const Key('view_habits_screen_button')));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(SuggestedHabitsScreen), findsOneWidget);
+      expect(find.byKey(const Key('suggested_habits_screen_title')), findsOneWidget);
+
+      // Pop back to Home
+      final NavigatorState nav = tester.state(find.byType(Navigator));
+      nav.pop();
+      await tester.pumpAndSettle();
+
+      // 3. Navigate to Gratitude Practice Screen
       await tester.tap(find.byKey(const Key('home_daily_task_gratitude')));
       await tester.pumpAndSettle();
 

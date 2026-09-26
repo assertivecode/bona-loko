@@ -26,6 +26,10 @@ pillars:
   - emoji: "⚓"
     title: "Suverena Paco"
     desc: "Liberigi mensan spacon for de financa timo kaj evitado."
+life_area_weights:
+  finances_wealth: 5
+  focus_mastery: 3
+  emotional_wellbeing: 3
 ---
 
 # Konscia Ĉiutaga Elspez-Spurado: Kultivado de Trankvila Klareco en Financa Administrado

@@ -11,8 +11,8 @@
           </li>
           <li class="breadcrumb-separator" aria-hidden="true">/</li>
           <li class="breadcrumb-item">
-            <NuxtLink :to="localePath('home') + (isHabit ? '#suggested-habits' : '#life-areas')">
-              {{ isHabit ? t('breadcrumb.habits') : t('breadcrumb.areas') }}
+            <NuxtLink :to="localePath('home') + (isThought ? '#thoughts' : isHabit ? '#suggested-habits' : '#life-areas')">
+              {{ isThought ? t('breadcrumb.thoughts') : isHabit ? t('breadcrumb.habits') : t('breadcrumb.areas') }}
             </NuxtLink>
           </li>
           <li class="breadcrumb-separator" aria-hidden="true">/</li>
@@ -140,7 +140,7 @@
             <div v-if="pillars.length > 0" class="sidebar-widget card pillars-widget">
               <div class="widget-header">
                 <span class="widget-icon">🧬</span>
-                <h3>{{ isHabit ? t('pillars_widget.habitTitle') : t('pillars_widget.title') }}</h3>
+                <h3>{{ isThought ? t('pillars_widget.thoughtTitle') : isHabit ? t('pillars_widget.habitTitle') : t('pillars_widget.title') }}</h3>
               </div>
               <ul class="pillars-mini-list">
                 <li v-for="(pillar, idx) in pillars" :key="idx">
@@ -176,13 +176,13 @@
       <div class="container container-wide">
         <div class="footer-nav-card card">
           <div class="footer-nav-lead">
-            <span class="footer-badge">🌟 {{ isHabit ? t('footer_nav.habitBadge') : t('footer_nav.badge') }}</span>
-            <h2>{{ isHabit ? t('footer_nav.habitTitle') : t('footer_nav.title') }}</h2>
-            <p>{{ isHabit ? t('footer_nav.habitDesc') : t('footer_nav.desc') }}</p>
+            <span class="footer-badge">🌟 {{ isThought ? t('footer_nav.thoughtBadge') : isHabit ? t('footer_nav.habitBadge') : t('footer_nav.badge') }}</span>
+            <h2>{{ isThought ? t('footer_nav.thoughtTitle') : isHabit ? t('footer_nav.habitTitle') : t('footer_nav.title') }}</h2>
+            <p>{{ isThought ? t('footer_nav.thoughtDesc') : isHabit ? t('footer_nav.habitDesc') : t('footer_nav.desc') }}</p>
           </div>
           <div class="footer-nav-actions">
-            <NuxtLink :to="localePath('home') + (isHabit ? '#suggested-habits' : '#life-areas')" class="btn btn-primary btn-lg">
-              <span>← {{ isHabit ? t('back_to_habits') : t('back_to_areas') }}</span>
+            <NuxtLink :to="localePath('home') + (isThought ? '#thoughts' : isHabit ? '#suggested-habits' : '#life-areas')" class="btn btn-primary btn-lg">
+              <span>← {{ isThought ? t('back_to_thoughts') : isHabit ? t('back_to_habits') : t('back_to_areas') }}</span>
             </NuxtLink>
             <NuxtLink :to="localePath('mission')" class="btn btn-outline btn-lg">
               <span>{{ t('explore_mission') }} →</span>
@@ -221,7 +221,8 @@ const dimensionTranslations = {
     breadcrumb: {
       home: 'Home',
       areas: 'Life Areas',
-      habits: 'Suggested Habits'
+      habits: 'Suggested Habits',
+      thoughts: 'Thoughts & Reflections'
     },
     reading_time: '8 min read',
     last_updated: 'Updated',
@@ -232,6 +233,7 @@ const dimensionTranslations = {
     link_copied: 'Copied!',
     back_to_areas: 'All 12 Life Areas',
     back_to_habits: 'All 7 Suggested Habits',
+    back_to_thoughts: 'All Thoughts & Reflections',
     explore_mission: 'Platform Mission & Values',
     toc: {
       title: 'Table of Contents',
@@ -239,7 +241,8 @@ const dimensionTranslations = {
     },
     pillars_widget: {
       title: 'The Vitality Pillars',
-      habitTitle: 'Core Habit Principles'
+      habitTitle: 'Core Habit Principles',
+      thoughtTitle: 'Core Reflection Pillars'
     },
     values_widget: {
       title: 'Grounded in Core Values',
@@ -252,7 +255,10 @@ const dimensionTranslations = {
       desc: 'Discover all 12 interconnected life areas to diagnose your priority gaps and establish keystone daily habits.',
       habitBadge: 'Daily Consistency',
       habitTitle: 'Explore More Keystone Habits',
-      habitDesc: 'Discover actionable, multi-dimensional daily practices designed to build life balance without guilt or burnout.'
+      habitDesc: 'Discover actionable, multi-dimensional daily practices designed to build life balance without guilt or burnout.',
+      thoughtBadge: 'Inner Wisdom',
+      thoughtTitle: 'Cultivate Intentional Living',
+      thoughtDesc: 'Discover deep reflections and keystone habits designed to build harmonious life balance without guilt or burnout.'
     }
   },
   'pt-BR': {
@@ -266,7 +272,8 @@ const dimensionTranslations = {
     breadcrumb: {
       home: 'Início',
       areas: 'Áreas da Vida',
-      habits: 'Hábitos Sugeridos'
+      habits: 'Hábitos Sugeridos',
+      thoughts: 'Pensamentos e Reflexões'
     },
     reading_time: '8 min de leitura',
     last_updated: 'Atualizado em',
@@ -277,6 +284,7 @@ const dimensionTranslations = {
     link_copied: 'Copiado!',
     back_to_areas: 'Todas as 12 Áreas',
     back_to_habits: 'Todos os 7 Hábitos',
+    back_to_thoughts: 'Todos os Pensamentos & Reflexões',
     explore_mission: 'Missão e Valores',
     toc: {
       title: 'Sumário do Guia',
@@ -284,7 +292,8 @@ const dimensionTranslations = {
     },
     pillars_widget: {
       title: 'Os Pilares da Vitalidade',
-      habitTitle: 'Princípios do Hábito'
+      habitTitle: 'Princípios do Hábito',
+      thoughtTitle: 'Pilares da Reflexão'
     },
     values_widget: {
       title: 'Ancorado em Valores',
@@ -297,7 +306,10 @@ const dimensionTranslations = {
       desc: 'Descubra todas as 12 áreas conectadas para diagnosticar suas lacunas de prioridade e criar hábitos duradouros.',
       habitBadge: 'Constância Diária',
       habitTitle: 'Explore Mais Hábitos de Referência',
-      habitDesc: 'Descubra práticas diárias práticas e multidimensionais projetadas para cultivar o equilíbrio sem culpa ou esgotamento.'
+      habitDesc: 'Descubra práticas diárias práticas e multidimensionais projetadas para cultivar o equilíbrio sem culpa ou esgotamento.',
+      thoughtBadge: 'Sabedoria Interior',
+      thoughtTitle: 'Cultive uma Vida Intencional',
+      thoughtDesc: 'Descubra reflexões profundas e hábitos essenciais projetados para construir equilíbrio de vida sem culpa ou esgotamento.'
     }
   },
   'eo': {
@@ -311,7 +323,8 @@ const dimensionTranslations = {
     breadcrumb: {
       home: 'Ĉefpaĝo',
       areas: 'Vivfakoj',
-      habits: 'Sugestitaj Kutimoj'
+      habits: 'Sugestitaj Kutimoj',
+      thoughts: 'Pensoj kaj Reflektoj'
     },
     reading_time: '8 min da legado',
     last_updated: 'Ĝisdatigita je',
@@ -322,6 +335,7 @@ const dimensionTranslations = {
     link_copied: 'Kopiita!',
     back_to_areas: 'Ĉiuj 12 Vivfakoj',
     back_to_habits: 'Ĉiuj 7 Sugestitaj Kutimoj',
+    back_to_thoughts: 'Ĉiuj Pensoj & Reflektoj',
     explore_mission: 'Misiaj & Moralaj Valoroj',
     toc: {
       title: 'Enhavtabelo',
@@ -329,7 +343,8 @@ const dimensionTranslations = {
     },
     pillars_widget: {
       title: 'La Kolonoj de Vigleco',
-      habitTitle: 'Principoj de la Kutimo'
+      habitTitle: 'Principoj de la Kutimo',
+      thoughtTitle: 'Reflektaj Kolonoj'
     },
     values_widget: {
       title: 'Enradikigita en Valoroj',
@@ -342,7 +357,10 @@ const dimensionTranslations = {
       desc: 'Esploru ĉiujn 12 interligitajn fakojn por diagnozi prioritatajn mankojn kaj krei ĉiutagajn kutimojn.',
       habitBadge: 'Ĉiutaga Konstanto',
       habitTitle: 'Esploru Pli da Ŝlosilaj Kutimoj',
-      habitDesc: 'Malkovru agadeblajn, plurdimensiajn ĉiutagajn praktikojn por konstrui viv-ekvilibron sen kulpo aŭ elĉerpiĝo.'
+      habitDesc: 'Malkovru agadeblajn, plurdimensiajn ĉiutagajn praktikojn por konstrui viv-ekvilibron sen kulpo aŭ elĉerpiĝo.',
+      thoughtBadge: 'Interna Saĝo',
+      thoughtTitle: 'Kultivu Intencan Vivon',
+      thoughtDesc: 'Malkovru profundajn reflektojn kaj ŝlosilajn kutimojn dezajnitajn por konstrui viv-ekvilibron sen kulpo aŭ elĉerpiĝo.'
     }
   }
 }
@@ -380,7 +398,7 @@ const markdownBody = computed(() => article.value?.markdownBody || '')
 const pillars = computed(() => frontmatter.value.pillars || [])
 const tags = computed(() => frontmatter.value.tags || [])
 
-// Habit Context Detection
+// Habit & Thought Context Detection
 const isHabit = computed(() => {
   const collection = article.value?.collection || ''
   return (
@@ -388,6 +406,16 @@ const isHabit = computed(() => {
     collection === 'habitos-sugeridos' ||
     collection === 'sugestitaj-kutimoj' ||
     Boolean(frontmatter.value.id?.startsWith('habit_'))
+  )
+})
+
+const isThought = computed(() => {
+  const collection = article.value?.collection || ''
+  return (
+    collection === 'thoughts-and-reflections' ||
+    collection === 'pensamentos-e-reflexoes' ||
+    collection === 'pensoj-kaj-reflektoj' ||
+    Boolean(frontmatter.value.id?.startsWith('thought_'))
   )
 })
 

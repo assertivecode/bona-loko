@@ -26,6 +26,10 @@ pillars:
   - emoji: "🌱"
     title: "Kumula Kresko"
     desc: "Fidi ke malmultaj ĉiutagaj paĝoj iom post iom konstruas profundan saĝon."
+life_area_weights:
+  personal_growth: 5
+  focus_mastery: 4
+  career_calling: 3
 ---
 
 # Ĉiutaga Protektita Legado: Vastiĝo de Perspektivo per Profunda Fokuso

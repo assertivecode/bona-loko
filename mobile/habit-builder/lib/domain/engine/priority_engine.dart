@@ -1,5 +1,7 @@
 import 'dart:math' as math;
+import '../models/life_area.dart';
 import '../models/life_area_evaluation.dart';
+import '../models/suggested_habit.dart';
 
 /// Categories classifying the urgency of life balance deficits and habit focus.
 enum DeficitCategory {
@@ -140,5 +142,81 @@ class PriorityEngine {
       return a.score.compareTo(b.score);
     });
     return sorted;
+  }
+
+  /// Calculates the Relevance Score (R) between a [SuggestedHabit] and the user's [LifeAreaEvaluation]s:
+  /// R = sum_{area in habit.areaWeights} (weight * priority)
+  /// where priority in [1, 5] (defaulting to 3 if the area has not yet been evaluated).
+  ///
+  /// The higher the score, the higher the suggestion precedence.
+  static double calculateHabitRelevanceScore({
+    required SuggestedHabit habit,
+    required List<LifeAreaEvaluation> evaluations,
+  }) {
+    final Map<LifeArea, int> priorityMap = {
+      for (final eval in evaluations) eval.lifeArea: eval.currentPriority,
+    };
+
+    double totalScore = 0.0;
+    habit.areaWeights.forEach((area, weight) {
+      final int userPriority = priorityMap[area] ?? 3; // neutral default if unassessed
+      totalScore += weight * userPriority;
+    });
+
+    return totalScore;
+  }
+
+  /// Ranks candidate habits by relevance score descending according to the user's priorities.
+  /// Precedence rules:
+  /// 1. Higher relevance score
+  /// 2. Tie-breaker: Highest individual weight on the user's top-priority life area(s)
+  /// 3. Tie-breaker: Alphabetical by habit title
+  static List<SuggestedHabit> rankHabitsByPriority({
+    required List<SuggestedHabit> habits,
+    required List<LifeAreaEvaluation> evaluations,
+  }) {
+    final scored = habits.map((habit) {
+      final score = calculateHabitRelevanceScore(
+        habit: habit,
+        evaluations: evaluations,
+      );
+      return MapEntry(habit, score);
+    }).toList();
+
+    // Identify user's highest priority area(s)
+    int maxUserPriority = 1;
+    for (final eval in evaluations) {
+      if (eval.currentPriority > maxUserPriority) {
+        maxUserPriority = eval.currentPriority;
+      }
+    }
+    final topAreas = evaluations
+        .where((e) => e.currentPriority == maxUserPriority)
+        .map((e) => e.lifeArea)
+        .toSet();
+
+    scored.sort((a, b) {
+      // 1. Higher score first
+      final scoreDiff = b.value.compareTo(a.value);
+      if (scoreDiff != 0) return scoreDiff;
+
+      // 2. Highest weight on top priority areas
+      int maxWeightA = 0;
+      int maxWeightB = 0;
+      for (final area in topAreas) {
+        final wA = a.key.areaWeights[area] ?? 0;
+        final wB = b.key.areaWeights[area] ?? 0;
+        if (wA > maxWeightA) maxWeightA = wA;
+        if (wB > maxWeightB) maxWeightB = wB;
+      }
+      if (maxWeightB != maxWeightA) {
+        return maxWeightB.compareTo(maxWeightA);
+      }
+
+      // 3. Alphabetical
+      return a.key.title.compareTo(b.key.title);
+    });
+
+    return scored.map((e) => e.key).toList();
   }
 }

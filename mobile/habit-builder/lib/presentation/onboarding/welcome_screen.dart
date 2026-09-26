@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/local/tables/users_table.dart';
+import 'expectations_alignment_screen.dart';
 import 'user_controller.dart';
 
 /// The initial landing screen of the onboarding setup sequence:
@@ -219,11 +220,13 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
                                 color: theme.colorScheme.primary,
                               ),
                               const SizedBox(width: 8),
-                              Text(
-                                l10n?.assessmentTitle ?? 'Life Balance Assessment',
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.onSurface,
+                              Expanded(
+                                child: Text(
+                                  l10n?.assessmentTitle ?? 'Life Balance Assessment',
+                                  style: theme.textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: theme.colorScheme.onSurface,
+                                  ),
                                 ),
                               ),
                             ],
@@ -244,12 +247,16 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
                     const Spacer(),
                     const SizedBox(height: 32),
 
-                    // 4. AT THE BOTTOM OF THE SCREEN: "START ASSESSMENT" BUTTON
+                    // 4. AT THE BOTTOM OF THE SCREEN: "CONTINUE" BUTTON
                     FilledButton.icon(
-                      key: const Key('start_assessment_button'),
+                      key: const Key('continue_button'),
                       onPressed: () {
                         _saveNameImmediately();
-                        ref.read(userControllerProvider.notifier).setProfileConfigured(true);
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const ExpectationsAlignmentScreen(),
+                          ),
+                        );
                       },
                       style: FilledButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -259,7 +266,7 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
                       ),
                       icon: const Icon(Icons.arrow_forward),
                       label: Text(
-                        l10n?.startAssessment ?? 'Start Assessment',
+                        l10n?.continueToExpectations ?? 'Continue',
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,

@@ -26,6 +26,10 @@ pillars:
   - emoji: "🛡️"
     title: "Kognitiva Suvereneco"
     desc: "Protekti mensan energion kontraŭ rapidaj stimuloj kaj artifikaj urĝoj."
+life_area_weights:
+  focus_mastery: 5
+  emotional_wellbeing: 4
+  health_fitness: 3
 ---
 
 # Matena Senekrana Fenestro: Komenci la Tagon per Intenco kaj Trankvilo

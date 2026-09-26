@@ -30,45 +30,6 @@
             </svg>
           </NuxtLink>
         </div>
-
-        <!-- Interactive Priority Gap Preview Widget -->
-        <div class="hero-widget-card card shadow-lg">
-          <div class="widget-header">
-            <div class="widget-pill">
-              <span class="pulse-dot"></span>
-              <span>{{ t('hero.widgetTitle') }}</span>
-            </div>
-            <span class="widget-hint">{{ t('hero.widgetHint') }}</span>
-          </div>
-
-          <div class="widget-grid">
-            <div class="widget-item">
-              <span class="item-label">{{ t('hero.demoAreaLabel') }}</span>
-              <span class="item-value highlight-orange">💪 {{ t('hero.demoArea') }}</span>
-            </div>
-            <div class="widget-item">
-              <span class="item-label">{{ t('hero.demoPriority') }}</span>
-              <div class="bar-container">
-                <div class="bar-fill fill-orange" style="width: 90%;"></div>
-              </div>
-              <span class="bar-score">9/10 ({{ t('hero.high') }})</span>
-            </div>
-            <div class="widget-item">
-              <span class="item-label">{{ t('hero.demoCurrentInv') }}</span>
-              <div class="bar-container">
-                <div class="bar-fill fill-slate" style="width: 25%;"></div>
-              </div>
-              <span class="bar-score">2.5/10 ({{ t('hero.low') }})</span>
-            </div>
-            <div class="widget-item gap-result">
-              <span class="item-label">{{ t('hero.demoGap') }}</span>
-              <span class="gap-tag">⚠️ {{ t('hero.demoGapAlert') }}</span>
-            </div>
-          </div>
-          <div class="widget-footer">
-            <p>{{ t('hero.widgetResolution') }}</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -443,7 +404,7 @@ const landingTranslations = {
     },
     hero: {
       title: 'Understand what matters. Focus your attention. Build better habits.',
-      subtitle: 'Bona Loko is an open-source personal development platform grounded in core values and a mentality focused in uncorruptibility, designed to bridge the gap between high-level life aspirations and daily actions without guilt or commercial distraction.',
+      subtitle: 'Bona Loko is an open-source personal development platform grounded in core values and a mentality focused in uncorruptibility, designed to bridge the gap between high-level life aspirations and daily actions without guilt or non-beneficial distractions.',
       ctaExplore: 'Explore 12 Life Areas',
       ctaMission: 'Our Moral Constitution',
       widgetTitle: 'Priority Gap Engine',
@@ -608,7 +569,7 @@ const landingTranslations = {
     },
     hero: {
       title: 'Entenda o que importa. Foque sua atenção. Construa hábitos melhores.',
-      subtitle: 'Bona Loko é uma plataforma de desenvolvimento pessoal de código aberto fundamentada em valores essenciais e uma mentalidade focada na incorruptibilidade, projetada para unir aspirações de vida a ações diárias sem culpa ou distrações comerciais.',
+      subtitle: 'Bona Loko é uma plataforma de desenvolvimento pessoal de código aberto fundamentada em valores essenciais e uma mentalidade focada na incorruptibilidade, projetada para unir aspirações de vida a ações diárias sem culpa ou distrações prejudiciais.',
       ctaExplore: 'Explorar as 12 Áreas da Vida',
       ctaMission: 'Nossa Constituição Moral',
       widgetTitle: 'Motor de Lacunas de Prioridade',
@@ -772,7 +733,7 @@ const landingTranslations = {
     },
     hero: {
       title: 'Komprenu kio gravas. Foku vian atenton. Konstruu pli bonajn kutimojn.',
-      subtitle: 'Bona Loko estas malfermfonta platformo por persona disvolviĝo bazita sur kernaj valoroj kaj pensmaniero fokusita al nekoruptebleco, desegnita por ligi viv-aspirojn al ĉiutagaj agoj sen kulpo aŭ komercaj distraĵoj.',
+      subtitle: 'Bona Loko estas malfermfonta platformo por persona disvolviĝo bazita sur kernaj valoroj kaj pensmaniero fokusita al nekoruptebleco, desegnita por ligi viv-aspirojn al ĉiutagaj agoj sen kulpo aŭ neprofitaj distraĵoj.',
       ctaExplore: 'Esplori la 12 Vivareojn',
       ctaMission: 'Nia Morala Konstitucio',
       widgetTitle: 'Motoro de Prioritataj Mankoj',
@@ -977,20 +938,20 @@ const filteredAreas = computed(() => {
   return allLifeAreas.filter(a => a.category === selectedCategory.value)
 })
 
-// Dimension Guide Navigation Mapping for all 12 Life Areas
+// Life Area Guide Navigation Mapping for all 12 Life Areas
 const areaGuideMap: Record<string, CanonicalRouteKey> = {
-  health: 'dimension_health_fitness',
-  mental: 'dimension_mental_emotional',
-  learning: 'dimension_personal_growth',
-  career: 'dimension_career_calling',
-  finances: 'dimension_finances_wealth',
-  environment: 'dimension_physical_environment',
-  relationships: 'dimension_relationships_intimacy',
-  family: 'dimension_family_parenting',
-  friendships: 'dimension_friendships_community',
-  recreation: 'dimension_recreation_play',
-  focus: 'dimension_focus_mastery',
-  contribution: 'dimension_contribution_legacy'
+  health: 'life_area_health_fitness',
+  mental: 'life_area_mental_emotional',
+  learning: 'life_area_personal_growth',
+  career: 'life_area_career_calling',
+  finances: 'life_area_finances_wealth',
+  environment: 'life_area_physical_environment',
+  relationships: 'life_area_relationships_intimacy',
+  family: 'life_area_family_parenting',
+  friendships: 'life_area_friendships_community',
+  recreation: 'life_area_recreation_play',
+  focus: 'life_area_focus_mastery',
+  contribution: 'life_area_contribution_legacy'
 }
 
 function getAreaGuideKey(areaId: string): CanonicalRouteKey | null {
@@ -1064,121 +1025,7 @@ const engineSteps = [
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 3.5rem;
-}
-
-/* Hero Widget */
-.hero-widget-card {
-  max-width: 740px;
-  margin: 0 auto;
-  text-align: left;
-  border-color: var(--border-color);
-  background: var(--bg-surface);
-  border-radius: var(--radius-xl);
-}
-
-.widget-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.widget-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--primary);
-  background-color: var(--primary-light);
-  padding: 0.3rem 0.8rem;
-  border-radius: var(--radius-pill);
-}
-
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--primary);
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--primary-glow);
-}
-
-.widget-hint {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.widget-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  background-color: var(--bg-subtle);
-  padding: 1.25rem;
-  border-radius: var(--radius-md);
-  margin-bottom: 1.25rem;
-}
-
-.widget-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.item-label {
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
-
-.item-value {
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.highlight-orange {
-  color: var(--primary);
-}
-
-.bar-container {
-  width: 100%;
-  height: 7px;
-  background-color: var(--border-color);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 2px;
-}
-
-.bar-fill {
-  height: 100%;
-  border-radius: 4px;
-}
-
-.fill-orange { background-color: var(--primary); }
-.fill-slate { background-color: var(--tertiary-blue); }
-
-.bar-score {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.gap-tag {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #b45309;
-  background-color: var(--tertiary-gold-light);
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-xs);
-  display: inline-block;
-}
-
-.widget-footer p {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
+  margin-bottom: 0;
 }
 
 /* Etymology Section */
@@ -1713,14 +1560,12 @@ const engineSteps = [
   .habits-grid { grid-template-columns: repeat(2, 1fr); }
   .engine-steps-grid { grid-template-columns: repeat(2, 1fr); }
   .focus-layout { grid-template-columns: 1fr; }
-  .widget-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
   .areas-grid { grid-template-columns: 1fr; }
   .habits-grid { grid-template-columns: 1fr; }
   .engine-steps-grid { grid-template-columns: 1fr; }
-  .widget-grid { grid-template-columns: 1fr; }
   .pipeline-container { flex-direction: column; align-items: stretch; }
   .pipeline-arrow { transform: rotate(90deg); margin: 0.5rem auto; }
 }

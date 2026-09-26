@@ -280,18 +280,18 @@ const { t } = useComponentI18n(cardTranslations)
 
 // Mapping from area id to canonical route key for all 12 life areas
 const defaultGuideMap: Record<string, CanonicalRouteKey> = {
-  health: 'dimension_health_fitness',
-  mental: 'dimension_mental_emotional',
-  learning: 'dimension_personal_growth',
-  career: 'dimension_career_calling',
-  finances: 'dimension_finances_wealth',
-  environment: 'dimension_physical_environment',
-  relationships: 'dimension_relationships_intimacy',
-  family: 'dimension_family_parenting',
-  friendships: 'dimension_friendships_community',
-  recreation: 'dimension_recreation_play',
-  focus: 'dimension_focus_mastery',
-  contribution: 'dimension_contribution_legacy'
+  health: 'life_area_health_fitness',
+  mental: 'life_area_mental_emotional',
+  learning: 'life_area_personal_growth',
+  career: 'life_area_career_calling',
+  finances: 'life_area_finances_wealth',
+  environment: 'life_area_physical_environment',
+  relationships: 'life_area_relationships_intimacy',
+  family: 'life_area_family_parenting',
+  friendships: 'life_area_friendships_community',
+  recreation: 'life_area_recreation_play',
+  focus: 'life_area_focus_mastery',
+  contribution: 'life_area_contribution_legacy'
 }
 
 const guideRoute = computed<CanonicalRouteKey | string | null>(() => {

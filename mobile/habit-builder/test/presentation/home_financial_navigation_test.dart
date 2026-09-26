@@ -6,6 +6,7 @@ import 'package:habit_builder/app/app.dart';
 import 'package:habit_builder/data/local/app_database.dart';
 import 'package:habit_builder/data/local/database_provider.dart';
 import 'package:habit_builder/data/local/tables/users_table.dart';
+import 'package:habit_builder/data/repositories/user_habits_repository.dart';
 import 'package:habit_builder/data/repositories/user_repository.dart';
 import 'package:habit_builder/presentation/financial/financial_management_screen.dart';
 import '../test_helper.dart';
@@ -26,10 +27,12 @@ void main() {
 
       final testDb = AppDatabase(NativeDatabase.memory());
       final userRepo = UserRepository(testDb);
+      final habitsRepo = UserHabitsRepository(testDb);
 
       await userRepo.saveLanguage(AppLanguage.english);
       await userRepo.saveName('Alex');
       await userRepo.setOnboardingCompleted(true);
+      await habitsRepo.selectHabit('habit_mindful_daily_expense_tracking');
 
       await tester.pumpWidget(
         ProviderScope(

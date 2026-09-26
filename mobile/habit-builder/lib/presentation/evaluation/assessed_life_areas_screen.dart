@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/engine/priority_engine.dart';
 import '../../domain/models/life_area.dart';
 import '../../domain/models/life_area_evaluation.dart';
+import '../habits/suggested_habits_screen.dart';
 import '../onboarding/assessment_wizard_screen.dart';
 import 'evaluation_controller.dart';
 import 'life_area_evaluation_card.dart';
@@ -213,7 +214,7 @@ class AssessedLifeAreasScreen extends ConsumerWidget {
                   const SizedBox(height: 4),
                   Text(
                     l10n?.topPrioritiesSubtitle ??
-                        'Dimensions where intentional daily practice can create the most meaningful balance.',
+                        'Areas where intentional daily practice can create the most meaningful balance.',
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
@@ -264,6 +265,13 @@ class AssessedLifeAreasScreen extends ConsumerWidget {
                       l10n,
                     );
                   }),
+
+                  // SUGGESTED HABITS FOR YOUR PRIORITIES REDIRECTION CARD
+                  _buildSuggestedHabitsNavigationCard(
+                    context,
+                    theme,
+                    l10n,
+                  ),
 
                   const SizedBox(height: 32),
                   OutlinedButton.icon(
@@ -445,6 +453,85 @@ class AssessedLifeAreasScreen extends ConsumerWidget {
           key: Key('reevaluate_button_${area.key}'),
           icon: const Icon(Icons.tune_outlined, size: 20),
           onPressed: () => _openReEvaluationSheet(context, ref, area, evaluation),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSuggestedHabitsNavigationCard(
+    BuildContext context,
+    ThemeData theme,
+    AppLocalizations? l10n,
+  ) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        key: const Key('view_suggested_habits_button'),
+        borderRadius: BorderRadius.circular(16.0),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const SuggestedHabitsScreen(),
+            ),
+          );
+        },
+        child: Container(
+          margin: const EdgeInsets.only(top: 28.0),
+          padding: const EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.4),
+            borderRadius: BorderRadius.circular(16.0),
+            border: Border.all(
+              color: theme.colorScheme.outlineVariant.withOpacity(0.6),
+            ),
+          ),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12.0),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primaryContainer.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(14.0),
+                ),
+                child: Icon(
+                  Icons.auto_awesome_rounded,
+                  size: 26,
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n?.suggestedHabitsSectionTitle ??
+                          'Suggested Habits for Your Priorities',
+                      key: const Key('suggested_habits_title'),
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      l10n?.suggestedHabitsSectionSubtitle ??
+                          'Actionable daily practices prioritized by your current life focus.',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                        height: 1.3,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              Icon(
+                Icons.arrow_forward_rounded,
+                color: theme.colorScheme.onSurfaceVariant,
+                size: 20,
+              ),
+            ],
+          ),
         ),
       ),
     );

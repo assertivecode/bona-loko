@@ -26,6 +26,11 @@ pillars:
   - emoji: "⚓"
     title: "Ekvilibra Perspektivo"
     desc: "Ankri la nervosistemon en tio, kio estas nuna, nutra kaj reala."
+life_area_weights:
+  emotional_wellbeing: 5
+  relationships_intimacy: 4
+  personal_growth: 3
+  family_parenting: 3
 ---
 
 # Kultivado de Dankemo: Flegante Trankvilan Miron kaj Ĉiutagan Abundon
