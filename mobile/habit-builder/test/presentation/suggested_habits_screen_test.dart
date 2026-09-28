@@ -71,7 +71,7 @@ void main() {
       expect(find.byKey(const Key('suggested_habits_screen_title')), findsOneWidget);
       expect(find.text('Suggested Habits for Your Priorities'), findsOneWidget);
       expect(find.byKey(const Key('routine_habits_counter_chip')), findsOneWidget);
-      expect(find.text('0 / 9 In Routine'), findsOneWidget);
+      expect(find.text('0 / 3 In Routine'), findsOneWidget);
 
       // Exercise habit should be ranked top
       expect(find.byKey(const Key('suggested_habit_habit_regular_exercise_workout')), findsOneWidget);
@@ -111,7 +111,7 @@ void main() {
       // Verify Portuguese translations
       expect(find.text('Hábitos Sugeridos'), findsOneWidget);
       expect(find.text('Hábitos Sugeridos para Suas Prioridades'), findsOneWidget);
-      expect(find.text('0 / 9 Na Rotina'), findsOneWidget);
+      expect(find.text('0 / 3 Na Rotina'), findsOneWidget);
       expect(find.text('Exercício Físico Diário & Movimento'), findsOneWidget);
       expect(find.text('Adicionar à Rotina'), findsWidgets);
 
@@ -149,7 +149,7 @@ void main() {
       // Verify Esperanto translations
       expect(find.text('Sugestitaj Kutimoj'), findsOneWidget);
       expect(find.text('Sugestitaj Kutimoj por Viaj Prioritatoj'), findsOneWidget);
-      expect(find.text('0 / 9 En Rutino'), findsOneWidget);
+      expect(find.text('0 / 3 En Rutino'), findsOneWidget);
       expect(find.text('Ĉiutaga Fizika Ekzercado & Movado'), findsOneWidget);
       expect(find.text('Aldoni al Rutino'), findsWidgets);
 
@@ -186,25 +186,44 @@ void main() {
       await tester.tap(find.byKey(const Key('view_habits_screen_button')));
       await tester.pumpAndSettle();
 
-      expect(find.text('0 / 9 In Routine'), findsOneWidget);
+      expect(find.text('0 / 3 In Routine'), findsOneWidget);
 
-      // Tap to select exercise habit
+      // Tap to add exercise habit -> opens modal
       await tester.tap(find.byKey(const Key('toggle_habit_habit_regular_exercise_workout')));
       await tester.pumpAndSettle();
 
-      // Counter updates to 1 / 9 and button displays "In Routine"
-      expect(find.text('1 / 9 In Routine'), findsOneWidget);
+      // Modal options should be visible
+      expect(find.byKey(const Key('option_current_habit')), findsOneWidget);
+      expect(find.byKey(const Key('option_new_habit')), findsOneWidget);
+      expect(find.byKey(const Key('option_hobby')), findsOneWidget);
+      expect(find.byKey(const Key('option_with_purpose')), findsOneWidget);
+      expect(find.byKey(const Key('habit_purpose_text_field')), findsOneWidget);
+      expect(find.byKey(const Key('pick_deadline_date_button')), findsOneWidget);
+
+      // Enter purpose
+      await tester.enterText(
+        find.byKey(const Key('habit_purpose_text_field')),
+        'Cultivate daily energy and stamina',
+      );
+      await tester.pumpAndSettle();
+
+      // Tap confirm button in modal
+      await tester.tap(find.byKey(const Key('confirm_add_habit_button')));
+      await tester.pumpAndSettle();
+
+      // Counter updates to 1 / 3 and button displays "In Routine"
+      expect(find.text('1 / 3 In Routine'), findsOneWidget);
       expect(find.text('In Routine'), findsWidgets);
 
       // Verify persisted in SQLite
       final isSelected = await habitsRepo.isHabitSelected('habit_regular_exercise_workout');
       expect(isSelected, isTrue);
 
-      // Tap again to unpick habit
+      // Tap again to unpick habit (unselect direct from In Routine state)
       await tester.tap(find.byKey(const Key('toggle_habit_habit_regular_exercise_workout')));
       await tester.pumpAndSettle();
 
-      expect(find.text('0 / 9 In Routine'), findsOneWidget);
+      expect(find.text('0 / 3 In Routine'), findsOneWidget);
       final isSelectedAfter = await habitsRepo.isHabitSelected('habit_regular_exercise_workout');
       expect(isSelectedAfter, isFalse);
 
@@ -256,7 +275,7 @@ void main() {
       await testDb.close();
     });
 
-    testWidgets('hides Add to Routine button and shows Coming Soon badge for habits not yet implemented', (tester) async {
+    testWidgets('only displays developed habits and completely hides undeveloped habits from the screen', (tester) async {
       tester.view.physicalSize = const Size(1080, 2400);
       tester.view.devicePixelRatio = 2.0;
       addTearDown(() {
@@ -284,33 +303,25 @@ void main() {
       await tester.tap(find.byKey(const Key('view_habits_screen_button')));
       await tester.pumpAndSettle();
 
-      // Implemented habits have toggle button (Add to Routine)
+      // Implemented habits are displayed with their toggle button
+      expect(find.byKey(const Key('suggested_habit_habit_regular_exercise_workout')), findsOneWidget);
+      expect(find.byKey(const Key('suggested_habit_habit_nurture_of_gratitude')), findsOneWidget);
+      expect(find.byKey(const Key('suggested_habit_habit_mindful_daily_expense_tracking')), findsOneWidget);
+
       expect(find.byKey(const Key('toggle_habit_habit_regular_exercise_workout')), findsOneWidget);
       expect(find.byKey(const Key('toggle_habit_habit_nurture_of_gratitude')), findsOneWidget);
-
-      await tester.scrollUntilVisible(
-        find.byKey(const Key('toggle_habit_habit_mindful_daily_expense_tracking')),
-        200.0,
-        scrollable: find.byType(Scrollable),
-      );
       expect(find.byKey(const Key('toggle_habit_habit_mindful_daily_expense_tracking')), findsOneWidget);
 
-      // Unimplemented habits do NOT have toggle button (it is removed/hidden)
-      expect(find.byKey(const Key('toggle_habit_habit_consistent_sleep_evening_transition')), findsNothing);
-      expect(find.byKey(const Key('toggle_habit_habit_morning_screen_free_window')), findsNothing);
-      expect(find.byKey(const Key('toggle_habit_habit_daily_protected_reading')), findsNothing);
-      expect(find.byKey(const Key('toggle_habit_habit_daily_family_connection_ritual')), findsNothing);
-      expect(find.byKey(const Key('toggle_habit_habit_weekly_personal_outreach')), findsNothing);
-      expect(find.byKey(const Key('toggle_habit_habit_daily_guilt_free_micro_leisure')), findsNothing);
+      // Undeveloped habits are completely hidden from the screen
+      expect(find.byKey(const Key('suggested_habit_habit_consistent_sleep_evening_transition')), findsNothing);
+      expect(find.byKey(const Key('suggested_habit_habit_morning_screen_free_window')), findsNothing);
+      expect(find.byKey(const Key('suggested_habit_habit_daily_protected_reading')), findsNothing);
+      expect(find.byKey(const Key('suggested_habit_habit_daily_family_connection_ritual')), findsNothing);
+      expect(find.byKey(const Key('suggested_habit_habit_weekly_personal_outreach')), findsNothing);
+      expect(find.byKey(const Key('suggested_habit_habit_daily_guilt_free_micro_leisure')), findsNothing);
 
-      // Scroll back up or scroll to an unimplemented habit to verify Coming Soon indicator
-      await tester.scrollUntilVisible(
-        find.byKey(const Key('habit_coming_soon_habit_consistent_sleep_evening_transition')),
-        -200.0,
-        scrollable: find.byType(Scrollable),
-      );
-      expect(find.byKey(const Key('habit_coming_soon_habit_consistent_sleep_evening_transition')), findsOneWidget);
-      expect(find.text('Coming Soon'), findsWidgets);
+      // Verify no "Coming Soon" indicator exists on the screen
+      expect(find.text('Coming Soon'), findsNothing);
 
       await testDb.close();
     });

@@ -5923,8 +5923,46 @@ class $UserHabitsTable extends UserHabits
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('CHECK ("is_active" IN (0, 1))'),
       defaultValue: const Constant(true));
+  static const VerificationMeta _isNewHabitMeta =
+      const VerificationMeta('isNewHabit');
   @override
-  List<GeneratedColumn> get $columns => [id, selectedAt, isActive];
+  late final GeneratedColumn<bool> isNewHabit = GeneratedColumn<bool>(
+      'is_new_habit', aliasedName, true,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("is_new_habit" IN (0, 1))'));
+  static const VerificationMeta _isPurposefulMeta =
+      const VerificationMeta('isPurposeful');
+  @override
+  late final GeneratedColumn<bool> isPurposeful = GeneratedColumn<bool>(
+      'is_purposeful', aliasedName, true,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("is_purposeful" IN (0, 1))'));
+  static const VerificationMeta _purposeDescriptionMeta =
+      const VerificationMeta('purposeDescription');
+  @override
+  late final GeneratedColumn<String> purposeDescription =
+      GeneratedColumn<String>('purpose_description', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _experimentationDeadlineMeta =
+      const VerificationMeta('experimentationDeadline');
+  @override
+  late final GeneratedColumn<DateTime> experimentationDeadline =
+      GeneratedColumn<DateTime>('experimentation_deadline', aliasedName, true,
+          type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        selectedAt,
+        isActive,
+        isNewHabit,
+        isPurposeful,
+        purposeDescription,
+        experimentationDeadline
+      ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -5952,6 +5990,30 @@ class $UserHabitsTable extends UserHabits
       context.handle(_isActiveMeta,
           isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta));
     }
+    if (data.containsKey('is_new_habit')) {
+      context.handle(
+          _isNewHabitMeta,
+          isNewHabit.isAcceptableOrUnknown(
+              data['is_new_habit']!, _isNewHabitMeta));
+    }
+    if (data.containsKey('is_purposeful')) {
+      context.handle(
+          _isPurposefulMeta,
+          isPurposeful.isAcceptableOrUnknown(
+              data['is_purposeful']!, _isPurposefulMeta));
+    }
+    if (data.containsKey('purpose_description')) {
+      context.handle(
+          _purposeDescriptionMeta,
+          purposeDescription.isAcceptableOrUnknown(
+              data['purpose_description']!, _purposeDescriptionMeta));
+    }
+    if (data.containsKey('experimentation_deadline')) {
+      context.handle(
+          _experimentationDeadlineMeta,
+          experimentationDeadline.isAcceptableOrUnknown(
+              data['experimentation_deadline']!, _experimentationDeadlineMeta));
+    }
     return context;
   }
 
@@ -5967,6 +6029,15 @@ class $UserHabitsTable extends UserHabits
           .read(DriftSqlType.dateTime, data['${effectivePrefix}selected_at'])!,
       isActive: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}is_active'])!,
+      isNewHabit: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_new_habit']),
+      isPurposeful: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_purposeful']),
+      purposeDescription: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}purpose_description']),
+      experimentationDeadline: attachedDatabase.typeMapping.read(
+          DriftSqlType.dateTime,
+          data['${effectivePrefix}experimentation_deadline']),
     );
   }
 
@@ -5980,14 +6051,37 @@ class UserHabitData extends DataClass implements Insertable<UserHabitData> {
   final String id;
   final DateTime selectedAt;
   final bool isActive;
+  final bool? isNewHabit;
+  final bool? isPurposeful;
+  final String? purposeDescription;
+  final DateTime? experimentationDeadline;
   const UserHabitData(
-      {required this.id, required this.selectedAt, required this.isActive});
+      {required this.id,
+      required this.selectedAt,
+      required this.isActive,
+      this.isNewHabit,
+      this.isPurposeful,
+      this.purposeDescription,
+      this.experimentationDeadline});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<String>(id);
     map['selected_at'] = Variable<DateTime>(selectedAt);
     map['is_active'] = Variable<bool>(isActive);
+    if (!nullToAbsent || isNewHabit != null) {
+      map['is_new_habit'] = Variable<bool>(isNewHabit);
+    }
+    if (!nullToAbsent || isPurposeful != null) {
+      map['is_purposeful'] = Variable<bool>(isPurposeful);
+    }
+    if (!nullToAbsent || purposeDescription != null) {
+      map['purpose_description'] = Variable<String>(purposeDescription);
+    }
+    if (!nullToAbsent || experimentationDeadline != null) {
+      map['experimentation_deadline'] =
+          Variable<DateTime>(experimentationDeadline);
+    }
     return map;
   }
 
@@ -5996,6 +6090,18 @@ class UserHabitData extends DataClass implements Insertable<UserHabitData> {
       id: Value(id),
       selectedAt: Value(selectedAt),
       isActive: Value(isActive),
+      isNewHabit: isNewHabit == null && nullToAbsent
+          ? const Value.absent()
+          : Value(isNewHabit),
+      isPurposeful: isPurposeful == null && nullToAbsent
+          ? const Value.absent()
+          : Value(isPurposeful),
+      purposeDescription: purposeDescription == null && nullToAbsent
+          ? const Value.absent()
+          : Value(purposeDescription),
+      experimentationDeadline: experimentationDeadline == null && nullToAbsent
+          ? const Value.absent()
+          : Value(experimentationDeadline),
     );
   }
 
@@ -6006,6 +6112,12 @@ class UserHabitData extends DataClass implements Insertable<UserHabitData> {
       id: serializer.fromJson<String>(json['id']),
       selectedAt: serializer.fromJson<DateTime>(json['selectedAt']),
       isActive: serializer.fromJson<bool>(json['isActive']),
+      isNewHabit: serializer.fromJson<bool?>(json['isNewHabit']),
+      isPurposeful: serializer.fromJson<bool?>(json['isPurposeful']),
+      purposeDescription:
+          serializer.fromJson<String?>(json['purposeDescription']),
+      experimentationDeadline:
+          serializer.fromJson<DateTime?>(json['experimentationDeadline']),
     );
   }
   @override
@@ -6015,51 +6127,93 @@ class UserHabitData extends DataClass implements Insertable<UserHabitData> {
       'id': serializer.toJson<String>(id),
       'selectedAt': serializer.toJson<DateTime>(selectedAt),
       'isActive': serializer.toJson<bool>(isActive),
+      'isNewHabit': serializer.toJson<bool?>(isNewHabit),
+      'isPurposeful': serializer.toJson<bool?>(isPurposeful),
+      'purposeDescription': serializer.toJson<String?>(purposeDescription),
+      'experimentationDeadline':
+          serializer.toJson<DateTime?>(experimentationDeadline),
     };
   }
 
-  UserHabitData copyWith({String? id, DateTime? selectedAt, bool? isActive}) =>
+  UserHabitData copyWith(
+          {String? id,
+          DateTime? selectedAt,
+          bool? isActive,
+          Value<bool?> isNewHabit = const Value.absent(),
+          Value<bool?> isPurposeful = const Value.absent(),
+          Value<String?> purposeDescription = const Value.absent(),
+          Value<DateTime?> experimentationDeadline = const Value.absent()}) =>
       UserHabitData(
         id: id ?? this.id,
         selectedAt: selectedAt ?? this.selectedAt,
         isActive: isActive ?? this.isActive,
+        isNewHabit: isNewHabit.present ? isNewHabit.value : this.isNewHabit,
+        isPurposeful:
+            isPurposeful.present ? isPurposeful.value : this.isPurposeful,
+        purposeDescription: purposeDescription.present
+            ? purposeDescription.value
+            : this.purposeDescription,
+        experimentationDeadline: experimentationDeadline.present
+            ? experimentationDeadline.value
+            : this.experimentationDeadline,
       );
   @override
   String toString() {
     return (StringBuffer('UserHabitData(')
           ..write('id: $id, ')
           ..write('selectedAt: $selectedAt, ')
-          ..write('isActive: $isActive')
+          ..write('isActive: $isActive, ')
+          ..write('isNewHabit: $isNewHabit, ')
+          ..write('isPurposeful: $isPurposeful, ')
+          ..write('purposeDescription: $purposeDescription, ')
+          ..write('experimentationDeadline: $experimentationDeadline')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, selectedAt, isActive);
+  int get hashCode => Object.hash(id, selectedAt, isActive, isNewHabit,
+      isPurposeful, purposeDescription, experimentationDeadline);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is UserHabitData &&
           other.id == this.id &&
           other.selectedAt == this.selectedAt &&
-          other.isActive == this.isActive);
+          other.isActive == this.isActive &&
+          other.isNewHabit == this.isNewHabit &&
+          other.isPurposeful == this.isPurposeful &&
+          other.purposeDescription == this.purposeDescription &&
+          other.experimentationDeadline == this.experimentationDeadline);
 }
 
 class UserHabitsCompanion extends UpdateCompanion<UserHabitData> {
   final Value<String> id;
   final Value<DateTime> selectedAt;
   final Value<bool> isActive;
+  final Value<bool?> isNewHabit;
+  final Value<bool?> isPurposeful;
+  final Value<String?> purposeDescription;
+  final Value<DateTime?> experimentationDeadline;
   final Value<int> rowid;
   const UserHabitsCompanion({
     this.id = const Value.absent(),
     this.selectedAt = const Value.absent(),
     this.isActive = const Value.absent(),
+    this.isNewHabit = const Value.absent(),
+    this.isPurposeful = const Value.absent(),
+    this.purposeDescription = const Value.absent(),
+    this.experimentationDeadline = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   UserHabitsCompanion.insert({
     required String id,
     required DateTime selectedAt,
     this.isActive = const Value.absent(),
+    this.isNewHabit = const Value.absent(),
+    this.isPurposeful = const Value.absent(),
+    this.purposeDescription = const Value.absent(),
+    this.experimentationDeadline = const Value.absent(),
     this.rowid = const Value.absent(),
   })  : id = Value(id),
         selectedAt = Value(selectedAt);
@@ -6067,12 +6221,21 @@ class UserHabitsCompanion extends UpdateCompanion<UserHabitData> {
     Expression<String>? id,
     Expression<DateTime>? selectedAt,
     Expression<bool>? isActive,
+    Expression<bool>? isNewHabit,
+    Expression<bool>? isPurposeful,
+    Expression<String>? purposeDescription,
+    Expression<DateTime>? experimentationDeadline,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (selectedAt != null) 'selected_at': selectedAt,
       if (isActive != null) 'is_active': isActive,
+      if (isNewHabit != null) 'is_new_habit': isNewHabit,
+      if (isPurposeful != null) 'is_purposeful': isPurposeful,
+      if (purposeDescription != null) 'purpose_description': purposeDescription,
+      if (experimentationDeadline != null)
+        'experimentation_deadline': experimentationDeadline,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -6081,11 +6244,20 @@ class UserHabitsCompanion extends UpdateCompanion<UserHabitData> {
       {Value<String>? id,
       Value<DateTime>? selectedAt,
       Value<bool>? isActive,
+      Value<bool?>? isNewHabit,
+      Value<bool?>? isPurposeful,
+      Value<String?>? purposeDescription,
+      Value<DateTime?>? experimentationDeadline,
       Value<int>? rowid}) {
     return UserHabitsCompanion(
       id: id ?? this.id,
       selectedAt: selectedAt ?? this.selectedAt,
       isActive: isActive ?? this.isActive,
+      isNewHabit: isNewHabit ?? this.isNewHabit,
+      isPurposeful: isPurposeful ?? this.isPurposeful,
+      purposeDescription: purposeDescription ?? this.purposeDescription,
+      experimentationDeadline:
+          experimentationDeadline ?? this.experimentationDeadline,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -6102,6 +6274,19 @@ class UserHabitsCompanion extends UpdateCompanion<UserHabitData> {
     if (isActive.present) {
       map['is_active'] = Variable<bool>(isActive.value);
     }
+    if (isNewHabit.present) {
+      map['is_new_habit'] = Variable<bool>(isNewHabit.value);
+    }
+    if (isPurposeful.present) {
+      map['is_purposeful'] = Variable<bool>(isPurposeful.value);
+    }
+    if (purposeDescription.present) {
+      map['purpose_description'] = Variable<String>(purposeDescription.value);
+    }
+    if (experimentationDeadline.present) {
+      map['experimentation_deadline'] =
+          Variable<DateTime>(experimentationDeadline.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -6114,6 +6299,10 @@ class UserHabitsCompanion extends UpdateCompanion<UserHabitData> {
           ..write('id: $id, ')
           ..write('selectedAt: $selectedAt, ')
           ..write('isActive: $isActive, ')
+          ..write('isNewHabit: $isNewHabit, ')
+          ..write('isPurposeful: $isPurposeful, ')
+          ..write('purposeDescription: $purposeDescription, ')
+          ..write('experimentationDeadline: $experimentationDeadline, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -9064,12 +9253,20 @@ typedef $$UserHabitsTableInsertCompanionBuilder = UserHabitsCompanion Function({
   required String id,
   required DateTime selectedAt,
   Value<bool> isActive,
+  Value<bool?> isNewHabit,
+  Value<bool?> isPurposeful,
+  Value<String?> purposeDescription,
+  Value<DateTime?> experimentationDeadline,
   Value<int> rowid,
 });
 typedef $$UserHabitsTableUpdateCompanionBuilder = UserHabitsCompanion Function({
   Value<String> id,
   Value<DateTime> selectedAt,
   Value<bool> isActive,
+  Value<bool?> isNewHabit,
+  Value<bool?> isPurposeful,
+  Value<String?> purposeDescription,
+  Value<DateTime?> experimentationDeadline,
   Value<int> rowid,
 });
 
@@ -9096,24 +9293,40 @@ class $$UserHabitsTableTableManager extends RootTableManager<
             Value<String> id = const Value.absent(),
             Value<DateTime> selectedAt = const Value.absent(),
             Value<bool> isActive = const Value.absent(),
+            Value<bool?> isNewHabit = const Value.absent(),
+            Value<bool?> isPurposeful = const Value.absent(),
+            Value<String?> purposeDescription = const Value.absent(),
+            Value<DateTime?> experimentationDeadline = const Value.absent(),
             Value<int> rowid = const Value.absent(),
           }) =>
               UserHabitsCompanion(
             id: id,
             selectedAt: selectedAt,
             isActive: isActive,
+            isNewHabit: isNewHabit,
+            isPurposeful: isPurposeful,
+            purposeDescription: purposeDescription,
+            experimentationDeadline: experimentationDeadline,
             rowid: rowid,
           ),
           getInsertCompanionBuilder: ({
             required String id,
             required DateTime selectedAt,
             Value<bool> isActive = const Value.absent(),
+            Value<bool?> isNewHabit = const Value.absent(),
+            Value<bool?> isPurposeful = const Value.absent(),
+            Value<String?> purposeDescription = const Value.absent(),
+            Value<DateTime?> experimentationDeadline = const Value.absent(),
             Value<int> rowid = const Value.absent(),
           }) =>
               UserHabitsCompanion.insert(
             id: id,
             selectedAt: selectedAt,
             isActive: isActive,
+            isNewHabit: isNewHabit,
+            isPurposeful: isPurposeful,
+            purposeDescription: purposeDescription,
+            experimentationDeadline: experimentationDeadline,
             rowid: rowid,
           ),
         ));
@@ -9148,6 +9361,27 @@ class $$UserHabitsTableFilterComposer
       column: $state.table.isActive,
       builder: (column, joinBuilders) =>
           ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<bool> get isNewHabit => $state.composableBuilder(
+      column: $state.table.isNewHabit,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<bool> get isPurposeful => $state.composableBuilder(
+      column: $state.table.isPurposeful,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get purposeDescription => $state.composableBuilder(
+      column: $state.table.purposeDescription,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<DateTime> get experimentationDeadline =>
+      $state.composableBuilder(
+          column: $state.table.experimentationDeadline,
+          builder: (column, joinBuilders) =>
+              ColumnFilters(column, joinBuilders: joinBuilders));
 }
 
 class $$UserHabitsTableOrderingComposer
@@ -9167,6 +9401,27 @@ class $$UserHabitsTableOrderingComposer
       column: $state.table.isActive,
       builder: (column, joinBuilders) =>
           ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<bool> get isNewHabit => $state.composableBuilder(
+      column: $state.table.isNewHabit,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<bool> get isPurposeful => $state.composableBuilder(
+      column: $state.table.isPurposeful,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get purposeDescription => $state.composableBuilder(
+      column: $state.table.purposeDescription,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<DateTime> get experimentationDeadline => $state
+      .composableBuilder(
+          column: $state.table.experimentationDeadline,
+          builder: (column, joinBuilders) =>
+              ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
 class _$AppDatabaseManager {

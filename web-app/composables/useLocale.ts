@@ -20,6 +20,8 @@ export type CanonicalRouteKey =
   | 'about'
   | 'mission'
   | 'privacy'
+  | 'sponsor'
+  | 'closed_testing'
   | 'life_area_health_fitness'
   | 'life_area_mental_emotional'
   | 'life_area_personal_growth'
@@ -32,19 +34,7 @@ export type CanonicalRouteKey =
   | 'life_area_recreation_play'
   | 'life_area_focus_mastery'
   | 'life_area_contribution_legacy'
-  // Backwards compatibility aliases
-  | 'dimension_health_fitness'
-  | 'dimension_mental_emotional'
-  | 'dimension_personal_growth'
-  | 'dimension_career_calling'
-  | 'dimension_finances_wealth'
-  | 'dimension_physical_environment'
-  | 'dimension_relationships_intimacy'
-  | 'dimension_family_parenting'
-  | 'dimension_friendships_community'
-  | 'dimension_recreation_play'
-  | 'dimension_focus_mastery'
-  | 'dimension_contribution_legacy'
+
 
 const lifeAreaRoutes: Record<string, Record<Locale, string>> = {
   health_fitness: {
@@ -130,6 +120,16 @@ export const ROUTE_SLUGS: Record<CanonicalRouteKey, Record<Locale, string>> = {
     'pt-BR': '/pt-br/privacidade',
     eo: '/eo/privateco'
   },
+  sponsor: {
+    'en-US': '/sponsor',
+    'pt-BR': '/pt-br/apoiar',
+    eo: '/eo/subteni'
+  },
+  closed_testing: {
+    'en-US': '/closed-testing',
+    'pt-BR': '/pt-br/testadores',
+    eo: '/eo/testantoj'
+  },
   // Canonical life_area_* keys
   life_area_health_fitness: lifeAreaRoutes.health_fitness,
   life_area_mental_emotional: lifeAreaRoutes.mental_emotional,
@@ -142,20 +142,7 @@ export const ROUTE_SLUGS: Record<CanonicalRouteKey, Record<Locale, string>> = {
   life_area_friendships_community: lifeAreaRoutes.friendships_community,
   life_area_recreation_play: lifeAreaRoutes.recreation_play,
   life_area_focus_mastery: lifeAreaRoutes.focus_mastery,
-  life_area_contribution_legacy: lifeAreaRoutes.contribution_legacy,
-  // Backwards compatibility dimension_* keys
-  dimension_health_fitness: lifeAreaRoutes.health_fitness,
-  dimension_mental_emotional: lifeAreaRoutes.mental_emotional,
-  dimension_personal_growth: lifeAreaRoutes.personal_growth,
-  dimension_career_calling: lifeAreaRoutes.career_calling,
-  dimension_finances_wealth: lifeAreaRoutes.finances_wealth,
-  dimension_physical_environment: lifeAreaRoutes.physical_environment,
-  dimension_relationships_intimacy: lifeAreaRoutes.relationships_intimacy,
-  dimension_family_parenting: lifeAreaRoutes.family_parenting,
-  dimension_friendships_community: lifeAreaRoutes.friendships_community,
-  dimension_recreation_play: lifeAreaRoutes.recreation_play,
-  dimension_focus_mastery: lifeAreaRoutes.focus_mastery,
-  dimension_contribution_legacy: lifeAreaRoutes.contribution_legacy
+  life_area_contribution_legacy: lifeAreaRoutes.contribution_legacy
 }
 
 // Global singleton state for current locale across the application

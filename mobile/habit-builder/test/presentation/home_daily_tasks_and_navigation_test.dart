@@ -159,5 +159,83 @@ void main() {
 
       await testDb.close();
     });
+
+    testWidgets(
+        'delete button on task card opens confirmation dialog and removes habit from daily routine when confirmed',
+        (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 2.0;
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+
+      final testDb = AppDatabase(NativeDatabase.memory());
+      final userRepo = UserRepository(testDb);
+      final evalRepo = LifeAreaEvaluationRepository(testDb);
+
+      await userRepo.saveLanguage(AppLanguage.english);
+      await userRepo.saveName('Marcus');
+      await userRepo.setOnboardingCompleted(true);
+
+      for (final area in LifeArea.values) {
+        await evalRepo.saveEvaluation(
+          LifeAreaEvaluation(
+            id: 'eval-${area.value}',
+            lifeArea: area,
+            score: 8.0,
+            currentPriority: 3,
+            evaluatedAt: DateTime.now(),
+          ),
+        );
+      }
+
+      final habitsRepo = UserHabitsRepository(testDb);
+      await habitsRepo.selectHabit('habit_nurture_of_gratitude');
+      await habitsRepo.selectHabit('habit_regular_exercise_workout');
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(testDb),
+          ],
+          child: const BonaLokoApp(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Verify delete button is present on gratitude card
+      expect(find.byKey(const Key('delete_habit_habit_nurture_of_gratitude_button')), findsOneWidget);
+
+      // Tap delete button -> triggers confirmation dialog
+      await tester.tap(find.byKey(const Key('delete_habit_habit_nurture_of_gratitude_button')));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('confirm_remove_dialog_habit_nurture_of_gratitude')), findsOneWidget);
+      expect(find.text('Remove Habit from Routine'), findsOneWidget);
+      expect(find.byKey(const Key('cancel_remove_habit_button')), findsOneWidget);
+      expect(find.byKey(const Key('confirm_remove_habit_button')), findsOneWidget);
+
+      // Tap Cancel -> dialog dismissed, habit remains
+      await tester.tap(find.byKey(const Key('cancel_remove_habit_button')));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('confirm_remove_dialog_habit_nurture_of_gratitude')), findsNothing);
+      expect(find.byKey(const Key('home_daily_task_gratitude')), findsOneWidget);
+
+      // Tap delete button again and confirm removal
+      await tester.tap(find.byKey(const Key('delete_habit_habit_nurture_of_gratitude_button')));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const Key('confirm_remove_habit_button')));
+      await tester.pumpAndSettle();
+
+      // Gratitude task should now be removed from the Home daily routine
+      expect(find.byKey(const Key('home_daily_task_gratitude')), findsNothing);
+      final isStillSelected = await habitsRepo.isHabitSelected('habit_nurture_of_gratitude');
+      expect(isStillSelected, isFalse);
+
+      await testDb.close();
+    });
   });
 }

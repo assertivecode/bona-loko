@@ -118,8 +118,13 @@ void main() {
       // Exercise is ranked top because health_fitness was prioritized at 5
       expect(find.byKey(const Key('suggested_habit_habit_regular_exercise_workout')), findsOneWidget);
 
-      // Tap toggle to add exercise workout to routine
+      // Tap toggle to add exercise workout to routine -> opens modal bottom sheet
       await tester.tap(find.byKey(const Key('toggle_habit_habit_regular_exercise_workout')));
+      await tester.pumpAndSettle();
+
+      // Confirm in modal bottom sheet
+      expect(find.byKey(const Key('confirm_add_habit_button')), findsOneWidget);
+      await tester.tap(find.byKey(const Key('confirm_add_habit_button')));
       await tester.pumpAndSettle();
 
       // Return to Home

@@ -75,7 +75,7 @@ Feature: Mobile Suggested Habits Selection & Home Routine Synchronization
   Scenario: Suggested habits are fully localized and ranked by user priorities
     Given a user with completed life area evaluations
     When the user navigates to the dedicated Suggested Habits screen
-    Then all canonical habits are displayed ordered by relevance weights to user priorities
+    Then developed habits are displayed ordered by relevance weights to user priorities
     And each habit card displays its localized title, localized description, and life area synergies
     And in Portuguese ("pt"), titles and descriptions match the Portuguese registry
     And in Esperanto ("eo"), titles and descriptions match the Esperanto registry
@@ -105,9 +105,8 @@ Feature: Mobile Suggested Habits Selection & Home Routine Synchronization
     And the Suggested Habits card is positioned below the user's habits list
     And the Life Areas & Priorities card is positioned lastly at the bottom
 
-  Scenario: Only conceptually defined and implemented habits offer Add to Routine button
+  Scenario: Only developed habits are displayed on the Suggested Habits screen
     Given a user on the Suggested Habits screen
-    Then implemented habits ("Cultivation of Gratitude", "Daily Physical Exercise & Movement", "Mindful Daily Expense Tracking") display an interactive "Add to Routine" / "In Routine" toggle button
-    And unbuilt habits without an interactive mobile implementation do not display an "Add to Routine" button
-    And unbuilt habits display a respectful "Coming Soon" indicator instead
+    Then developed habits ("Cultivation of Gratitude", "Daily Physical Exercise & Movement", "Mindful Daily Expense Tracking") are displayed with their interactive "Add to Routine" / "In Routine" toggle button
+    And undeveloped habits without an interactive mobile implementation are completely hidden from the screen.
 ```

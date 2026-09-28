@@ -89,6 +89,20 @@ class AppDatabase extends _$AppDatabase {
     await checkAndCreate(financialCategories.actualTableName, financialCategories);
     await checkAndCreate(monthlyCurrencies.actualTableName, monthlyCurrencies);
     await checkAndCreate(userHabits.actualTableName, userHabits);
+
+    // Ensure new columns on user_habits exist for safe migration
+    try {
+      await customStatement('ALTER TABLE user_habits ADD COLUMN is_new_habit INTEGER;');
+    } catch (_) {}
+    try {
+      await customStatement('ALTER TABLE user_habits ADD COLUMN is_purposeful INTEGER;');
+    } catch (_) {}
+    try {
+      await customStatement('ALTER TABLE user_habits ADD COLUMN purpose_description TEXT;');
+    } catch (_) {}
+    try {
+      await customStatement('ALTER TABLE user_habits ADD COLUMN experimentation_deadline INTEGER;');
+    } catch (_) {}
   }
 
   @override

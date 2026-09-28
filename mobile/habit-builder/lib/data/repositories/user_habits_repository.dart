@@ -61,8 +61,14 @@ class UserHabitsRepository {
     }
   }
 
-  /// Explicitly selects a habit.
-  Future<void> selectHabit(String habitId) async {
+  /// Explicitly selects a habit with optional configuration attributes.
+  Future<void> selectHabit(
+    String habitId, {
+    bool? isNewHabit,
+    bool? isPurposeful,
+    String? purposeDescription,
+    DateTime? experimentationDeadline,
+  }) async {
     final existing = await (_db.select(_db.userHabits)
           ..where((tbl) => tbl.id.equals(habitId)))
         .getSingleOrNull();
@@ -73,14 +79,22 @@ class UserHabitsRepository {
               id: habitId,
               selectedAt: DateTime.now(),
               isActive: const Value(true),
+              isNewHabit: Value(isNewHabit),
+              isPurposeful: Value(isPurposeful),
+              purposeDescription: Value(purposeDescription),
+              experimentationDeadline: Value(experimentationDeadline),
             ),
           );
-    } else if (!existing.isActive) {
+    } else {
       await (_db.update(_db.userHabits)..where((tbl) => tbl.id.equals(habitId)))
           .write(
         UserHabitsCompanion(
           isActive: const Value(true),
           selectedAt: Value(DateTime.now()),
+          isNewHabit: Value(isNewHabit ?? existing.isNewHabit),
+          isPurposeful: Value(isPurposeful ?? existing.isPurposeful),
+          purposeDescription: Value(purposeDescription ?? existing.purposeDescription),
+          experimentationDeadline: Value(experimentationDeadline ?? existing.experimentationDeadline),
         ),
       );
     }

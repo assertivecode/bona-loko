@@ -74,6 +74,16 @@ export default defineEventHandler((event) => {
   addUrl('/pt-br/privacidade', '0.5', 'monthly')
   addUrl('/eo/privateco', '0.5', 'monthly')
 
+  // Voluntary Sponsorship & Stewardship
+  addUrl('/sponsor', '0.8', 'weekly')
+  addUrl('/pt-br/apoiar', '0.8', 'weekly')
+  addUrl('/eo/subteni', '0.8', 'weekly')
+
+  // Closed Testing Application
+  addUrl('/closed-testing', '0.8', 'weekly')
+  addUrl('/pt-br/testadores', '0.8', 'weekly')
+  addUrl('/eo/testantoj', '0.8', 'weekly')
+
   // 2. Dynamic Content Articles pre-bundled from content-routes.json
   // (Works natively in Cloudflare Workers with 0 runtime fs dependencies)
   for (const item of contentRoutes) {

@@ -13,6 +13,22 @@
           />
         </NuxtLink>
 
+        <!-- Assertive Code Open Source Initiative link -->
+        <a
+          href="https://assertivecode.com/#portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="initiative-badge"
+          title="Assertive Code Open Source Initiative"
+        >
+          <span class="initiative-dot"></span>
+          <span class="initiative-text">{{ t('nav.initiative') }}</span>
+          <svg class="external-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
       </div>
 
       <!-- Desktop Navigation -->
@@ -28,6 +44,12 @@
         </NuxtLink>
         <NuxtLink :to="localePath('home') + '#suggested-habits'" class="nav-link">
           {{ t('nav.habits') }}
+        </NuxtLink>
+        <NuxtLink :to="localePath('sponsor')" class="nav-link sponsor-nav-link" active-class="active">
+          {{ t('nav.sponsor') }}
+        </NuxtLink>
+        <NuxtLink :to="localePath('closed_testing')" class="nav-link" active-class="active">
+          {{ t('nav.closedTesting') }}
         </NuxtLink>
       </nav>
 
@@ -89,6 +111,14 @@
     <Transition name="drawer">
       <div v-if="isMobileMenuOpen" class="mobile-drawer">
         <div class="drawer-header">
+          <a
+            href="https://assertivecode.com/#portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="initiative-badge-mobile"
+          >
+            {{ t('nav.initiative') }} ↗
+          </a>
           <button
             type="button"
             class="drawer-close-btn"
@@ -111,6 +141,12 @@
           </NuxtLink>
           <NuxtLink :to="localePath('home') + '#suggested-habits'" class="mobile-nav-link" @click="isMobileMenuOpen = false">
             {{ t('nav.habits') }}
+          </NuxtLink>
+          <NuxtLink :to="localePath('sponsor')" class="mobile-nav-link" @click="isMobileMenuOpen = false">
+            {{ t('nav.sponsor') }}
+          </NuxtLink>
+          <NuxtLink :to="localePath('closed_testing')" class="mobile-nav-link" @click="isMobileMenuOpen = false">
+            {{ t('nav.closedTesting') }}
           </NuxtLink>
         </nav>
 
@@ -157,6 +193,9 @@ const headerTranslations = {
       about: 'About',
       mission: 'Mission & Values',
       habits: 'Suggested Habits',
+      sponsor: 'Sponsor',
+      closedTesting: 'Closed Testing',
+      initiative: 'Assertive Code Open Source Initiative',
       cta: 'Explore Platform',
       toggleMenu: 'Toggle mobile menu'
     },
@@ -174,6 +213,9 @@ const headerTranslations = {
       about: 'Sobre',
       mission: 'Missão & Valores',
       habits: 'Hábitos Sugeridos',
+      sponsor: 'Apoiar',
+      closedTesting: 'Testadores',
+      initiative: 'Iniciativa Open Source Assertive Code',
       cta: 'Explorar Plataforma',
       toggleMenu: 'Alternar menu móvel'
     },
@@ -191,6 +233,9 @@ const headerTranslations = {
       about: 'Pri Ni',
       mission: 'Misio & Valoroj',
       habits: 'Sugestitaj Kutimoj',
+      sponsor: 'Subteni',
+      closedTesting: 'Testantoj',
+      initiative: 'Malfermfonta Iniciato de Assertive Code',
       cta: 'Esplori Platformon',
       toggleMenu: 'Ŝalti poŝtelefonan menuon'
     },
@@ -288,6 +333,52 @@ onUnmounted(() => {
   width: auto;
   object-fit: contain;
   display: block;
+}
+
+.initiative-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.28rem 0.7rem;
+  background-color: var(--secondary-light);
+  border: 1px solid var(--secondary-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.initiative-badge:hover {
+  background-color: #dcfce7;
+  border-color: #86efac;
+  color: #166534;
+  transform: translateY(-1px);
+}
+
+.initiative-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--secondary);
+}
+
+.external-icon {
+  opacity: 0.75;
+}
+
+.initiative-badge-mobile {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--secondary);
+  background-color: var(--secondary-light);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--secondary-border);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .esperanto-badge {
@@ -559,6 +650,12 @@ onUnmounted(() => {
 }
 
 /* Responsive queries */
+@media (max-width: 1120px) {
+  .initiative-badge {
+    display: none;
+  }
+}
+
 @media (max-width: 900px) {
   .esperanto-badge {
     display: none;

@@ -126,6 +126,18 @@
     "priority": "0.8"
   },
   {
+    "path": "/thoughts-and-reflections/commitments-before-distractions",
+    "lastmod": "2026-09-26",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/thoughts-and-reflections/habits-with-purpose",
+    "lastmod": "2026-09-26",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
     "path": "/thoughts-and-reflections/the-importance-of-nurturing-calm",
     "lastmod": "2026-09-25",
     "changefreq": "weekly",
@@ -260,6 +272,30 @@
   {
     "path": "/pt-br/pensamentos-e-reflexoes/a-importancia-de-cultivar-a-calma",
     "lastmod": "2026-09-25",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/pensamentos-e-reflexoes/compromissos-antes-de-distracoes",
+    "lastmod": "2026-09-26",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/pt-br/pensamentos-e-reflexoes/habitos-com-proposito",
+    "lastmod": "2026-09-26",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/pensoj-kaj-reflektoj/devoj-antau-distroj",
+    "lastmod": "2026-09-26",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eo/pensoj-kaj-reflektoj/kutimoj-kun-celo",
+    "lastmod": "2026-09-26",
     "changefreq": "weekly",
     "priority": "0.8"
   },

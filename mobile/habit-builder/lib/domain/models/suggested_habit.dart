@@ -168,6 +168,10 @@ class SuggestedHabit {
   @override
   int get hashCode => id.hashCode;
 
+  /// Canonical list of built-in suggested habits that are currently developed in the mobile application.
+  static List<SuggestedHabit> get implementedHabits =>
+      canonicalHabits.where((habit) => habit.isImplemented).toList();
+
   /// Canonical list of built-in suggested keystone habits matching platform specifications.
   static List<SuggestedHabit> get canonicalHabits => [
         SuggestedHabit(

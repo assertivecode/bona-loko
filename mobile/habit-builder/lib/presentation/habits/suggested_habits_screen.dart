@@ -10,6 +10,7 @@ import '../evaluation/life_area_ui_extensions.dart';
 import '../financial/financial_management_screen.dart';
 import '../gratitude/gratitude_screen.dart';
 import '../physical_activity/physical_activities_screen.dart';
+import 'add_habit_routine_modal.dart';
 
 /// Dedicated screen for displaying all suggested habits ordered by
 /// weights according to the user's life area priorities.
@@ -34,9 +35,9 @@ class SuggestedHabitsScreen extends ConsumerWidget {
     final evaluations = evaluationsMap.values.toList();
     final selectedHabitIds = selectedHabitIdsAsync.valueOrNull ?? [];
 
-    // Rank all canonical habits according to user's life area priorities
+    // Rank only developed habits according to user's life area priorities
     final rankedHabits = PriorityEngine.rankHabitsByPriority(
-      habits: SuggestedHabit.canonicalHabits,
+      habits: SuggestedHabit.implementedHabits,
       evaluations: evaluations,
     );
 
@@ -306,7 +307,7 @@ class SuggestedHabitsScreen extends ConsumerWidget {
                               onPressed: () {
                                 ref
                                     .read(userHabitsRepositoryProvider)
-                                    .toggleHabitSelection(habit.id);
+                                    .unselectHabit(habit.id);
                               },
                               icon: const Icon(Icons.check_circle_rounded, size: 18),
                               label: Text(l10n?.habitInRoutine ?? 'In Routine'),
@@ -319,9 +320,24 @@ class SuggestedHabitsScreen extends ConsumerWidget {
                           : OutlinedButton.icon(
                               key: Key('toggle_habit_${habit.id}'),
                               onPressed: () {
-                                ref
-                                    .read(userHabitsRepositoryProvider)
-                                    .toggleHabitSelection(habit.id);
+                                AddHabitRoutineModal.show(
+                                  context,
+                                  habit: habit,
+                                  onConfirm: ({
+                                    required bool isNewHabit,
+                                    required bool isPurposeful,
+                                    String? purposeDescription,
+                                    DateTime? experimentationDeadline,
+                                  }) async {
+                                    await ref.read(userHabitsRepositoryProvider).selectHabit(
+                                          habit.id,
+                                          isNewHabit: isNewHabit,
+                                          isPurposeful: isPurposeful,
+                                          purposeDescription: purposeDescription,
+                                          experimentationDeadline: experimentationDeadline,
+                                        );
+                                  },
+                                );
                               },
                               icon: const Icon(Icons.add_circle_outline_rounded, size: 18),
                               label: Text(l10n?.addHabitToRoutine ?? 'Add to Routine'),

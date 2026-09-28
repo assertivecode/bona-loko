@@ -37,6 +37,8 @@
           <li><a :href="localePath('home') + '#priority-model'">{{ t('footer.linkPriorityModel') }}</a></li>
           <li><a :href="localePath('home') + '#transformation-engine'">{{ t('footer.linkEngine') }}</a></li>
           <li><a :href="localePath('home') + '#suggested-habits'">{{ t('footer.linkHabits') }}</a></li>
+          <li><NuxtLink :to="localePath('sponsor')">{{ t('footer.linkSponsor') }}</NuxtLink></li>
+          <li><NuxtLink :to="localePath('closed_testing')">{{ t('footer.linkClosedTesting') }}</NuxtLink></li>
           <li><NuxtLink :to="localePath('privacy')">{{ t('footer.linkPrivacy') }}</NuxtLink></li>
         </ul>
       </div>
@@ -48,6 +50,16 @@
           <li><NuxtLink :to="localePath('mission') + '#guardrails'">{{ t('footer.linkGuardrails') }}</NuxtLink></li>
           <li><NuxtLink :to="localePath('about') + '#values'">{{ t('footer.linkValues') }}</NuxtLink></li>
           <li><NuxtLink :to="localePath('mission') + '#pledge'">{{ t('footer.linkPledge') }}</NuxtLink></li>
+          <li>
+            <a
+              href="https://github.com/sponsors/assertivecode"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-external-link"
+            >
+              {{ t('footer.linkSponsorGitHub') }} ↗
+            </a>
+          </li>
           <li>
             <a
               href="https://github.com/assertivecode/bona-loko/blob/main/FOUNDATION.md"
@@ -95,7 +107,7 @@
         <p class="copyright">
           © {{ new Date().getFullYear() }} <strong>Bona Loko</strong> —
           <a
-            href="https://github.com/assertivecode/bona-loko"
+            href="https://assertivecode.com/#portfolio"
             target="_blank"
             rel="noopener noreferrer"
             class="footer-initiative-link"
@@ -127,11 +139,14 @@ const footerTranslations = {
       linkPriorityModel: 'Priority Model',
       linkEngine: '7-Step Transformation Engine',
       linkHabits: 'Suggested Habits',
+      linkSponsor: 'Sponsor / Support',
+      linkClosedTesting: 'Closed Testing (Mobile App)',
       linkPrivacy: 'Privacy Policy',
       foundationTitle: 'Core Values & Foundation',
       linkGuardrails: 'Inviolable Guardrails',
       linkValues: '7 Core Values',
       linkPledge: 'Stewardship Pledge',
+      linkSponsorGitHub: 'GitHub Sponsors',
       linkFoundationDoc: 'Moral Constitution (FOUNDATION.md)',
       languageTitle: 'Languages',
       languageDesc: 'Bona Loko natively supports three international languages:',
@@ -153,11 +168,14 @@ const footerTranslations = {
       linkPriorityModel: 'Modelo de Prioridades',
       linkEngine: 'Motor de Transformação em 7 Passos',
       linkHabits: 'Hábitos Sugeridos',
+      linkSponsor: 'Apoiar / Patrocinar',
+      linkClosedTesting: 'Teste Fechado (App Móvel)',
       linkPrivacy: 'Política de Privacidade',
       foundationTitle: 'Valores Fundamentais & Fundação',
       linkGuardrails: 'Guard rails Invioláveis',
       linkValues: '7 Valores Fundamentais',
       linkPledge: 'Compromisso de Mordomia',
+      linkSponsorGitHub: 'GitHub Sponsors',
       linkFoundationDoc: 'Constituição Moral (FOUNDATION.md)',
       languageTitle: 'Idiomas',
       languageDesc: 'Bona Loko suporta nativamente três idiomas internacionais:',
@@ -179,11 +197,14 @@ const footerTranslations = {
       linkPriorityModel: 'Prioritata Modelo',
       linkEngine: '7-Paŝa Transformada Motoro',
       linkHabits: 'Sugestitaj Kutimoj',
+      linkSponsor: 'Subteni / Patroni',
+      linkClosedTesting: 'Fermita Testado (Poŝaplikaĵo)',
       linkPrivacy: 'Privateca Politiko',
       foundationTitle: 'Kernaj Valoroj & Fondo',
       linkGuardrails: 'Netuŝeblaj Sekurbariloj',
       linkValues: '7 Kernaj Valoroj',
       linkPledge: 'Diligenta Promeso',
+      linkSponsorGitHub: 'GitHub Sponsors',
       linkFoundationDoc: 'Morala Konstitucio (FOUNDATION.md)',
       languageTitle: 'Lingvoj',
       languageDesc: 'Bona Loko denaske subtenas tri internaciajn lingvojn:',

@@ -205,6 +205,7 @@ class HomeScreen extends ConsumerWidget {
               ...selectedHabitIds.map((habitId) {
                 return _buildSelectedHabitItem(
                   context,
+                  ref,
                   habitId,
                   theme,
                   l10n,
@@ -385,8 +386,49 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
+  Future<void> _confirmRemoveHabit(
+    BuildContext context,
+    WidgetRef ref,
+    String habitId,
+    String habitTitle,
+    AppLocalizations? l10n,
+  ) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        key: Key('confirm_remove_dialog_$habitId'),
+        title: Text(l10n?.removeHabitConfirmationTitle ?? 'Remove Habit from Routine'),
+        content: Text(
+          l10n?.removeHabitConfirmationMessage(habitTitle) ??
+              'Are you sure you want to remove "$habitTitle" from your daily routine?',
+        ),
+        actions: [
+          TextButton(
+            key: const Key('cancel_remove_habit_button'),
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: Text(l10n?.removeHabitCancelButton ?? 'Cancel'),
+          ),
+          FilledButton(
+            key: const Key('confirm_remove_habit_button'),
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(dialogContext).colorScheme.error,
+              foregroundColor: Theme.of(dialogContext).colorScheme.onError,
+            ),
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: Text(l10n?.removeHabitConfirmButton ?? 'Remove'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      await ref.read(userHabitsRepositoryProvider).unselectHabit(habitId);
+    }
+  }
+
   Widget _buildSelectedHabitItem(
     BuildContext context,
+    WidgetRef ref,
     String habitId,
     ThemeData theme,
     AppLocalizations? l10n,
@@ -396,21 +438,21 @@ class HomeScreen extends ConsumerWidget {
     if (habitId == 'habit_nurture_of_gratitude') {
       return Padding(
         padding: const EdgeInsets.only(bottom: 12.0),
-        child: _buildGratitudeTaskCard(context, theme, l10n, gratitudeCompletion),
+        child: _buildGratitudeTaskCard(context, ref, theme, l10n, gratitudeCompletion),
       );
     }
 
     if (habitId == 'habit_regular_exercise_workout') {
       return Padding(
         padding: const EdgeInsets.only(bottom: 12.0),
-        child: _buildPhysicalActivitiesTaskCard(context, theme, l10n, trainingSession),
+        child: _buildPhysicalActivitiesTaskCard(context, ref, theme, l10n, trainingSession),
       );
     }
 
     if (habitId == 'habit_mindful_daily_expense_tracking') {
       return Padding(
         padding: const EdgeInsets.only(bottom: 12.0),
-        child: _buildFinancialManagementCard(context, theme, l10n),
+        child: _buildFinancialManagementCard(context, ref, theme, l10n),
       );
     }
 
@@ -424,6 +466,8 @@ class HomeScreen extends ConsumerWidget {
         areaWeights: {},
       ),
     );
+
+    final habitTitle = habit.localizedTitle(l10n);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
@@ -456,70 +500,86 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.all(12.0),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primaryContainer.withOpacity(0.6),
-                    borderRadius: BorderRadius.circular(14.0),
-                  ),
-                  child: Icon(
-                    habit.icon,
-                    size: 26,
-                    color: theme.colorScheme.primary,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.secondaryContainer.withOpacity(0.6),
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      child: Text(
+                        l10n?.dailyPracticeBadge ?? 'Daily Practice',
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.onSecondaryContainer,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      key: Key('delete_habit_${habitId}_button'),
+                      icon: const Icon(Icons.close_rounded, size: 20),
+                      style: IconButton.styleFrom(
+                        visualDensity: VisualDensity.compact,
+                        padding: EdgeInsets.zero,
+                        foregroundColor: theme.colorScheme.onSurfaceVariant,
+                      ),
+                      tooltip: l10n?.removeHabitFromRoutine ?? 'Remove from Routine',
+                      onPressed: () => _confirmRemoveHabit(context, ref, habitId, habitTitle, l10n),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(12.0),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.primaryContainer.withOpacity(0.6),
+                        borderRadius: BorderRadius.circular(14.0),
+                      ),
+                      child: Icon(
+                        habit.icon,
+                        size: 26,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
-                            child: Text(
-                              habit.localizedTitle(l10n),
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
+                          Text(
+                            habitTitle,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.secondaryContainer.withOpacity(0.6),
-                              borderRadius: BorderRadius.circular(6.0),
-                            ),
-                            child: Text(
-                              l10n?.dailyPracticeBadge ?? 'Daily Practice',
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.onSecondaryContainer,
-                              ),
+                          const SizedBox(height: 4),
+                          Text(
+                            habit.localizedDescription(l10n),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                              height: 1.3,
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 4),
-                      Text(
-                        habit.localizedDescription(l10n),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                          height: 1.3,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Icon(
-                  Icons.chevron_right_rounded,
-                  color: theme.colorScheme.primary,
-                  size: 24,
+                    ),
+                    const SizedBox(width: 8),
+                    Icon(
+                      Icons.chevron_right_rounded,
+                      color: theme.colorScheme.primary,
+                      size: 24,
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -528,14 +588,17 @@ class HomeScreen extends ConsumerWidget {
       ),
     );
   }
-
   Widget _buildGratitudeTaskCard(
     BuildContext context,
+    WidgetRef ref,
     ThemeData theme,
     AppLocalizations? l10n,
     DailyGratitudeCompletion? gratitudeCompletion,
   ) {
     final isFullyCompleted = gratitudeCompletion?.isFullyCompleted ?? false;
+    final habitTitle = l10n?.practiceGratitudeTaskTitle ?? 'Practice Gratitude';
+    const habitId = 'habit_nurture_of_gratitude';
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -567,61 +630,102 @@ class HomeScreen extends ConsumerWidget {
               ),
             ],
           ),
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: const EdgeInsets.all(12.0),
-                decoration: BoxDecoration(
-                  color: isFullyCompleted
-                      ? Colors.green.withOpacity(0.15)
-                      : theme.colorScheme.primaryContainer.withOpacity(0.6),
-                  borderRadius: BorderRadius.circular(14.0),
-                ),
-                child: Icon(
-                  isFullyCompleted
-                      ? Icons.check_circle_rounded
-                      : Icons.favorite_rounded,
-                  size: 26,
-                  color: isFullyCompleted
-                      ? Colors.green
-                      : theme.colorScheme.primary,
-                ),
-              ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      l10n?.practiceGratitudeTaskTitle ?? 'Practice Gratitude',
-                      key: const Key('practice_gratitude_task_title'),
-                      style: theme.textTheme.titleMedium?.copyWith(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+                    decoration: BoxDecoration(
+                      color: isFullyCompleted
+                          ? Colors.green.withOpacity(0.15)
+                          : theme.colorScheme.secondaryContainer.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(6.0),
+                    ),
+                    child: Text(
+                      l10n?.dailyPracticeBadge ?? 'Daily Practice',
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        fontSize: 10,
                         fontWeight: FontWeight.bold,
+                        color: isFullyCompleted
+                            ? Colors.green
+                            : theme.colorScheme.onSecondaryContainer,
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      isFullyCompleted
-                          ? 'Morning & evening completed today'
-                          : ((gratitudeCompletion?.morningCompleted ?? false)
-                              ? 'Morning completed • Evening pending'
-                              : ((gratitudeCompletion?.eveningCompleted ?? false)
-                                  ? 'Evening completed • Morning pending'
-                                  : (l10n?.practiceGratitudeTaskSubtitle ??
-                                      'Morning grounding (1 min) & bedtime reflection (5 min)'))),
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                        height: 1.3,
-                      ),
+                  ),
+                  IconButton(
+                    key: const Key('delete_habit_habit_nurture_of_gratitude_button'),
+                    icon: const Icon(Icons.close_rounded, size: 20),
+                    style: IconButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                      foregroundColor: theme.colorScheme.onSurfaceVariant,
                     ),
-                  ],
-                ),
+                    tooltip: l10n?.removeHabitFromRoutine ?? 'Remove from Routine',
+                    onPressed: () => _confirmRemoveHabit(context, ref, habitId, habitTitle, l10n),
+                  ),
+                ],
               ),
-              const SizedBox(width: 8),
-              Icon(
-                Icons.chevron_right_rounded,
-                color: theme.colorScheme.primary,
-                size: 24,
+              const SizedBox(height: 6),
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(12.0),
+                    decoration: BoxDecoration(
+                      color: isFullyCompleted
+                          ? Colors.green.withOpacity(0.15)
+                          : theme.colorScheme.primaryContainer.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(14.0),
+                    ),
+                    child: Icon(
+                      isFullyCompleted
+                          ? Icons.check_circle_rounded
+                          : Icons.favorite_rounded,
+                      size: 26,
+                      color: isFullyCompleted
+                          ? Colors.green
+                          : theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          habitTitle,
+                          key: const Key('practice_gratitude_task_title'),
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          isFullyCompleted
+                              ? 'Morning & evening completed today'
+                              : ((gratitudeCompletion?.morningCompleted ?? false)
+                                  ? 'Morning completed • Evening pending'
+                                  : ((gratitudeCompletion?.eveningCompleted ?? false)
+                                      ? 'Evening completed • Morning pending'
+                                      : (l10n?.practiceGratitudeTaskSubtitle ??
+                                          'Morning grounding (1 min) & bedtime reflection (5 min)'))),
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            height: 1.3,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Icon(
+                    Icons.chevron_right_rounded,
+                    color: theme.colorScheme.primary,
+                    size: 24,
+                  ),
+                ],
               ),
             ],
           ),
@@ -632,11 +736,15 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildPhysicalActivitiesTaskCard(
     BuildContext context,
+    WidgetRef ref,
     ThemeData theme,
     AppLocalizations? l10n,
     DailyTrainingSession? trainingSession,
   ) {
     final isCompleted = trainingSession?.isCompleted ?? false;
+    final habitTitle = l10n?.dailyPhysicalActivitiesTaskTitle ?? 'Daily Physical Activities';
+    const habitId = 'habit_regular_exercise_workout';
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -668,63 +776,103 @@ class HomeScreen extends ConsumerWidget {
               ),
             ],
           ),
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: const EdgeInsets.all(12.0),
-                decoration: BoxDecoration(
-                  color: isCompleted
-                      ? Colors.green.withOpacity(0.15)
-                      : theme.colorScheme.primaryContainer.withOpacity(0.6),
-                  borderRadius: BorderRadius.circular(14.0),
-                ),
-                child: Icon(
-                  isCompleted
-                      ? Icons.check_circle_rounded
-                      : (trainingSession != null && !trainingSession.isCompleted
-                          ? Icons.fitness_center_rounded
-                          : Icons.directions_run_rounded),
-                  size: 26,
-                  color: isCompleted
-                      ? Colors.green
-                      : theme.colorScheme.primary,
-                ),
-              ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      l10n?.dailyPhysicalActivitiesTaskTitle ??
-                          'Daily Physical Activities',
-                      key: const Key('daily_physical_activities_task_title'),
-                      style: theme.textTheme.titleMedium?.copyWith(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+                    decoration: BoxDecoration(
+                      color: isCompleted
+                          ? Colors.green.withOpacity(0.15)
+                          : theme.colorScheme.secondaryContainer.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(6.0),
+                    ),
+                    child: Text(
+                      l10n?.dailyPracticeBadge ?? 'Daily Practice',
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        fontSize: 10,
                         fontWeight: FontWeight.bold,
+                        color: isCompleted
+                            ? Colors.green
+                            : theme.colorScheme.onSecondaryContainer,
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      isCompleted
-                          ? (l10n?.trainingCompletedToday ?? 'Workout completed today')
-                          : (trainingSession != null && !trainingSession.isCompleted
-                              ? (l10n?.trainingInProgress ?? 'Workout in progress')
-                              : (l10n?.dailyPhysicalActivitiesTaskSubtitle ??
-                                  'Walking, running, and customized daily movement targets.')),
-                      key: const Key('daily_physical_activities_task_subtitle'),
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                        height: 1.3,
-                      ),
+                  ),
+                  IconButton(
+                    key: const Key('delete_habit_habit_regular_exercise_workout_button'),
+                    icon: const Icon(Icons.close_rounded, size: 20),
+                    style: IconButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                      foregroundColor: theme.colorScheme.onSurfaceVariant,
                     ),
-                  ],
-                ),
+                    tooltip: l10n?.removeHabitFromRoutine ?? 'Remove from Routine',
+                    onPressed: () => _confirmRemoveHabit(context, ref, habitId, habitTitle, l10n),
+                  ),
+                ],
               ),
-              const SizedBox(width: 8),
-              Icon(
-                Icons.chevron_right_rounded,
-                color: theme.colorScheme.primary,
-                size: 24,
+              const SizedBox(height: 6),
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(12.0),
+                    decoration: BoxDecoration(
+                      color: isCompleted
+                          ? Colors.green.withOpacity(0.15)
+                          : theme.colorScheme.primaryContainer.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(14.0),
+                    ),
+                    child: Icon(
+                      isCompleted
+                          ? Icons.check_circle_rounded
+                          : (trainingSession != null && !trainingSession.isCompleted
+                              ? Icons.fitness_center_rounded
+                              : Icons.directions_run_rounded),
+                      size: 26,
+                      color: isCompleted
+                          ? Colors.green
+                          : theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          habitTitle,
+                          key: const Key('daily_physical_activities_task_title'),
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          isCompleted
+                              ? (l10n?.trainingCompletedToday ?? 'Workout completed today')
+                              : (trainingSession != null && !trainingSession.isCompleted
+                                  ? (l10n?.trainingInProgress ?? 'Workout in progress')
+                                  : (l10n?.dailyPhysicalActivitiesTaskSubtitle ??
+                                      'Walking, running, and customized daily movement targets.')),
+                          key: const Key('daily_physical_activities_task_subtitle'),
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            height: 1.3,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Icon(
+                    Icons.chevron_right_rounded,
+                    color: theme.colorScheme.primary,
+                    size: 24,
+                  ),
+                ],
               ),
             ],
           ),
@@ -735,9 +883,13 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildFinancialManagementCard(
     BuildContext context,
+    WidgetRef ref,
     ThemeData theme,
     AppLocalizations? l10n,
   ) {
+    final habitTitle = l10n?.financialManagementCardTitle ?? 'Financial Management';
+    const habitId = 'habit_mindful_daily_expense_tracking';
+
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -767,50 +919,86 @@ class HomeScreen extends ConsumerWidget {
               ),
             ],
           ),
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: const EdgeInsets.all(12.0),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primaryContainer.withOpacity(0.6),
-                  borderRadius: BorderRadius.circular(14.0),
-                ),
-                child: Icon(
-                  Icons.account_balance_wallet_rounded,
-                  size: 26,
-                  color: theme.colorScheme.primary,
-                ),
-              ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      l10n?.financialManagementCardTitle ??
-                          'Financial Management',
-                      key: const Key('home_financial_management_title'),
-                      style: theme.textTheme.titleMedium?.copyWith(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.secondaryContainer.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(6.0),
+                    ),
+                    child: Text(
+                      l10n?.dailyPracticeBadge ?? 'Daily Practice',
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        fontSize: 10,
                         fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.onSecondaryContainer,
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      l10n?.financialManagementCardSubtitle ??
-                          'Track monthly incomes, expenses, and cultivate mindful stewardship',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                        height: 1.3,
-                      ),
+                  ),
+                  IconButton(
+                    key: const Key('delete_habit_habit_mindful_daily_expense_tracking_button'),
+                    icon: const Icon(Icons.close_rounded, size: 20),
+                    style: IconButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                      foregroundColor: theme.colorScheme.onSurfaceVariant,
                     ),
-                  ],
-                ),
+                    tooltip: l10n?.removeHabitFromRoutine ?? 'Remove from Routine',
+                    onPressed: () => _confirmRemoveHabit(context, ref, habitId, habitTitle, l10n),
+                  ),
+                ],
               ),
-              const SizedBox(width: 8),
-              Icon(
-                Icons.chevron_right_rounded,
-                color: theme.colorScheme.primary,
-                size: 24,
+              const SizedBox(height: 6),
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(12.0),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.primaryContainer.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(14.0),
+                    ),
+                    child: Icon(
+                      Icons.account_balance_wallet_rounded,
+                      size: 26,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          habitTitle,
+                          key: const Key('home_financial_management_title'),
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          l10n?.financialManagementCardSubtitle ??
+                              'Track monthly incomes, expenses, and cultivate mindful stewardship',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            height: 1.3,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Icon(
+                    Icons.chevron_right_rounded,
+                    color: theme.colorScheme.primary,
+                    size: 24,
+                  ),
+                ],
               ),
             ],
           ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../data/local/tables/users_table.dart';
 import '../onboarding/user_controller.dart';
+import 'sponsor_screen.dart';
 
 /// Profile & Settings screen allowing the user to update their preferred language and name.
 class ProfileScreen extends ConsumerStatefulWidget {
@@ -45,6 +47,33 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         ),
       );
       Navigator.of(context).pop();
+    }
+  }
+
+  static const String initiativeUrl = 'https://assertivecode.com/#portfolio';
+
+  Future<void> _launchInitiativeUrl(BuildContext context) async {
+    final uri = Uri.parse(initiativeUrl);
+    try {
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Could not open Assertive Code portfolio.'),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Could not open Assertive Code portfolio.'),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
     }
   }
 
@@ -183,6 +212,123 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
+            const SizedBox(height: 36),
+            const Divider(),
+            const SizedBox(height: 20),
+
+            // SUPPORT & SPONSOR CARD
+            Card(
+              key: const Key('profile_sponsor_tile'),
+              elevation: 0,
+              color: const Color(0xFFFDF2F8),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0),
+                side: const BorderSide(color: Color(0xFFFBCFE8)),
+              ),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16.0),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SponsorScreen(),
+                    ),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 44,
+                        height: 44,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFCE7F3),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Icon(
+                          Icons.favorite_rounded,
+                          color: Color(0xFFDB2777),
+                          size: 24,
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              l10n?.supportBonaLokoTileTitle ?? 'Support & Sponsor',
+                              style: theme.textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: const Color(0xFF9D174D),
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              l10n?.supportBonaLokoTileSubtitle ??
+                                  'Help keep Bona Loko independent and ad-free',
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: const Color(0xFFBE185D),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Icon(
+                        Icons.chevron_right_rounded,
+                        color: Color(0xFFDB2777),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            // ASSERTIVE CODE OPEN SOURCE INITIATIVE LINK
+            Center(
+              child: InkWell(
+                key: const Key('profile_initiative_link'),
+                onTap: () => _launchInitiativeUrl(context),
+                borderRadius: BorderRadius.circular(20),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Flexible(
+                        child: Text(
+                          l10n?.initiativeTitle ?? 'Assertive Code Open Source Initiative',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.primary,
+                            fontWeight: FontWeight.w600,
+                            decoration: TextDecoration.underline,
+                            decorationColor: theme.colorScheme.primary.withOpacity(0.5),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Icon(
+                        Icons.open_in_new_rounded,
+                        size: 14,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),

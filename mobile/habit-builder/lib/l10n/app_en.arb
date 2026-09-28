@@ -1070,6 +1070,79 @@
   "@removeHabitFromRoutine": {
     "description": "Tooltip or button to remove a habit from daily routine"
   },
+  "removeHabitConfirmationTitle": "Remove Habit from Routine",
+  "@removeHabitConfirmationTitle": {
+    "description": "Title of the confirmation dialog when removing a habit from daily routine"
+  },
+  "removeHabitConfirmationMessage": "Are you sure you want to remove \"{habitTitle}\" from your daily routine?",
+  "@removeHabitConfirmationMessage": {
+    "description": "Body message of confirmation dialog when removing a habit from daily routine",
+    "placeholders": {
+      "habitTitle": {
+        "type": "String"
+      }
+    }
+  },
+  "removeHabitConfirmButton": "Remove",
+  "@removeHabitConfirmButton": {
+    "description": "Action button to confirm removing habit from routine"
+  },
+  "removeHabitCancelButton": "Cancel",
+  "@removeHabitCancelButton": {
+    "description": "Action button to cancel removing habit from routine"
+  },
+  "addHabitModalTitle": "Add Habit to Routine",
+  "@addHabitModalTitle": {
+    "description": "Title of modal bottom sheet when adding a habit to routine"
+  },
+  "addHabitClassificationLabel": "Habit Classification",
+  "@addHabitClassificationLabel": {
+    "description": "Label for habit classification (Current Habit vs New Habit)"
+  },
+  "habitCurrentOption": "Current Habit",
+  "@habitCurrentOption": {
+    "description": "Option indicating the habit is already practiced currently"
+  },
+  "habitNewOption": "New Habit",
+  "@habitNewOption": {
+    "description": "Option indicating this is a new habit to develop"
+  },
+  "addHabitNatureLabel": "Habit Nature",
+  "@addHabitNatureLabel": {
+    "description": "Label for habit nature (Hobby vs With Purpose)"
+  },
+  "habitHobbyOption": "Hobby",
+  "@habitHobbyOption": {
+    "description": "Option indicating habit is practiced for hobby or casual leisure"
+  },
+  "habitWithPurposeOption": "With Purpose",
+  "@habitWithPurposeOption": {
+    "description": "Option indicating habit is practiced with specific intentional purpose"
+  },
+  "habitPurposeDescriptionLabel": "Purpose Description (Optional)",
+  "@habitPurposeDescriptionLabel": {
+    "description": "Label for the optional purpose description textarea"
+  },
+  "habitPurposeDescriptionHint": "Describe what you aim to cultivate with this practice...",
+  "@habitPurposeDescriptionHint": {
+    "description": "Hint text for the optional purpose description textarea"
+  },
+  "habitExperimentationDeadlineLabel": "Define Deadline Date for Experimentation (Optional)",
+  "@habitExperimentationDeadlineLabel": {
+    "description": "Label for optional experimentation deadline date selection"
+  },
+  "habitExperimentationDeadlinePick": "Select Deadline Date",
+  "@habitExperimentationDeadlinePick": {
+    "description": "Button to pick experimentation deadline date"
+  },
+  "habitExperimentationDeadlineClear": "Clear Date",
+  "@habitExperimentationDeadlineClear": {
+    "description": "Button to clear selected experimentation deadline date"
+  },
+  "addHabitConfirmButton": "Add to Daily Routine",
+  "@addHabitConfirmButton": {
+    "description": "Button to finalize adding configured habit to daily routine"
+  },
   "noHabitsSelectedTitle": "No Habits in Your Daily Routine",
   "@noHabitsSelectedTitle": {
     "description": "Title when no habits have been selected yet"
@@ -1269,6 +1342,38 @@
   "area_contribution_legacy_score_6": "Consistent monthly financial contributions to meaningful causes, or regular community support.",
   "@area_contribution_legacy_score_6": { "description": "Score 6 anchor for contribution and legacy" },
   "area_contribution_legacy_score_10": "Sustained recurring contributions coupled with dedicated volunteering, selfless mentorship, and building enduring positive human impact.",
-  "@area_contribution_legacy_score_10": { "description": "Score 10 anchor for contribution and legacy" }
+  "@area_contribution_legacy_score_10": { "description": "Score 10 anchor for contribution and legacy" },
+  "supportBonaLokoTitle": "Support Bona Loko",
+  "@supportBonaLokoTitle": { "description": "Title of support / sponsor screen" },
+  "supportBonaLokoSubtitle": "Open source, privacy-first, and uncorruptible",
+  "@supportBonaLokoSubtitle": { "description": "Subtitle of support / sponsor screen" },
+  "supportBonaLokoTileTitle": "Support & Sponsor",
+  "@supportBonaLokoTileTitle": { "description": "Title of sponsor tile in profile screen" },
+  "supportBonaLokoTileSubtitle": "Help keep Bona Loko independent and ad-free",
+  "@supportBonaLokoTileSubtitle": { "description": "Subtitle of sponsor tile in profile screen" },
+  "sponsorHeroDescription": "Bona Loko is an open-source personal development platform. We do not sell data, display ads, or accept corporate endorsements. Voluntary sponsorships on GitHub directly empower our software development and trilingual resources.",
+  "@sponsorHeroDescription": { "description": "Hero text explaining sponsorship" },
+  "sponsorPillarsTitle": "Why Your Support Matters",
+  "@sponsorPillarsTitle": { "description": "Title for impact pillars" },
+  "sponsorPillar1Title": "100% Ad-Free & Privacy First",
+  "@sponsorPillar1Title": { "description": "Title for privacy pillar" },
+  "sponsorPillar1Desc": "No behavior trackers or analytics brokers. Your personal reflections remain strictly yours.",
+  "@sponsorPillar1Desc": { "description": "Description for privacy pillar" },
+  "sponsorPillar2Title": "Independent & Uncorruptible",
+  "@sponsorPillar2Title": { "description": "Title for uncorruptibility pillar" },
+  "sponsorPillar2Desc": "Guided by our Moral Constitution (Rule 4: Zero quid-pro-quo or commercial favoritism).",
+  "@sponsorPillar2Desc": { "description": "Description for uncorruptibility pillar" },
+  "sponsorPillar3Title": "Trilingual & Open Source",
+  "@sponsorPillar3Title": { "description": "Title for trilingual pillar" },
+  "sponsorPillar3Desc": "Transparent code, accessible everywhere in English, Portuguese, and Esperanto.",
+  "@sponsorPillar3Desc": { "description": "Description for trilingual pillar" },
+  "sponsorGithubButton": "Sponsor on GitHub",
+  "@sponsorGithubButton": { "description": "Action button text to open GitHub sponsors" },
+  "sponsorDisclaimerTitle": "Rule 4: Unconditional Giving",
+  "@sponsorDisclaimerTitle": { "description": "Title for rule 4 disclaimer" },
+  "sponsorDisclaimerDesc": "All sponsorships are treated as unconditional gifts for community flourishing. Contributions confer zero commercial perks or governance leverage.",
+  "@sponsorDisclaimerDesc": { "description": "Description for rule 4 disclaimer" },
+  "initiativeTitle": "Assertive Code Open Source Initiative",
+  "@initiativeTitle": { "description": "Label for Assertive Code Open Source Initiative portfolio link" }
 }
 

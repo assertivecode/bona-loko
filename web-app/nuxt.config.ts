@@ -19,6 +19,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     siteUrl: process.env.SITE_URL || 'https://bonaloko.com',
+    contactEmail: process.env.CONTACT_EMAIL || 'assertivecode@gmail.com',
+    resendApiKey: process.env.RESEND_API_KEY || '',
+    resendFromEmail: process.env.RESEND_FROM_EMAIL || '',
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://bonaloko.com',
       gaMeasurementId: process.env.NUXT_PUBLIC_GA_MEASUREMENT_ID || ''
@@ -38,6 +41,8 @@ export default defineNuxtConfig({
       const aboutPage = pages.find(p => p.path === '/about')
       const missionPage = pages.find(p => p.path === '/mission')
       const privacyPage = pages.find(p => p.path === '/privacy')
+      const sponsorPage = pages.find(p => p.path === '/sponsor')
+      const closedTestingPage = pages.find(p => p.path === '/closed-testing')
       const slugPage = pages.find(p => p.path === '/:slug')
       const slugFile = slugPage?.file || fileURLToPath(new URL('./pages/[slug].vue', import.meta.url))
 
@@ -63,6 +68,18 @@ export default defineNuxtConfig({
         pages.push(
           { name: 'privacy-pt-br', path: '/pt-br/privacidade', file: privacyPage.file },
           { name: 'privacy-eo', path: '/eo/privateco', file: privacyPage.file }
+        )
+      }
+      if (sponsorPage) {
+        pages.push(
+          { name: 'sponsor-pt-br', path: '/pt-br/apoiar', file: sponsorPage.file },
+          { name: 'sponsor-eo', path: '/eo/subteni', file: sponsorPage.file }
+        )
+      }
+      if (closedTestingPage) {
+        pages.push(
+          { name: 'closed-testing-pt-br', path: '/pt-br/testadores', file: closedTestingPage.file },
+          { name: 'closed-testing-eo', path: '/eo/testantoj', file: closedTestingPage.file }
         )
       }
       // Dynamic Markdown Article Routes - Life Areas (New Canonical Routes)
